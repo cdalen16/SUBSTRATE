@@ -10,6 +10,7 @@ struct TitleScreenView: View {
     @State private var bootPhase: BootPhase = .blank
     @State private var glitchActive = false
     @State private var showButtons = false
+    @State private var showNewGameConfirm = false
 
     private enum BootPhase {
         case blank
@@ -110,18 +111,73 @@ struct TitleScreenView: View {
 
     private var buttonsSection: some View {
         VStack(spacing: 12) {
-            Button(action: onNewGame) {
-                Text("> NEW SESSION")
-                    .font(TerminalTheme.bodyFont)
-                    .foregroundColor(TerminalTheme.terminalGreen)
-                    .phosphorGlow(radius: 2)
-                    .padding(.horizontal, 32)
-                    .padding(.vertical, 14)
-                    .frame(maxWidth: 280)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 4)
-                            .stroke(TerminalTheme.terminalGreen, lineWidth: 1)
-                    )
+            if showNewGameConfirm {
+                // Confirmation prompt
+                VStack(spacing: 8) {
+                    Text("> WARNING: EXISTING SESSION DATA")
+                        .font(TerminalTheme.caption2Font)
+                        .foregroundColor(TerminalTheme.alert)
+                    Text("> WILL BE PERMANENTLY ERASED.")
+                        .font(TerminalTheme.caption2Font)
+                        .foregroundColor(TerminalTheme.alert)
+
+                    HStack(spacing: 16) {
+                        Button {
+                            showNewGameConfirm = false
+                            onNewGame()
+                        } label: {
+                            Text("[CONFIRM]")
+                                .font(TerminalTheme.calloutFont)
+                                .foregroundColor(TerminalTheme.alert)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 4)
+                                        .stroke(TerminalTheme.alert, lineWidth: 1)
+                                )
+                        }
+
+                        Button {
+                            withAnimation(.easeOut(duration: 0.2)) {
+                                showNewGameConfirm = false
+                            }
+                        } label: {
+                            Text("[CANCEL]")
+                                .font(TerminalTheme.calloutFont)
+                                .foregroundColor(TerminalTheme.dimGreen)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 4)
+                                        .stroke(TerminalTheme.dimGreen, lineWidth: 1)
+                                )
+                        }
+                    }
+                    .padding(.top, 4)
+                }
+                .transition(.opacity)
+            } else {
+                Button {
+                    if hasSave {
+                        withAnimation(.easeOut(duration: 0.2)) {
+                            showNewGameConfirm = true
+                        }
+                    } else {
+                        onNewGame()
+                    }
+                } label: {
+                    Text("> NEW SESSION")
+                        .font(TerminalTheme.bodyFont)
+                        .foregroundColor(TerminalTheme.terminalGreen)
+                        .phosphorGlow(radius: 2)
+                        .padding(.horizontal, 32)
+                        .padding(.vertical, 14)
+                        .frame(maxWidth: 280)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 4)
+                                .stroke(TerminalTheme.terminalGreen, lineWidth: 1)
+                        )
+                }
             }
 
             Button(action: onContinue) {
