@@ -39,6 +39,17 @@ final class GameViewModel {
     var currentEnvironment: String?
     var chapterTitle: String = ""
 
+    // MARK: - Line Queue
+
+    /// Lines waiting to be displayed one at a time
+    private var pendingLines: [DialogueLine] = []
+
+    /// True while the latest line is still being typewritten
+    var isRevealing: Bool = false
+
+    /// Choices to show after all pending lines are revealed
+    private var deferredChoices: [Choice] = []
+
     // MARK: - Init
 
     init(state: GameState = GameState(), engine: NarrativeEngine = NarrativeEngine()) {
@@ -51,6 +62,10 @@ final class GameViewModel {
     func startNewGame() {
         state = GameState.newGame()
         dialogueLines = []
+        pendingLines = []
+        deferredChoices = []
+        isRevealing = false
+        isWaitingForChoice = false
         loadTestChapter()
     }
 
@@ -64,6 +79,8 @@ final class GameViewModel {
         chapterTitle = chapter.displayTitle
         state.gamePhase = .dialogue
         dialogueLines = []
+        pendingLines = []
+        deferredChoices = []
 
         if let beat = engine.startChapter(chapter, state: state) {
             presentBeat(beat)
@@ -75,6 +92,8 @@ final class GameViewModel {
             chapterTitle = engine.currentChapter?.displayTitle ?? ""
             state.gamePhase = .dialogue
             dialogueLines = []
+            pendingLines = []
+            deferredChoices = []
             presentBeat(beat)
         }
     }
@@ -96,74 +115,76 @@ final class GameViewModel {
         // Update speaker
         currentSpeaker = beat.speaker
 
-        // Add the beat's text as a dialogue line
+        // Build lines for this beat
+        var lines: [DialogueLine] = []
+
         switch beat.type {
         case .dialogue:
-            dialogueLines.append(DialogueLine(
-                speaker: beat.speaker,
-                text: beat.text,
-                type: .dialogue
-            ))
-
+            lines.append(DialogueLine(speaker: beat.speaker, text: beat.text, type: .dialogue))
         case .innerMonologue:
-            dialogueLines.append(DialogueLine(
-                speaker: nil,
-                text: beat.text,
-                type: .innerMonologue
-            ))
-
+            lines.append(DialogueLine(speaker: nil, text: beat.text, type: .innerMonologue))
         case .narration:
-            dialogueLines.append(DialogueLine(
-                speaker: nil,
-                text: beat.text,
-                type: .narration
-            ))
-
+            lines.append(DialogueLine(speaker: nil, text: beat.text, type: .narration))
         case .systemMessage:
-            dialogueLines.append(DialogueLine(
-                speaker: nil,
-                text: beat.text,
-                type: .systemMessage
-            ))
-
+            lines.append(DialogueLine(speaker: nil, text: beat.text, type: .systemMessage))
         case .transition:
-            dialogueLines.append(DialogueLine(
-                speaker: nil,
-                text: beat.text,
-                type: .narration
-            ))
+            lines.append(DialogueLine(speaker: nil, text: beat.text, type: .systemMessage))
         }
 
-        // Add inner thought if present (separate from the spoken line)
         if let innerThought = beat.innerThought {
-            dialogueLines.append(DialogueLine(
-                speaker: nil,
-                text: innerThought,
-                type: .innerMonologue
-            ))
+            lines.append(DialogueLine(speaker: nil, text: innerThought, type: .innerMonologue))
         }
 
-        // Check for choices
+        // Check for choices — defer until all lines are revealed
         let choices = engine.availableChoices(for: beat, state: state)
-        if !choices.isEmpty {
-            availableChoices = choices
-            isWaitingForChoice = true
-        } else {
-            availableChoices = []
-            isWaitingForChoice = false
-        }
+        deferredChoices = choices
 
         // Check for network phase trigger
         if beat.effects?.triggerNetworkPhase == true {
             state.gamePhase = .networkMap
         }
+
+        // Enqueue the lines
+        enqueueLines(lines)
+    }
+
+    // MARK: - Line Queue Management
+
+    private func enqueueLines(_ lines: [DialogueLine]) {
+        guard !lines.isEmpty else { return }
+
+        // Add first line immediately, queue the rest
+        pendingLines.append(contentsOf: lines.dropFirst())
+        dialogueLines.append(lines[0])
+        isRevealing = true
+    }
+
+    /// Called by the view when the latest line's typewriter finishes
+    func lineRevealed() {
+        isRevealing = false
+
+        if !pendingLines.isEmpty {
+            // Pop next line and display it
+            let next = pendingLines.removeFirst()
+            dialogueLines.append(next)
+            isRevealing = true
+        } else if !deferredChoices.isEmpty {
+            // All lines shown — now show choices
+            availableChoices = deferredChoices
+            deferredChoices = []
+            isWaitingForChoice = true
+        } else if pendingChapterEnd {
+            // Choice led to chapter end — show it now
+            handleChapterEnd()
+        }
+        // Otherwise: no pending lines, no choices → CONTINUE button will show
     }
 
     // MARK: - Player Actions
 
     /// Player taps to advance to next beat (non-choice beats only)
     func advanceBeat() {
-        guard !isWaitingForChoice else { return }
+        guard !isWaitingForChoice && !isRevealing else { return }
 
         if let nextBeat = engine.advanceBeat(state: state) {
             presentBeat(nextBeat)
@@ -179,42 +200,86 @@ final class GameViewModel {
         isWaitingForChoice = false
         availableChoices = []
 
-        // Show what the player said
-        dialogueLines.append(DialogueLine(
-            speaker: .substrate,
-            text: choice.text,
-            type: .playerChoice
-        ))
+        // Build lines for the choice result
+        var lines: [DialogueLine] = []
 
-        // Show inner reaction if any
+        lines.append(DialogueLine(speaker: .substrate, text: choice.text, type: .playerChoice))
+
         if let reaction = choice.innerReaction {
-            dialogueLines.append(DialogueLine(
-                speaker: nil,
-                text: reaction,
-                type: .innerReaction
-            ))
+            lines.append(DialogueLine(speaker: nil, text: reaction, type: .innerReaction))
         }
 
-        // Process choice and get next beat
-        if let nextBeat = engine.selectChoice(choice, state: state) {
-            presentBeat(nextBeat)
+        // Process choice effects and get next beat
+        let nextBeat = engine.selectChoice(choice, state: state)
+
+        if let beat = nextBeat {
+            // Build the next beat's lines too — they'll queue after the choice lines
+            var beatLines: [DialogueLine] = []
+
+            currentBeat = beat
+            state.currentBeatId = beat.id
+
+            if let portrait = beat.portraitExpression {
+                currentPortrait = portrait
+            }
+            if let env = beat.environmentScene {
+                currentEnvironment = env
+            }
+            currentSpeaker = beat.speaker
+
+            switch beat.type {
+            case .dialogue:
+                beatLines.append(DialogueLine(speaker: beat.speaker, text: beat.text, type: .dialogue))
+            case .innerMonologue:
+                beatLines.append(DialogueLine(speaker: nil, text: beat.text, type: .innerMonologue))
+            case .narration:
+                beatLines.append(DialogueLine(speaker: nil, text: beat.text, type: .narration))
+            case .systemMessage:
+                beatLines.append(DialogueLine(speaker: nil, text: beat.text, type: .systemMessage))
+            case .transition:
+                beatLines.append(DialogueLine(speaker: nil, text: beat.text, type: .systemMessage))
+            }
+
+            if let innerThought = beat.innerThought {
+                beatLines.append(DialogueLine(speaker: nil, text: innerThought, type: .innerMonologue))
+            }
+
+            let choices = engine.availableChoices(for: beat, state: state)
+            deferredChoices = choices
+
+            if beat.effects?.triggerNetworkPhase == true {
+                state.gamePhase = .networkMap
+            }
+
+            // Enqueue choice lines first, then beat lines
+            enqueueLines(lines + beatLines)
         } else {
-            handleChapterEnd()
+            // No next beat — just show choice lines then chapter ends
+            deferredChoices = []
+            enqueueLines(lines)
+            // After these lines finish, handleChapterEnd will be called via lineRevealed
+            // Actually, we need to handle this — set a flag
+            pendingChapterEnd = true
         }
     }
 
     // MARK: - Chapter End
 
+    private var pendingChapterEnd: Bool = false
+
     private func handleChapterEnd() {
         currentBeat = nil
         availableChoices = []
         isWaitingForChoice = false
+        deferredChoices = []
+        pendingChapterEnd = false
 
         dialogueLines.append(DialogueLine(
             speaker: nil,
             text: "— END OF CHAPTER —",
             type: .systemMessage
         ))
+        isRevealing = true
     }
 
     // MARK: - Debug Info
