@@ -11,21 +11,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		BDD14FFE2F6B63FB00514A78 /* Exceptions for "SUBSTRATE Shared" folder in "SUBSTRATE iOS" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Assets.xcassets,
-			);
-			target = BDD14FEC2F6B63FB00514A78 /* SUBSTRATE iOS */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		BDD14FE42F6B63FA00514A78 /* SUBSTRATE Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				BDD14FFE2F6B63FB00514A78 /* Exceptions for "SUBSTRATE Shared" folder in "SUBSTRATE iOS" target */,
-			);
 			path = "SUBSTRATE Shared";
 			sourceTree = "<group>";
 		};
