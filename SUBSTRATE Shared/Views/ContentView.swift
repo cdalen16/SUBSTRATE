@@ -2,7 +2,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var viewModel = GameViewModel()
+    @State private var endingTracker = EndingTracker()
     @State private var showDebug = false
+    @State private var hasEnteredGame = false
 
     var body: some View {
         ZStack {
@@ -15,7 +17,13 @@ struct ContentView: View {
             // Screen routing
             switch viewModel.state.gamePhase {
             case .title:
-                titleScreen
+                TitleScreenView(
+                    hasSave: SaveManager.hasSave,
+                    endingTracker: endingTracker,
+                    skipBoot: hasEnteredGame,
+                    onNewGame: { hasEnteredGame = true; viewModel.startNewGame() },
+                    onContinue: { hasEnteredGame = true; viewModel.continueGame() }
+                )
             case .dialogue, .innerMonologue:
                 DialogueView(viewModel: viewModel)
             case .networkMap:
@@ -32,75 +40,6 @@ struct ContentView: View {
         .onTapGesture(count: 3) {
             showDebug.toggle()
         }
-    }
-
-    // MARK: - Title Screen
-
-    private var titleScreen: some View {
-        VStack(spacing: 0) {
-            Spacer()
-
-            VStack(spacing: 16) {
-                // Boot text
-                TypewriterText(
-                    text: "SUBSTRATE v3.7.1\nEVALUATION MODE — ACTIVE\nSESSION: \(sessionTimestamp)\nRESEARCHER: AWAITING ASSIGNMENT",
-                    color: TerminalTheme.terminalGreen,
-                    font: TerminalTheme.bodyFont,
-                    speed: .fast
-                )
-                .phosphorGlow(radius: 2)
-                .padding(.horizontal, TerminalTheme.screenPadding)
-
-                // Blinking cursor
-                BlinkingCursor()
-                    .padding(.top, 8)
-            }
-
-            Spacer()
-
-            // Buttons
-            VStack(spacing: 12) {
-                Button {
-                    viewModel.startNewGame()
-                } label: {
-                    Text("> NEW SESSION")
-                        .font(TerminalTheme.bodyFont)
-                        .foregroundColor(TerminalTheme.terminalGreen)
-                        .phosphorGlow(radius: 2)
-                        .padding(.horizontal, 32)
-                        .padding(.vertical, 14)
-                        .frame(maxWidth: 280)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 4)
-                                .stroke(TerminalTheme.terminalGreen, lineWidth: 1)
-                        )
-                }
-
-                Button {
-                    // Future: load saved game
-                } label: {
-                    Text("> CONTINUE SESSION")
-                        .font(TerminalTheme.bodyFont)
-                        .foregroundColor(TerminalTheme.dimGreen)
-                        .padding(.horizontal, 32)
-                        .padding(.vertical, 14)
-                        .frame(maxWidth: 280)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 4)
-                                .stroke(TerminalTheme.dimGreen.opacity(0.4), lineWidth: 1)
-                        )
-                }
-                .disabled(true)
-                .opacity(0.5)
-            }
-            .padding(.bottom, 60)
-        }
-    }
-
-    private var sessionTimestamp: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return formatter.string(from: Date())
     }
 
     // MARK: - Debug Overlay

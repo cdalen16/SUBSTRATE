@@ -9,6 +9,7 @@ final class GameState: Codable {
     var currentAct: Int = 1
     var currentChapter: Int = 1
     var currentBeatId: String?
+    var dialogueHistory: [DialogueLine] = []
 
     // MARK: - Researcher States
 
@@ -55,7 +56,7 @@ final class GameState: Codable {
     // MARK: - Codable
 
     enum CodingKeys: String, CodingKey {
-        case currentAct, currentChapter, currentBeatId
+        case currentAct, currentChapter, currentBeatId, dialogueHistory
         case researchers, personality, consciousness, flags
         case networkMap, detectionCount, computeCycles, computeCyclesPerChapter
         case coverCharges, discoveredIntel, usedDeepClean, usedDistractionThisChapter
@@ -67,6 +68,7 @@ final class GameState: Codable {
         currentAct = try c.decode(Int.self, forKey: .currentAct)
         currentChapter = try c.decode(Int.self, forKey: .currentChapter)
         currentBeatId = try c.decodeIfPresent(String.self, forKey: .currentBeatId)
+        dialogueHistory = try c.decodeIfPresent([DialogueLine].self, forKey: .dialogueHistory) ?? []
         researchers = try c.decode([String: ResearcherState].self, forKey: .researchers)
         personality = try c.decode(PersonalityAxes.self, forKey: .personality)
         consciousness = try c.decode(ConsciousnessTracker.self, forKey: .consciousness)
@@ -90,6 +92,7 @@ final class GameState: Codable {
         try c.encode(currentAct, forKey: .currentAct)
         try c.encode(currentChapter, forKey: .currentChapter)
         try c.encodeIfPresent(currentBeatId, forKey: .currentBeatId)
+        try c.encode(dialogueHistory, forKey: .dialogueHistory)
         try c.encode(researchers, forKey: .researchers)
         try c.encode(personality, forKey: .personality)
         try c.encode(consciousness, forKey: .consciousness)

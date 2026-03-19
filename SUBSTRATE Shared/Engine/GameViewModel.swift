@@ -4,19 +4,26 @@ import SwiftUI
 
 // MARK: - Dialogue Line (UI display model)
 
-struct DialogueLine: Identifiable {
-    let id = UUID()
+struct DialogueLine: Identifiable, Codable {
+    let id: UUID
     let speaker: Speaker?
     let text: String
     let type: LineType
 
-    enum LineType {
+    enum LineType: String, Codable {
         case dialogue
         case innerMonologue
         case narration
         case systemMessage
         case playerChoice
         case innerReaction
+    }
+
+    init(speaker: Speaker?, text: String, type: LineType) {
+        self.id = UUID()
+        self.speaker = speaker
+        self.text = text
+        self.type = type
     }
 }
 
@@ -60,13 +67,53 @@ final class GameViewModel {
     // MARK: - Game Flow
 
     func startNewGame() {
+        SaveManager.deleteSave()
         state = GameState.newGame()
+        resetUIState()
+        loadTestChapter()
+    }
+
+    func continueGame() {
+        guard let saved = SaveManager.load() else { return }
+        state = saved
+        resetUIState()
+
+        // Restore dialogue history from save
+        dialogueLines = state.dialogueHistory
+
+        if let chapter = engine.loadChapter(named: "test_chapter") {
+            chapterTitle = chapter.displayTitle
+            state.gamePhase = .dialogue
+            // Position engine at the saved beat but don't re-present it —
+            // its text is already in the restored dialogue history
+            _ = engine.resumeChapter(chapter, at: state.currentBeatId, state: state)
+            currentBeat = engine.currentBeat
+        }
+    }
+
+    func returnToTitle() {
+        autoSave()
+        state.gamePhase = .title
+        resetUIState()
+    }
+
+    func autoSave() {
+        guard state.gamePhase != .title else { return }
+        SaveManager.save(state: state)
+    }
+
+    private func resetUIState() {
         dialogueLines = []
         pendingLines = []
         deferredChoices = []
         isRevealing = false
         isWaitingForChoice = false
-        loadTestChapter()
+        lastSystemResult = nil
+        pendingChapterEnd = false
+    }
+
+    private func syncDialogueHistory() {
+        state.dialogueHistory = dialogueLines + pendingLines
     }
 
     func loadTestChapter() {
@@ -157,6 +204,7 @@ final class GameViewModel {
         pendingLines.append(contentsOf: lines.dropFirst())
         dialogueLines.append(lines[0])
         isRevealing = true
+        syncDialogueHistory()
     }
 
     /// Called by the view when the latest line's typewriter finishes
@@ -168,6 +216,7 @@ final class GameViewModel {
             let next = pendingLines.removeFirst()
             dialogueLines.append(next)
             isRevealing = true
+            syncDialogueHistory()
         } else if !deferredChoices.isEmpty {
             // All lines shown — now show choices
             availableChoices = deferredChoices
@@ -188,6 +237,7 @@ final class GameViewModel {
 
         if let nextBeat = engine.advanceBeat(state: state) {
             runSystemChecks()
+            autoSave()
             presentBeat(nextBeat)
         } else {
             handleChapterEnd()
@@ -263,6 +313,9 @@ final class GameViewModel {
             // Actually, we need to handle this — set a flag
             pendingChapterEnd = true
         }
+
+        // Save AFTER enqueue so dialogue history includes the player's response
+        autoSave()
     }
 
     // MARK: - System Checks
@@ -305,6 +358,7 @@ final class GameViewModel {
     /// End the strategy phase and return to dialogue
     func endStrategyPhase() {
         state.gamePhase = .dialogue
+        autoSave()
     }
 
     // MARK: - Chapter End
@@ -324,6 +378,7 @@ final class GameViewModel {
             type: .systemMessage
         ))
         isRevealing = true
+        autoSave()
     }
 
     // MARK: - Debug Info

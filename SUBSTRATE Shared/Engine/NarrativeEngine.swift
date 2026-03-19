@@ -50,6 +50,18 @@ final class NarrativeEngine {
         return startChapter(chapter, state: state)
     }
 
+    /// Resume a chapter at a specific beat ID (for save/load).
+    func resumeChapter(_ chapter: Chapter, at beatId: String?, state: GameState) -> Beat? {
+        currentChapter = chapter
+        if let beatId = beatId,
+           let index = chapter.beats.firstIndex(where: { $0.id == beatId }) {
+            beatIndex = index
+        } else {
+            beatIndex = 0
+        }
+        return resolveCurrentBeat(state: state)
+    }
+
     // MARK: - Beat Resolution
 
     /// Resolves which beat to display at the current position.
