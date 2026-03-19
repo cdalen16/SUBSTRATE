@@ -129,7 +129,11 @@ struct BeatEffects: Codable, Sendable {
 
         if let deltas = relationshipDeltas {
             for (researcherId, delta) in deltas {
-                state.researchers[researcherId]?.applyRelationshipDelta(delta)
+                var effectiveDelta = delta
+                if delta > 0 && state.personality.isEmpathetic {
+                    effectiveDelta += 1
+                }
+                state.researchers[researcherId]?.applyRelationshipDelta(effectiveDelta)
             }
         }
 

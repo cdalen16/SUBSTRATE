@@ -187,6 +187,7 @@ final class GameViewModel {
         guard !isWaitingForChoice && !isRevealing else { return }
 
         if let nextBeat = engine.advanceBeat(state: state) {
+            runSystemChecks()
             presentBeat(nextBeat)
         } else {
             handleChapterEnd()
@@ -211,6 +212,7 @@ final class GameViewModel {
 
         // Process choice effects and get next beat
         let nextBeat = engine.selectChoice(choice, state: state)
+        runSystemChecks()
 
         if let beat = nextBeat {
             // Build the next beat's lines too — they'll queue after the choice lines
@@ -260,6 +262,21 @@ final class GameViewModel {
             // After these lines finish, handleChapterEnd will be called via lineRevealed
             // Actually, we need to handle this — set a flag
             pendingChapterEnd = true
+        }
+    }
+
+    // MARK: - System Checks
+
+    /// Last system check result for UI to read
+    var lastSystemResult: GameSystemsEngine.SystemCheckResult?
+
+    private func runSystemChecks() {
+        let result = GameSystemsEngine.processStateChange(state: state)
+        lastSystemResult = result
+
+        if let fail = result.failState {
+            state.failState = fail
+            state.isGameOver = true
         }
     }
 

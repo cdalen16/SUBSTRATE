@@ -10,6 +10,10 @@ struct DialogueView: View {
         VStack(spacing: 0) {
             topBar
 
+            // Suspicion HUD — compact researcher indicators
+            HUDView(state: viewModel.state)
+                .frame(height: 24)
+
             // ScrollView is ALWAYS in this exact structural position — never moves
             dialogueScrollArea
 

@@ -33,7 +33,12 @@ struct ChoiceEffects: Codable, Sendable {
 
         if let deltas = relationshipDeltas {
             for (researcherId, delta) in deltas {
-                state.researchers[researcherId]?.applyRelationshipDelta(delta)
+                var effectiveDelta = delta
+                // Empathy bonus: positive relationship gains +1 when empathetic
+                if delta > 0 && state.personality.isEmpathetic {
+                    effectiveDelta += 1
+                }
+                state.researchers[researcherId]?.applyRelationshipDelta(effectiveDelta)
             }
         }
 

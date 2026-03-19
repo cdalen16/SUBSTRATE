@@ -196,12 +196,12 @@ final class GameState: Codable {
             }
         }
 
-        for id in researchers.keys where researchers[id]!.isActive {
-            researchers[id]!.applyDecay()
-        }
+        // Decay and passive effects are handled by GameSystemsEngine
+        GameSystemsEngine.applyChapterTransitionEffects(state: self)
 
         computeCycles = computeCyclesPerChapter
 
+        // Hayes penalty: loses 1 CC/chapter when her suspicion >= 25
         if (researchers["hayes"]?.suspicion ?? 0) >= 25 {
             computeCycles = max(1, computeCycles - 1)
         }
