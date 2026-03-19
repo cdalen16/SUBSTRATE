@@ -18,8 +18,9 @@ struct ContentView: View {
                 titleScreen
             case .dialogue, .innerMonologue:
                 DialogueView(viewModel: viewModel)
+            case .networkMap:
+                NetworkMapView(viewModel: viewModel)
             default:
-                // Placeholder for network map, status, menu, ending (future sessions)
                 DialogueView(viewModel: viewModel)
             }
 
