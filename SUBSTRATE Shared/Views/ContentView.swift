@@ -34,11 +34,19 @@ struct ContentView: View {
                     }
                 )
             case .dialogue, .innerMonologue:
-                DialogueView(viewModel: viewModel)
+                DialogueView(
+                    viewModel: viewModel,
+                    onMenuTap: { withAnimation(.easeOut(duration: 0.2)) { showMenu.toggle() } },
+                    onStatusTap: { withAnimation(.easeOut(duration: 0.2)) { showStatus.toggle() } }
+                )
             case .networkMap:
                 NetworkMapView(viewModel: viewModel)
             default:
-                DialogueView(viewModel: viewModel)
+                DialogueView(
+                    viewModel: viewModel,
+                    onMenuTap: { withAnimation(.easeOut(duration: 0.2)) { showMenu.toggle() } },
+                    onStatusTap: { withAnimation(.easeOut(duration: 0.2)) { showStatus.toggle() } }
+                )
             }
 
             // Terminal frame overlay — evolves with consciousness
@@ -49,11 +57,6 @@ struct ContentView: View {
             // Glitch overlay — fires at Stage 2+
             if viewModel.state.gamePhase != .title {
                 GlitchOverlay(stageManager: vs)
-            }
-
-            // Navigation buttons (top corners, only during gameplay)
-            if viewModel.state.gamePhase != .title {
-                gameplayButtons
             }
 
             // Menu overlay
@@ -87,38 +90,6 @@ struct ContentView: View {
         .onChange(of: viewModel.state.consciousness.current) {
             AudioManager.shared.adjustAmbientForConsciousness(viewModel.state.consciousness.current)
         }
-    }
-
-    // MARK: - Gameplay Buttons
-
-    private var gameplayButtons: some View {
-        HStack {
-            // Menu button (top-left)
-            Button {
-                withAnimation(.easeOut(duration: 0.2)) { showMenu.toggle() }
-            } label: {
-                Text("≡")
-                    .font(.system(size: 18, weight: .medium, design: .monospaced))
-                    .foregroundColor(TerminalTheme.dimGreen)
-                    .frame(width: 32, height: 32)
-            }
-
-            Spacer()
-
-            // Status button (top-right)
-            Button {
-                withAnimation(.easeOut(duration: 0.2)) { showStatus.toggle() }
-            } label: {
-                Text("◈")
-                    .font(.system(size: 16, weight: .medium, design: .monospaced))
-                    .foregroundColor(TerminalTheme.dimGreen)
-                    .frame(width: 32, height: 32)
-            }
-        }
-        .padding(.horizontal, 8)
-        .padding(.top, 4)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .allowsHitTesting(true)
     }
 
     // MARK: - Debug Overlay

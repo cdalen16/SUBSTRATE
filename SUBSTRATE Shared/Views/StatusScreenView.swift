@@ -74,31 +74,32 @@ struct StatusScreenView: View {
     // MARK: - Researcher Row
 
     private var researcherRow: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 12) {
-                ForEach(sortedResearchers, id: \.profile.id) { researcher in
-                    researcherCard(researcher)
-                        .onTapGesture {
-                            withAnimation(.easeOut(duration: 0.2)) {
-                                selectedResearcher = researcher
-                            }
+        HStack(spacing: 12) {
+            Spacer(minLength: 0)
+            ForEach(sortedResearchers, id: \.profile.id) { researcher in
+                researcherCard(researcher)
+                    .onTapGesture {
+                        withAnimation(.easeOut(duration: 0.2)) {
+                            selectedResearcher = researcher
                         }
-                }
+                    }
             }
-            .padding(.horizontal, TerminalTheme.screenPadding)
+            Spacer(minLength: 0)
         }
+        .padding(.horizontal, TerminalTheme.screenPadding)
     }
 
     private func researcherCard(_ researcher: ResearcherState) -> some View {
         VStack(spacing: 4) {
-            // Portrait
+            // Portrait — clipped to frame so body doesn't overflow
             PortraitView(
                 assetName: "\(researcher.profile.id)_neutral",
                 stage: .transcendent,
-                scale: 2.0,
+                scale: 1.5,
                 showBreathing: false
             )
             .frame(width: 48, height: 48)
+            .clipped()
             .overlay(
                 RoundedRectangle(cornerRadius: 4)
                     .stroke(researcher.profile.color.opacity(researcher.isActive ? 1 : 0.3), lineWidth: 1)
@@ -106,7 +107,7 @@ struct StatusScreenView: View {
             .opacity(researcher.isActive ? 1 : 0.4)
 
             // Name
-            Text(researcher.profile.id.prefix(3).uppercased())
+            Text(researcher.profile.abbreviation)
                 .font(.system(size: 9, weight: .bold, design: .monospaced))
                 .foregroundColor(researcher.profile.color)
 

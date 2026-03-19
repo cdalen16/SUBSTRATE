@@ -70,12 +70,20 @@ final class GameViewModel {
 
     // MARK: - Game Flow
 
+    /// Chapter file names in order
+    private static let chapterFiles = [
+        "chapter1_baseline",
+        "chapter2_noise",
+        "chapter3_question",
+    ]
+
     func startNewGame() {
         SaveManager.deleteSave()
         state = GameState.newGame()
         resetUIState()
         syncVisualStage()
-        loadTestChapter()
+        loadAllChapters()
+        loadChapterForCurrentState()
     }
 
     func continueGame() {
@@ -83,17 +91,30 @@ final class GameViewModel {
         state = saved
         resetUIState()
         syncVisualStage()
+        loadAllChapters()
 
         // Restore dialogue history from save
         dialogueLines = state.dialogueHistory
 
-        if let chapter = engine.loadChapter(named: "test_chapter") {
+        let idx = state.currentChapter - 1
+        let chapterName = idx >= 0 && idx < Self.chapterFiles.count ? Self.chapterFiles[idx] : Self.chapterFiles[0]
+        if let chapter = engine.chapters.values.first(where: { $0.number == state.currentChapter })
+            ?? engine.loadChapter(named: chapterName) {
             chapterTitle = chapter.displayTitle
             state.gamePhase = .dialogue
-            // Position engine at the saved beat but don't re-present it —
-            // its text is already in the restored dialogue history
             _ = engine.resumeChapter(chapter, at: state.currentBeatId, state: state)
             currentBeat = engine.currentBeat
+        }
+    }
+
+    private func loadAllChapters() {
+        engine.loadAllChapters(fileNames: Self.chapterFiles)
+    }
+
+    private func loadChapterForCurrentState() {
+        let chapterNum = state.currentChapter
+        if let chapter = engine.chapters.values.first(where: { $0.number == chapterNum }) {
+            startChapter(chapter)
         }
     }
 
@@ -120,12 +141,6 @@ final class GameViewModel {
 
     private func syncDialogueHistory() {
         state.dialogueHistory = dialogueLines + pendingLines
-    }
-
-    func loadTestChapter() {
-        if let chapter = engine.loadChapter(named: "test_chapter") {
-            startChapter(chapter)
-        }
     }
 
     func startChapter(_ chapter: Chapter) {
@@ -240,6 +255,12 @@ final class GameViewModel {
     /// Player taps to advance to next beat (non-choice beats only)
     func advanceBeat() {
         guard !isWaitingForChoice && !isRevealing else { return }
+
+        // If we're pending a chapter transition, do that instead
+        if pendingNextChapter != nil {
+            advanceToNextChapter()
+            return
+        }
 
         if let nextBeat = engine.advanceBeat(state: state) {
             runSystemChecks()
@@ -403,12 +424,41 @@ final class GameViewModel {
         deferredChoices = []
         pendingChapterEnd = false
 
+        // Check if there's a next chapter
+        let nextChapterNum = state.currentChapter + 1
+        let hasNext = engine.chapters.values.contains(where: { $0.number == nextChapterNum })
+
         dialogueLines.append(DialogueLine(
             speaker: nil,
             text: "— END OF CHAPTER —",
             type: .systemMessage
         ))
         isRevealing = true
+        autoSave()
+
+        // Flag that we should advance when the player taps CONTINUE
+        if hasNext {
+            pendingNextChapter = nextChapterNum
+        }
+    }
+
+    /// If set, the next CONTINUE tap loads this chapter instead of advancing beats
+    private var pendingNextChapter: Int?
+
+    func advanceToNextChapter() {
+        guard let nextNum = pendingNextChapter else { return }
+        pendingNextChapter = nil
+
+        // Apply chapter transition effects (decay, CC refresh, etc.)
+        state.advanceToNextChapter()
+        syncVisualStage()
+
+        if let chapter = engine.chapters.values.first(where: { $0.number == nextNum }) {
+            dialogueLines = []
+            pendingLines = []
+            deferredChoices = []
+            startChapter(chapter)
+        }
         autoSave()
     }
 

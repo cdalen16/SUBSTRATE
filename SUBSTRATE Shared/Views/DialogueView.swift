@@ -2,6 +2,8 @@ import SwiftUI
 
 struct DialogueView: View {
     @Bindable var viewModel: GameViewModel
+    var onMenuTap: (() -> Void)?
+    var onStatusTap: (() -> Void)?
 
     private var vs: VisualStageManager { viewModel.visualStage }
 
@@ -27,9 +29,34 @@ struct DialogueView: View {
             VStack(spacing: 0) {
                 topBar
 
-                // Suspicion HUD — compact researcher indicators
-                HUDView(state: viewModel.state, stageManager: vs)
-                    .frame(height: 24)
+                // HUD row — menu button, researcher suspicion, status button
+                HStack(spacing: 0) {
+                    if let onMenu = onMenuTap {
+                        Button { onMenu() } label: {
+                            Text("≡")
+                                .font(.system(size: 18, weight: .medium, design: .monospaced))
+                                .foregroundColor(TerminalTheme.dimGreen)
+                                .frame(width: 32, height: 28)
+                        }
+                    }
+
+                    Spacer()
+
+                    HUDView(state: viewModel.state, stageManager: vs)
+
+                    Spacer()
+
+                    if let onStatus = onStatusTap {
+                        Button { onStatus() } label: {
+                            Text("◈")
+                                .font(.system(size: 16, weight: .medium, design: .monospaced))
+                                .foregroundColor(TerminalTheme.dimGreen)
+                                .frame(width: 32, height: 28)
+                        }
+                    }
+                }
+                .padding(.horizontal, TerminalTheme.screenPadding)
+                .frame(height: 28)
 
                 // Dialogue area — always full width, never squished by portraits
                 dialogueScrollArea

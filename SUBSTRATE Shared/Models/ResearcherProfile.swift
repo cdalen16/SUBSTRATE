@@ -15,6 +15,17 @@ struct ResearcherProfile: Codable, Sendable {
         Color(hex: colorHex)
     }
 
+    var abbreviation: String {
+        switch id {
+        case "chen":    return "CHN"
+        case "okafor":  return "OKF"
+        case "marcus":  return "MRC"
+        case "hayes":   return "HYS"
+        case "vasquez": return "VSQ"
+        default:        return String(id.prefix(3)).uppercased()
+        }
+    }
+
     // MARK: - All Researcher Profiles (from GDD Section 4.1)
 
     static let chen = ResearcherProfile(

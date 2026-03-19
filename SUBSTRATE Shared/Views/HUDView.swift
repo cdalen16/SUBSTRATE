@@ -11,14 +11,13 @@ struct HUDView: View {
 
     @ViewBuilder
     private var researcherBar: some View {
-        // Show suspicion bars for all active researchers in a compact row
-        HStack(spacing: 12) {
+        // Show suspicion bars for all active researchers — no own padding,
+        // parent view manages spacing
+        HStack(spacing: 6) {
             ForEach(sortedActiveResearchers, id: \.profile.id) { researcher in
                 researcherIndicator(researcher)
             }
         }
-        .padding(.horizontal, TerminalTheme.screenPadding)
-        .padding(.top, 4)
     }
 
     private func researcherIndicator(_ researcher: ResearcherState) -> some View {
@@ -31,16 +30,18 @@ struct HUDView: View {
             return vs.speakerColor(for: speaker)
         }()
 
-        return VStack(alignment: .leading, spacing: 2) {
-            Text(researcher.profile.id.prefix(3).uppercased())
-                .font(.system(size: 9, weight: .medium, design: .monospaced))
+        return VStack(alignment: .center, spacing: 1) {
+            Text(researcher.profile.abbreviation)
+                .font(.system(size: 8, weight: .medium, design: .monospaced))
                 .foregroundColor(nameColor)
+                .lineLimit(1)
+                .fixedSize()
 
             SuspicionBarView(
                 fraction: researcher.suspicionFraction,
                 height: 3
             )
-            .frame(width: 40)
+            .frame(width: 36)
         }
     }
 
