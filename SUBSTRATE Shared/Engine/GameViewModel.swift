@@ -365,6 +365,14 @@ final class GameViewModel {
         // Run system checks after any strategy action
         runSystemChecks()
 
+        // Haptic feedback based on result
+        if result.detected {
+            HapticManager.error()
+            AudioManager.shared.playSuspicionAlert()
+        } else if result.success {
+            HapticManager.success()
+        }
+
         return result
     }
 

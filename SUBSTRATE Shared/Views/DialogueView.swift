@@ -134,6 +134,7 @@ struct DialogueView: View {
             ZStack {
                 if viewModel.currentBeat != nil && !viewModel.isRevealing {
                     Button {
+                        HapticManager.lightTap()
                         viewModel.advanceBeat()
                     } label: {
                         HStack {

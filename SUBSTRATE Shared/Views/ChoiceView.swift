@@ -75,6 +75,7 @@ struct ChoiceView: View {
 
     private func selectChoice(_ choice: Choice) {
         guard selectedId == nil else { return }
+        HapticManager.mediumTap()
         withAnimation(.easeOut(duration: 0.25)) {
             selectedId = choice.id
         }
