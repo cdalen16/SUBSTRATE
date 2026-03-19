@@ -2,10 +2,20 @@ import SwiftUI
 
 struct InnerMonologueView: View {
     let lines: [String]
+    var stageManager: VisualStageManager?
     var onComplete: () -> Void
 
     @State private var currentLineIndex: Int = 0
     @State private var isLineComplete: Bool = false
+
+    private var textColor: Color {
+        stageManager?.innerMonologueColor ?? TerminalTheme.warmGreen
+    }
+
+    private var glowColor: Color {
+        guard let vs = stageManager else { return TerminalTheme.warmGreen }
+        return TerminalTheme.glowColor(for: vs.effectiveStage)
+    }
 
     var body: some View {
         ZStack {
@@ -14,7 +24,7 @@ struct InnerMonologueView: View {
                 .ignoresSafeArea()
 
             // Faint vignette
-            VignetteOverlay()
+            VignetteOverlay(opacity: stageManager?.vignetteOpacity ?? 0.3)
 
             VStack(spacing: 0) {
                 Spacer()
@@ -27,12 +37,11 @@ struct InnerMonologueView: View {
                                 // Current line — typewriter
                                 TypewriterText(
                                     text: lines[index],
-                                    color: TerminalTheme.warmGreen,
+                                    color: textColor,
                                     font: TerminalTheme.bodyFont,
                                     speed: .slow,
+                                    speedMultiplier: stageManager?.typewriterSpeedMultiplier ?? 1.0,
                                     onComplete: {
-                                        // Defer to next run loop to prevent same-event
-                                        // tap-through (typewriter complete + line advance)
                                         DispatchQueue.main.async {
                                             isLineComplete = true
                                         }
@@ -43,8 +52,8 @@ struct InnerMonologueView: View {
                                 // Previous lines — fully revealed
                                 Text(lines[index])
                                     .font(TerminalTheme.bodyFont)
-                                    .foregroundColor(TerminalTheme.warmGreen)
-                                    .phosphorGlow(TerminalTheme.warmGreen, radius: 2)
+                                    .foregroundColor(textColor)
+                                    .phosphorGlow(glowColor, radius: stageManager?.phosphorGlowRadius ?? 2)
                                     .multilineTextAlignment(.center)
                                     .opacity(0.7)
                             }
@@ -72,16 +81,13 @@ struct InnerMonologueView: View {
 
     private func handleTap() {
         if !isLineComplete {
-            // Skip typewriter on current line (TypewriterText handles its own tap)
             return
         }
 
         if currentLineIndex < lines.count - 1 {
-            // Advance to next line
             isLineComplete = false
             currentLineIndex += 1
         } else {
-            // All lines shown — dismiss
             onComplete()
         }
     }

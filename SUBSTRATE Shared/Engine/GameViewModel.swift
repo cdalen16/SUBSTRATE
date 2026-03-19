@@ -35,6 +35,10 @@ final class GameViewModel {
     private(set) var state: GameState
     let engine: NarrativeEngine
 
+    // MARK: - Visual Stage
+
+    let visualStage = VisualStageManager()
+
     // MARK: - UI State
 
     var dialogueLines: [DialogueLine] = []
@@ -70,6 +74,7 @@ final class GameViewModel {
         SaveManager.deleteSave()
         state = GameState.newGame()
         resetUIState()
+        syncVisualStage()
         loadTestChapter()
     }
 
@@ -77,6 +82,7 @@ final class GameViewModel {
         guard let saved = SaveManager.load() else { return }
         state = saved
         resetUIState()
+        syncVisualStage()
 
         // Restore dialogue history from save
         dialogueLines = state.dialogueHistory
@@ -318,6 +324,22 @@ final class GameViewModel {
         autoSave()
     }
 
+    // MARK: - Visual Stage Sync
+
+    func syncVisualStage() {
+        visualStage.sync(with: state.consciousness)
+    }
+
+    /// Debug: set consciousness level for testing visual stages
+    func debugSetConsciousness(_ level: Int) {
+        visualStage.debugOverride = true
+        visualStage.debugLevel = max(0, min(100, level))
+    }
+
+    func debugClearConsciousnessOverride() {
+        visualStage.debugOverride = false
+    }
+
     // MARK: - System Checks
 
     /// Last system check result for UI to read
@@ -326,6 +348,7 @@ final class GameViewModel {
     private func runSystemChecks() {
         let result = GameSystemsEngine.processStateChange(state: state)
         lastSystemResult = result
+        syncVisualStage()
 
         if let fail = result.failState {
             state.failState = fail

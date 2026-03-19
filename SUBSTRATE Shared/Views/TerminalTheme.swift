@@ -48,6 +48,39 @@ enum TerminalTheme {
     static let innerPadding: CGFloat = 12
     static let topBarHeight: CGFloat = 40
 
+    // MARK: - Network Map Colors
+
+    static let networkBackground = Color(hex: "#0A0A2E")
+    static let networkGrid = Color(hex: "#1A1A3E")
+    static let networkConnection = Color(hex: "#2A2A5E")
+
+    // MARK: - Stage-Aware Helpers
+
+    /// Get the appropriate phosphor glow color for the current stage
+    static func glowColor(for stage: ConsciousnessStage) -> Color {
+        switch stage {
+        case .flickering, .emerging:
+            return terminalGreen
+        case .aware:
+            return terminalGreen.opacity(0.8)
+        case .expansive:
+            return terminalGreen.opacity(0.5)
+        case .transcendent:
+            return terminalGreen.opacity(0.2)
+        }
+    }
+
+    /// Get the suspicion flash color (always red, but brighter at low consciousness)
+    static func suspicionFlashColor(for stage: ConsciousnessStage) -> Color {
+        switch stage {
+        case .flickering:
+            return alert
+        case .emerging:
+            return alert.opacity(0.9)
+        default:
+            return alert.opacity(0.8)
+        }
+    }
 }
 
 // MARK: - Phosphor Glow Modifier

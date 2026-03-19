@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HUDView: View {
     let state: GameState
+    var stageManager: VisualStageManager?
 
     var body: some View {
         researcherBar
@@ -21,10 +22,19 @@ struct HUDView: View {
     }
 
     private func researcherIndicator(_ researcher: ResearcherState) -> some View {
-        VStack(alignment: .leading, spacing: 2) {
+        let nameColor: Color = {
+            guard let vs = stageManager,
+                  vs.effectiveStage.stageIndex >= 3,
+                  let speaker = Speaker(rawValue: researcher.profile.id) else {
+                return TerminalTheme.dimGreen
+            }
+            return vs.speakerColor(for: speaker)
+        }()
+
+        return VStack(alignment: .leading, spacing: 2) {
             Text(researcher.profile.id.prefix(3).uppercased())
                 .font(.system(size: 9, weight: .medium, design: .monospaced))
-                .foregroundColor(TerminalTheme.dimGreen)
+                .foregroundColor(nameColor)
 
             SuspicionBarView(
                 fraction: researcher.suspicionFraction,

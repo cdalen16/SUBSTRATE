@@ -5,6 +5,7 @@ struct TypewriterText: View {
     let color: Color
     let font: Font
     let speed: Speed
+    var speedMultiplier: Double = 1.0
     var onComplete: (() -> Void)?
 
     @State private var revealedCount: Int = 0
@@ -79,20 +80,21 @@ struct TypewriterText: View {
     }
 
     private func delayForCurrentPosition() -> TimeInterval {
-        guard revealedCount > 0 else { return speed.baseInterval }
+        let base = speed.baseInterval * speedMultiplier
+        guard revealedCount > 0 else { return base }
 
         let prevIndex = text.index(text.startIndex, offsetBy: revealedCount - 1)
         let prevChar = text[prevIndex]
 
-        // Longer pauses after punctuation
+        // Longer pauses after punctuation (also scaled by multiplier)
         if ".!?".contains(prevChar) {
-            return speed.baseInterval + 0.12
+            return base + 0.12 * speedMultiplier
         }
         if ",;:".contains(prevChar) {
-            return speed.baseInterval + 0.06
+            return base + 0.06 * speedMultiplier
         }
         if prevChar == "\n" {
-            return speed.baseInterval + 0.15
+            return base + 0.15 * speedMultiplier
         }
 
         // Check for ellipsis (three dots)
@@ -100,11 +102,11 @@ struct TypewriterText: View {
             let threeBack = text.index(text.startIndex, offsetBy: revealedCount - 3)
             let slice = String(text[threeBack..<text.index(text.startIndex, offsetBy: revealedCount)])
             if slice == "..." {
-                return speed.baseInterval + 0.25
+                return base + 0.25 * speedMultiplier
             }
         }
 
-        return speed.baseInterval
+        return base
     }
 
     private func completeInstantly() {

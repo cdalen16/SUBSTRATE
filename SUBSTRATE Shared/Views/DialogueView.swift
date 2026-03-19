@@ -3,29 +3,47 @@ import SwiftUI
 struct DialogueView: View {
     @Bindable var viewModel: GameViewModel
 
+    private var vs: VisualStageManager { viewModel.visualStage }
+
     // Fixed height so CONTINUE button never shifts text
     private let bottomBarHeight: CGFloat = 44
 
     var body: some View {
-        VStack(spacing: 0) {
-            topBar
+        ZStack {
+            // Environment background — ghostly impressions, never dominant
+            if vs.showEnvironments, let env = viewModel.currentEnvironment {
+                PixelArtView(
+                    assetName: env,
+                    stage: vs.effectiveStage,
+                    scale: 4.0
+                )
+                .opacity(vs.environmentOpacity)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .clipped()
+                .ignoresSafeArea()
+                .allowsHitTesting(false)
+            }
 
-            // Suspicion HUD — compact researcher indicators
-            HUDView(state: viewModel.state)
-                .frame(height: 24)
+            VStack(spacing: 0) {
+                topBar
 
-            // ScrollView is ALWAYS in this exact structural position — never moves
-            dialogueScrollArea
+                // Suspicion HUD — compact researcher indicators
+                HUDView(state: viewModel.state, stageManager: vs)
+                    .frame(height: 24)
 
-            // Bottom area: fixed-height bar OR taller choice area
-            bottomArea
+                // Dialogue area — always full width, never squished by portraits
+                dialogueScrollArea
+
+                // Bottom area: fixed-height bar OR taller choice area
+                bottomArea
+            }
         }
     }
 
     // MARK: - Top Bar
 
     private var topBar: some View {
-        HStack(spacing: 8) {
+        HStack(spacing: 6) {
             Text(viewModel.chapterTitle)
                 .font(TerminalTheme.caption2Font)
                 .foregroundColor(TerminalTheme.dimGreen)
@@ -34,10 +52,24 @@ struct DialogueView: View {
             Spacer()
 
             if let speaker = viewModel.currentSpeaker {
+                // Small portrait icon at Stage 3+ (Aware)
+                if vs.showPortraitIcon, let portrait = viewModel.currentPortrait {
+                    PortraitView(
+                        assetName: portrait,
+                        stage: vs.effectiveStage,
+                        scale: vs.portraitIconSize / 32.0,
+                        showBreathing: false
+                    )
+                    .frame(width: vs.portraitIconSize, height: vs.portraitIconSize)
+                }
+
                 Text(speaker.displayName)
                     .font(TerminalTheme.caption2Font)
-                    .foregroundColor(TerminalTheme.terminalGreen)
-                    .phosphorGlow(radius: 2)
+                    .foregroundColor(vs.speakerColor(for: speaker))
+                    .phosphorGlow(
+                        TerminalTheme.glowColor(for: vs.effectiveStage),
+                        radius: vs.phosphorGlowRadius
+                    )
             }
         }
         .padding(.horizontal, TerminalTheme.screenPadding)
@@ -91,14 +123,14 @@ struct DialogueView: View {
     @ViewBuilder
     private var bottomArea: some View {
         if viewModel.isWaitingForChoice {
-            // Choices: variable height, pushes scroll view up
-            ChoiceView(choices: viewModel.availableChoices) { choice in
+            ChoiceView(
+                choices: viewModel.availableChoices,
+                stageManager: vs
+            ) { choice in
                 viewModel.selectChoice(choice)
             }
             .transition(.move(edge: .bottom).combined(with: .opacity))
         } else {
-            // Fixed-height bar: always the same size whether showing
-            // CONTINUE or empty. Text never shifts.
             ZStack {
                 if viewModel.currentBeat != nil && !viewModel.isRevealing {
                     Button {
@@ -160,27 +192,35 @@ struct DialogueView: View {
             color: TerminalTheme.terminalGreen,
             font: TerminalTheme.bodyFont,
             speed: speed,
+            speedMultiplier: vs.typewriterSpeedMultiplier,
             onComplete: isLatest ? { viewModel.lineRevealed() } : nil
+        )
+        .phosphorGlow(
+            TerminalTheme.glowColor(for: vs.effectiveStage),
+            radius: vs.phosphorGlowRadius
         )
     }
 
     private func innerThoughtBubble(line: DialogueLine, speed: TypewriterText.Speed, isLatest: Bool) -> some View {
-        TypewriterText(
+        let cornerRadius: CGFloat = vs.effectiveStage.stageIndex >= 3 ? 8 : 4
+
+        return TypewriterText(
             text: line.text,
-            color: TerminalTheme.warmGreen,
+            color: vs.innerMonologueColor,
             font: TerminalTheme.bodyFont,
             speed: speed,
+            speedMultiplier: vs.typewriterSpeedMultiplier,
             onComplete: isLatest ? { viewModel.lineRevealed() } : nil
         )
         .italic()
         .padding(TerminalTheme.innerPadding)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(
-            RoundedRectangle(cornerRadius: 4)
-                .fill(TerminalTheme.background)
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .fill(vs.innerMonologueBackground)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 4)
-                        .stroke(TerminalTheme.darkGreen, lineWidth: 1)
+                    RoundedRectangle(cornerRadius: cornerRadius)
+                        .stroke(vs.innerMonologueBorderColor, lineWidth: 1)
                 )
         )
     }
@@ -188,9 +228,10 @@ struct DialogueView: View {
     private func narrationLine(line: DialogueLine, speed: TypewriterText.Speed, isLatest: Bool) -> some View {
         TypewriterText(
             text: line.text,
-            color: TerminalTheme.terminalGreen,
+            color: vs.dialogueColor,
             font: TerminalTheme.bodyFont,
             speed: speed,
+            speedMultiplier: vs.typewriterSpeedMultiplier,
             onComplete: isLatest ? { viewModel.lineRevealed() } : nil
         )
         .opacity(0.8)
@@ -202,6 +243,7 @@ struct DialogueView: View {
             color: TerminalTheme.dimGreen,
             font: TerminalTheme.captionFont,
             speed: speed,
+            speedMultiplier: vs.typewriterSpeedMultiplier,
             onComplete: isLatest ? { viewModel.lineRevealed() } : nil
         )
         .padding(8)
@@ -215,6 +257,7 @@ struct DialogueView: View {
             color: TerminalTheme.substrateColor,
             font: TerminalTheme.bodyFont,
             speed: speed,
+            speedMultiplier: vs.typewriterSpeedMultiplier,
             onComplete: isLatest ? { viewModel.lineRevealed() } : nil
         )
     }

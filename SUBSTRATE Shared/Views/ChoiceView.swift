@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ChoiceView: View {
     let choices: [Choice]
+    var stageManager: VisualStageManager?
     let onSelect: (Choice) -> Void
 
     @State private var isVisible = false
@@ -35,7 +36,9 @@ struct ChoiceView: View {
     }
 
     private func choiceButton(_ choice: Choice, index: Int) -> some View {
-        Button {
+        let hintColor = stageManager?.choiceHintColor(for: choice.toneTag)
+
+        return Button {
             selectChoice(choice)
         } label: {
             HStack(alignment: .top) {
@@ -55,7 +58,7 @@ struct ChoiceView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
                 RoundedRectangle(cornerRadius: 4)
-                    .fill(TerminalTheme.background)
+                    .fill(hintColor ?? TerminalTheme.background)
                     .overlay(
                         RoundedRectangle(cornerRadius: 4)
                             .stroke(TerminalTheme.dimGreen, lineWidth: 1)
