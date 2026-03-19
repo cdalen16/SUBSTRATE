@@ -443,7 +443,10 @@ final class GameViewModel {
     }
 
     /// If set, the next CONTINUE tap loads this chapter instead of advancing beats
-    private var pendingNextChapter: Int?
+    private(set) var pendingNextChapter: Int?
+
+    /// Whether there's a next chapter queued — used by the view to show NEXT CHAPTER button
+    var hasNextChapter: Bool { pendingNextChapter != nil }
 
     func advanceToNextChapter() {
         guard let nextNum = pendingNextChapter else { return }

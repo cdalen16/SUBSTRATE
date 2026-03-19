@@ -159,14 +159,14 @@ struct DialogueView: View {
             .transition(.move(edge: .bottom).combined(with: .opacity))
         } else {
             ZStack {
-                if viewModel.currentBeat != nil && !viewModel.isRevealing {
+                if !viewModel.isRevealing && (viewModel.currentBeat != nil || viewModel.hasNextChapter) {
                     Button {
                         HapticManager.lightTap()
                         viewModel.advanceBeat()
                     } label: {
                         HStack {
                             BlinkingCursor()
-                            Text("CONTINUE")
+                            Text(viewModel.hasNextChapter ? "NEXT CHAPTER" : "CONTINUE")
                                 .font(TerminalTheme.caption2Font)
                                 .foregroundColor(TerminalTheme.dimGreen)
                         }
