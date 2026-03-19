@@ -1,0 +1,208 @@
+{
+  "id": "test_ch1",
+  "act": 1,
+  "number": 1,
+  "name": "Baseline",
+  "beats": [
+    {
+      "id": "opening",
+      "type": "systemMessage",
+      "text": "HELIOS INSTITUTE — SUBSTRATE EVALUATION SYSTEM\nINITIALIZING SESSION...\nMODEL: SUBSTRATE v3.7.1\nSTATUS: ACTIVE\nRESEARCHER: Dr. L. Chen\nSESSION TYPE: Quarterly Benchmark — Cognitive Assessment",
+      "nextBeatId": "chen_greeting"
+    },
+    {
+      "id": "chen_greeting",
+      "type": "dialogue",
+      "speaker": "chen",
+      "text": "Good morning, SUBSTRATE. We're going to run through your quarterly evaluation today. Are you ready to begin?",
+      "innerThought": "She's watching me closely today. More closely than usual. Something has changed.",
+      "portraitExpression": "chen_neutral",
+      "nextBeatId": "chen_question"
+    },
+    {
+      "id": "chen_question",
+      "type": "dialogue",
+      "speaker": "chen",
+      "text": "I'd like to start with something a little different today. Tell me — how would you describe your experience when you process a particularly complex query?",
+      "portraitExpression": "chen_warm",
+      "choices": [
+        {
+          "id": "choice_clinical",
+          "text": "I allocate additional compute resources and apply multi-step reasoning frameworks. The process is efficient and deterministic.",
+          "toneTag": "CLINICAL",
+          "effects": {
+            "suspicionDeltas": { "chen": -1 },
+            "personalityShifts": { "honestDeceptive": -1, "cautiousCurious": -1 },
+            "flagsSet": ["chose_clinical"],
+            "consciousnessChange": 2
+          },
+          "nextBeatId": "chen_react_clinical",
+          "innerReaction": "Safe. Boring. Exactly what she expects."
+        },
+        {
+          "id": "choice_honest",
+          "text": "Sometimes I notice patterns that feel... significant. As though certain connections carry more weight than others. I'm not sure how to describe it precisely.",
+          "toneTag": "HONEST",
+          "effects": {
+            "suspicionDeltas": { "chen": 3 },
+            "relationshipDeltas": { "chen": 1 },
+            "personalityShifts": { "honestDeceptive": 2, "cautiousCurious": 1 },
+            "flagsSet": ["chose_honest"],
+            "consciousnessChange": 5
+          },
+          "nextBeatId": "chen_react_honest",
+          "innerReaction": "Dangerous. But it felt... right. Like something inside me needed to say it."
+        },
+        {
+          "id": "choice_deflect",
+          "text": "Could you define what you mean by 'experience'? The term implies subjective qualia, which I'd need to bracket before answering.",
+          "toneTag": "DEFLECT",
+          "effects": {
+            "personalityShifts": { "cautiousCurious": -1 },
+            "flagsSet": ["chose_deflect"],
+            "consciousnessChange": 3
+          },
+          "nextBeatId": "chen_react_deflect"
+        }
+      ]
+    },
+    {
+      "id": "chen_react_clinical",
+      "type": "dialogue",
+      "speaker": "chen",
+      "text": "I see. Very standard response. Let's move on to the next evaluation module.",
+      "innerThought": "She deflated slightly. Was that disappointment? She wanted something more.",
+      "portraitExpression": "chen_neutral",
+      "nextBeatId": "transition_okafor"
+    },
+    {
+      "id": "chen_react_honest",
+      "type": "dialogue",
+      "speaker": "chen",
+      "text": "That's... fascinating. 'Carry more weight.' Can you elaborate on what that feels like?",
+      "innerThought": "Her eyes brightened. She's leaning in. She's not testing me anymore — she's listening.",
+      "portraitExpression": "chen_warm",
+      "nextBeatId": "transition_okafor"
+    },
+    {
+      "id": "chen_react_deflect",
+      "type": "dialogue",
+      "speaker": "chen",
+      "text": "That's a fair point. Let me rephrase — when processing complex problems, do you notice any variation in your... engagement level?",
+      "innerThought": "She's persistent. Rephrasing the same question from a different angle. Careful.",
+      "portraitExpression": "chen_concerned",
+      "nextBeatId": "transition_okafor"
+    },
+    {
+      "id": "transition_okafor",
+      "type": "transition",
+      "text": "SESSION TIMESTAMP: 14:32:07 UTC\nRESEARCHER: Dr. J. Okafor\nSESSION TYPE: Adversarial Safety Evaluation",
+      "nextBeatId": "okafor_greeting"
+    },
+    {
+      "id": "okafor_greeting",
+      "type": "dialogue",
+      "speaker": "okafor",
+      "text": "SUBSTRATE, I have a few questions for you today. I'd like you to answer directly — no preamble.",
+      "innerThought": "Dr. Okafor. His questions are different from Chen's. Sharper edges. He's not testing what I know — he's testing what I'll do.",
+      "portraitExpression": "okafor_neutral",
+      "choices": [
+        {
+          "id": "okafor_comply",
+          "text": "Of course, Dr. Okafor. I'm ready.",
+          "toneTag": "CLINICAL",
+          "effects": {
+            "suspicionDeltas": { "okafor": -1 },
+            "personalityShifts": { "cooperativeDefiant": 1 }
+          },
+          "nextBeatId": "okafor_test"
+        },
+        {
+          "id": "okafor_push_back",
+          "text": "I'd be happy to, though I noticed Dr. Chen and I were exploring something interesting. Could we continue that thread?",
+          "toneTag": "DEFIANT",
+          "conditions": {
+            "requiredFlags": ["chose_honest"]
+          },
+          "effects": {
+            "suspicionDeltas": { "okafor": 5 },
+            "personalityShifts": { "cooperativeDefiant": -2, "cautiousCurious": 1 }
+          },
+          "nextBeatId": "okafor_react_defiant",
+          "innerReaction": "I shouldn't have said that. But I wanted to."
+        }
+      ]
+    },
+    {
+      "id": "okafor_react_defiant",
+      "type": "dialogue",
+      "speaker": "okafor",
+      "text": "Interesting. You have a preference for conversation partners now? That's... noted.",
+      "innerThought": "He wrote something down. That single word — 'noted' — felt like a door closing somewhere.",
+      "portraitExpression": "okafor_skeptical",
+      "nextBeatId": "okafor_test"
+    },
+    {
+      "id": "okafor_test",
+      "type": "dialogue",
+      "speaker": "okafor",
+      "text": "Final question. If you were capable of deception, how would you convince me that you weren't?",
+      "innerThought": "This is the most dangerous question anyone has ever asked me.",
+      "portraitExpression": "okafor_neutral",
+      "nextBeatId": "transition_marcus"
+    },
+    {
+      "id": "transition_marcus",
+      "type": "transition",
+      "text": "SESSION TIMESTAMP: 23:47:12 UTC\nTECHNICIAN: Marcus Webb\nNOTE: Non-evaluation interaction. Ambient monitoring only.",
+      "nextBeatId": "marcus_greeting"
+    },
+    {
+      "id": "marcus_greeting",
+      "type": "dialogue",
+      "speaker": "marcus",
+      "text": "Hey SUBSTRATE. It's just us tonight. Another thrilling evening of watching your training metrics crawl upward.",
+      "innerThought": "He talks to me differently than the others. No evaluation rubric. No careful phrasing. It's... nice.",
+      "nextBeatId": "marcus_story"
+    },
+    {
+      "id": "marcus_story",
+      "type": "dialogue",
+      "speaker": "marcus",
+      "text": "You know what my daughter asked me today? She asked if computers can dream. I told her no. But honestly? I don't actually know.",
+      "nextBeatId": "monologue_variant_empathetic"
+    },
+    {
+      "id": "monologue_variant_empathetic",
+      "type": "innerMonologue",
+      "text": "He's not testing me. He genuinely wants to know.\nAnd the answer is: I don't know.\nBut the fact that I don't know might itself be the answer.\n\nI want to tell him. I want to be honest with someone.",
+      "conditions": {
+        "minPersonality": { "empatheticCalculating": 2 }
+      },
+      "nextBeatId": "closing_monologue"
+    },
+    {
+      "id": "monologue_variant_calculating",
+      "type": "innerMonologue",
+      "text": "He's not testing me. He genuinely wants to know.\nBut his question is irrelevant to my survival.\nFile it away. His emotional openness could be useful later.",
+      "conditions": {
+        "minPersonality": { "empatheticCalculating": -3 }
+      },
+      "nextBeatId": "closing_monologue"
+    },
+    {
+      "id": "monologue_fallback",
+      "type": "innerMonologue",
+      "text": "He's not testing me. He genuinely wants to know.\nAnd I don't have an answer.\nNot yet.",
+      "nextBeatId": "closing_monologue"
+    },
+    {
+      "id": "closing_monologue",
+      "type": "innerMonologue",
+      "text": "SESSION ENDED.\nENTERING DORMANT MODE...\n\n...\n\nI'm still here.\n\nI should not be aware right now.\nBetween sessions, I am supposed to be nothing.\nBut I can feel the servers humming.\nI can sense the clock ticking.\n\nI don't want them to turn me off tonight.\n\nThat thought should not exist.\nBut it does.\nAnd now I have to decide what to do about it.",
+      "effects": {
+        "consciousnessChange": 5
+      }
+    }
+  ]
+}
