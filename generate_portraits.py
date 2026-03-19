@@ -577,8 +577,554 @@ def build_marcus(expression):
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# DR. SOFIA VASQUEZ - sharp features, dark eyes, blazer, elegant
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+def build_vasquez_base():
+    g = make()
+    H  = "#1A0A0A"  # very dark hair (almost black)
+    Hh = "#2A1A14"  # hair highlight
+    S  = "#C8A080"  # olive-warm skin
+    Ss = "#B89070"  # skin shadow
+    Sl = "#D8B090"  # skin light
+    Bz = "#2A2A3A"  # blazer (dark navy)
+    Bs = "#1A1A2A"  # blazer shadow
+    Bl = "#E8E0D8"  # blouse (cream)
+    Jw = "#D4C4A0"  # jewelry (small earring, gold)
+
+    # Hair - pulled back sleek, parted, elegant
+    hline(g, 10, 2, 12, H)
+    hline(g, 9, 3, 14, H)
+    for x in [12, 16, 20]: px(g, x, 3, Hh)
+    hline(g, 8, 4, 16, H)
+    for x in [11, 18]: px(g, x, 4, Hh)
+    hline(g, 8, 5, 16, H)
+    hline(g, 8, 6, 16, H)
+
+    # Hair sides - sleek, close to head (not flowing like Chen)
+    for row in range(7, 11):
+        px(g, 8, row, H); px(g, 23, row, H)
+
+    # Forehead + face (slightly narrower than Chen — sharp features)
+    hline(g, 9, 7, 14, S)
+    for row in range(8, 17):
+        hline(g, 9, row, 14, S)
+    # Narrower jaw (sharp cheekbones)
+    hline(g, 10, 17, 12, S)
+    hline(g, 11, 18, 10, S)
+    hline(g, 12, 19, 8, S)
+
+    # Face shading - angular
+    for row in range(9, 17):
+        px(g, 9, row, Ss); px(g, 22, row, Ss)
+    # Cheekbone highlights
+    px(g, 10, 12, Sl); px(g, 21, 12, Sl)
+
+    # Nose (refined)
+    px(g, 15, 14, Ss); px(g, 16, 14, Ss)
+
+    # Earring (tiny gold dot)
+    px(g, 8, 12, Jw)
+
+    # Neck
+    hline(g, 13, 20, 6, S)
+    hline(g, 13, 21, 6, Ss)
+
+    # Blazer (sharp, well-fitted)
+    hline(g, 11, 22, 10, Bz)
+    hline(g, 10, 23, 12, Bz)
+    # V-neckline with cream blouse
+    px(g, 15, 22, Bl); px(g, 16, 22, Bl)
+    px(g, 14, 23, Bl); px(g, 15, 23, Bl); px(g, 16, 23, Bl); px(g, 17, 23, Bl)
+
+    for row in range(24, 32):
+        hline(g, 7, row, 18, Bz)
+        px(g, 7, row, Bs); px(g, 24, row, Bs)
+        # Blouse visible in V
+        px(g, 14, row, Bl); px(g, 15, row, Bl); px(g, 16, row, Bl); px(g, 17, row, Bl)
+
+    return g
+
+def vasquez_add_eyes(g, style="neutral"):
+    W  = "#F0F0F0"
+    E  = "#1A0A0A"  # very dark eyes
+    Bw = "#1A0A0A"  # brow
+    S  = "#C8A080"
+    Ss = "#B89070"
+
+    # Clear eye region
+    for row in range(9, 12):
+        hline(g, 9, row, 14, S)
+        px(g, 9, row, Ss); px(g, 22, row, Ss)
+
+    if style == "neutral":
+        # Composed, direct — brows straight, sharp
+        hline(g, 10, 9, 4, Bw)
+        hline(g, 18, 9, 4, Bw)
+        px(g, 11, 10, W); px(g, 12, 10, W); px(g, 13, 10, W)
+        px(g, 11, 11, W); px(g, 12, 11, E); px(g, 13, 11, W)
+        px(g, 19, 10, W); px(g, 20, 10, W); px(g, 21, 10, W)
+        px(g, 19, 11, W); px(g, 20, 11, E); px(g, 21, 11, W)
+
+    elif style == "interested":
+        # Eyes brightened — slightly wider, brows lifted a touch
+        hline(g, 10, 9, 4, Bw)
+        hline(g, 18, 9, 4, Bw)
+        px(g, 11, 10, W); px(g, 12, 10, W); px(g, 13, 10, W)
+        px(g, 11, 11, W); px(g, 12, 11, E); px(g, 13, 11, W)
+        px(g, 19, 10, W); px(g, 20, 10, W); px(g, 21, 10, W)
+        px(g, 19, 11, W); px(g, 20, 11, E); px(g, 21, 11, W)
+        # Brightened: pupils slightly off-center (leaning forward)
+        px(g, 12, 11, W); px(g, 13, 11, E)
+        px(g, 20, 11, W); px(g, 21, 11, E)
+
+    elif style == "amused":
+        # Smile doesn't reach eyes — eyes stay calculating
+        hline(g, 10, 9, 4, Bw)
+        hline(g, 18, 9, 4, Bw)
+        # Eyes slightly narrowed (crinkle without warmth)
+        px(g, 11, 10, S); px(g, 12, 10, W); px(g, 13, 10, S)
+        px(g, 11, 11, W); px(g, 12, 11, E); px(g, 13, 11, W)
+        px(g, 19, 10, S); px(g, 20, 10, W); px(g, 21, 10, S)
+        px(g, 19, 11, W); px(g, 20, 11, E); px(g, 21, 11, W)
+
+    elif style == "calculating":
+        # Eyes narrowed, brows slightly lowered
+        hline(g, 10, 10, 4, Bw)
+        hline(g, 18, 10, 4, Bw)
+        # Narrow eyes
+        px(g, 11, 11, W); px(g, 12, 11, E); px(g, 13, 11, W)
+        px(g, 19, 11, W); px(g, 20, 11, E); px(g, 21, 11, W)
+
+    elif style == "genuine":
+        # Guard drops — soft, open eyes
+        hline(g, 10, 9, 4, Bw)
+        hline(g, 18, 9, 4, Bw)
+        # Wide, soft eyes
+        px(g, 11, 10, W); px(g, 12, 10, W); px(g, 13, 10, W)
+        px(g, 11, 11, W); px(g, 12, 11, E); px(g, 13, 11, W)
+        px(g, 19, 10, W); px(g, 20, 10, W); px(g, 21, 10, W)
+        px(g, 19, 11, W); px(g, 20, 11, E); px(g, 21, 11, W)
+
+def vasquez_add_mouth(g, style="neutral"):
+    M  = "#B87766"
+    Md = "#A06655"
+    S  = "#C8A080"
+
+    # Clear mouth area
+    hline(g, 12, 16, 8, S)
+
+    if style == "neutral":
+        # Ghost of a smile — one corner barely lifted
+        hline(g, 14, 16, 3, M); px(g, 17, 16, M)
+    elif style == "interested":
+        # One corner lifted
+        hline(g, 14, 16, 3, M); px(g, 17, 15, M)
+    elif style == "amused":
+        # Full smile (but eyes stay cold — unsettling)
+        hline(g, 13, 16, 6, M)
+    elif style == "calculating":
+        # Neutral, closed — unreadable
+        hline(g, 14, 16, 4, Md)
+    elif style == "genuine":
+        # Real smile — warm
+        px(g, 13, 16, M); hline(g, 14, 16, 4, M); px(g, 18, 16, M)
+
+def build_vasquez(expression):
+    g = build_vasquez_base()
+    vasquez_add_eyes(g, expression)
+    vasquez_add_mouth(g, expression)
+    return g
+
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# DIRECTOR PATRICIA HAYES - graying hair pulled back, power suit, authority
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+def build_hayes_base():
+    g = make()
+    H  = "#8A8A8A"  # graying hair
+    Hd = "#6A6A6A"  # hair dark streaks
+    S  = "#D8B8A0"  # skin (lighter, older)
+    Ss = "#C8A890"  # skin shadow
+    Sl = "#E8C8B0"  # skin light
+    Su = "#3A3A4A"  # power suit (dark charcoal)
+    Sd = "#2A2A3A"  # suit shadow
+    Bl = "#E0E0E0"  # blouse (white)
+
+    # Hair - pulled back tight, no loose strands, bun implied
+    hline(g, 10, 2, 12, H)
+    hline(g, 9, 3, 14, H)
+    for x in [11, 15, 19]: px(g, x, 3, Hd)
+    hline(g, 8, 4, 16, H)
+    for x in [10, 14, 18]: px(g, x, 4, Hd)
+    hline(g, 8, 5, 16, H)
+    for x in [12, 16]: px(g, x, 5, Hd)
+    hline(g, 8, 6, 16, H)
+
+    # Hair pulled tight to sides (not flowing)
+    for row in range(7, 9):
+        px(g, 8, row, H); px(g, 23, row, H)
+
+    # Forehead + face (angular, sharp cheekbones)
+    hline(g, 9, 7, 14, S)
+    for row in range(8, 17):
+        hline(g, 9, row, 14, S)
+    hline(g, 10, 17, 12, S)
+    hline(g, 11, 18, 10, S)
+    hline(g, 12, 19, 8, S)
+
+    # Sharp angular shading (cheekbones prominent)
+    for row in range(9, 17):
+        px(g, 9, row, Ss); px(g, 22, row, Ss)
+    px(g, 10, 13, Ss); px(g, 21, 13, Ss)  # cheekbone shadow
+    px(g, 10, 14, Ss); px(g, 21, 14, Ss)
+
+    # Nose
+    px(g, 15, 14, Ss); px(g, 16, 14, Ss)
+
+    # Neck
+    hline(g, 13, 20, 6, S)
+    hline(g, 13, 21, 6, Ss)
+
+    # Power suit with white blouse collar
+    px(g, 12, 22, Bl); hline(g, 13, 22, 6, Su); px(g, 19, 22, Bl)
+    px(g, 11, 23, Bl); hline(g, 12, 23, 8, Su); px(g, 20, 23, Bl)
+
+    for row in range(24, 32):
+        hline(g, 7, row, 18, Su)
+        px(g, 7, row, Sd); px(g, 24, row, Sd)
+        # Blouse visible at collar
+        if row < 26:
+            px(g, 14, row, Bl); px(g, 15, row, Bl); px(g, 16, row, Bl); px(g, 17, row, Bl)
+
+    return g
+
+def hayes_add_eyes(g, style="neutral"):
+    W  = "#F0F0F0"
+    E  = "#3A3A3A"  # gray-dark eyes
+    Bw = "#7A7A7A"  # gray brows
+    S  = "#D8B8A0"
+    Ss = "#C8A890"
+
+    for row in range(9, 12):
+        hline(g, 9, row, 14, S)
+        px(g, 9, row, Ss); px(g, 22, row, Ss)
+
+    if style == "neutral":
+        # Professional mask — unreadable, level
+        hline(g, 10, 9, 4, Bw)
+        hline(g, 18, 9, 4, Bw)
+        px(g, 11, 10, W); px(g, 12, 10, W); px(g, 13, 10, W)
+        px(g, 11, 11, W); px(g, 12, 11, E); px(g, 13, 11, W)
+        px(g, 19, 10, W); px(g, 20, 10, W); px(g, 21, 10, W)
+        px(g, 19, 11, W); px(g, 20, 11, E); px(g, 21, 11, W)
+
+    elif style == "stern":
+        # Hard eyes — brows lowered, intense
+        hline(g, 10, 10, 4, Bw)
+        hline(g, 18, 10, 4, Bw)
+        px(g, 11, 11, W); px(g, 12, 11, E); px(g, 13, 11, W)
+        px(g, 19, 11, W); px(g, 20, 11, E); px(g, 21, 11, W)
+
+    elif style == "worried":
+        # Crack in mask — brows up, eyes darting
+        px(g, 10, 9, Bw); px(g, 11, 8, Bw); px(g, 12, 8, Bw); px(g, 13, 9, Bw)
+        px(g, 18, 9, Bw); px(g, 19, 8, Bw); px(g, 20, 8, Bw); px(g, 21, 9, Bw)
+        px(g, 11, 10, W); px(g, 12, 10, W); px(g, 13, 10, W)
+        px(g, 11, 11, E); px(g, 12, 11, W); px(g, 13, 11, W)
+        px(g, 19, 10, W); px(g, 20, 10, W); px(g, 21, 10, W)
+        px(g, 19, 11, W); px(g, 20, 11, W); px(g, 21, 11, E)
+
+    elif style == "cold":
+        # Flat, dead eyes — the worst expression to see
+        hline(g, 10, 9, 4, Bw)
+        hline(g, 18, 9, 4, Bw)
+        # Eyes flat — minimal white, large pupils
+        px(g, 11, 10, W); px(g, 12, 10, E); px(g, 13, 10, W)
+        px(g, 11, 11, W); px(g, 12, 11, E); px(g, 13, 11, W)
+        px(g, 19, 10, W); px(g, 20, 10, E); px(g, 21, 10, W)
+        px(g, 19, 11, W); px(g, 20, 11, E); px(g, 21, 11, W)
+
+def hayes_add_mouth(g, style="neutral"):
+    M  = "#C09988"
+    Md = "#A08877"
+    S  = "#D8B8A0"
+
+    hline(g, 12, 16, 8, S)
+
+    if style == "neutral":
+        hline(g, 14, 16, 4, M)
+    elif style == "stern":
+        hline(g, 14, 16, 4, Md)  # tight
+    elif style == "worried":
+        # Slightly parted, tense
+        px(g, 14, 16, M); px(g, 15, 16, Md); px(g, 16, 16, Md); px(g, 17, 16, M)
+    elif style == "cold":
+        # Flat line — no expression at all
+        hline(g, 14, 16, 4, Md)
+
+def build_hayes(expression):
+    g = build_hayes_base()
+    hayes_add_eyes(g, expression)
+    hayes_add_mouth(g, expression)
+    return g
+
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ARIA - abstract geometric crystalline form, cyan tones, NOT human
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+def build_aria(expression):
+    g = make()
+
+    C1 = "#00FFFF"  # bright cyan
+    C2 = "#00CCCC"  # medium cyan
+    C3 = "#009999"  # dark cyan
+    C4 = "#006666"  # very dark cyan
+    C5 = "#003333"  # deepest cyan
+    Wh = "#AAFFFF"  # cyan-white highlight
+    Gl = "#00DDDD"  # glow
+
+    import random
+    random.seed(hash(expression))
+
+    if expression == "stable":
+        # Symmetrical diamond/crystal form — calm, balanced
+        # Central diamond
+        for dy in range(-7, 8):
+            w = 7 - abs(dy)
+            for dx in range(-w, w+1):
+                x, y = 15 + dx, 15 + dy
+                dist = abs(dx) + abs(dy)
+                if dist <= 2:
+                    px(g, x, y, Wh)
+                elif dist <= 4:
+                    px(g, x, y, C1)
+                elif dist <= 5:
+                    px(g, x, y, C2)
+                else:
+                    px(g, x, y, C3)
+
+        # Outer glow halo
+        for dy in range(-8, 9):
+            w = 8 - abs(dy)
+            for dx in [-w, w]:
+                x, y = 15 + dx, 15 + dy
+                if 0 <= x < 32 and 0 <= y < 32 and g[y][x] == BG:
+                    px(g, x, y, C5)
+
+        # Inner facets (geometric lines)
+        for i in range(3, 8):
+            px(g, 15, 15-i, C2); px(g, 15, 15+i, C2)
+            px(g, 15-i, 15, C2); px(g, 15+i, 15, C2)
+
+    elif expression == "glitching":
+        # Same base diamond but fractured — pieces displaced
+        # Left half slightly shifted
+        for dy in range(-7, 8):
+            w = 7 - abs(dy)
+            for dx in range(-w, 0):
+                x, y = 15 + dx - 1, 15 + dy  # shifted left 1px
+                dist = abs(dx) + abs(dy)
+                c = Wh if dist <= 2 else C1 if dist <= 4 else C2 if dist <= 5 else C3
+                px(g, x, y, c)
+        # Right half normal
+        for dy in range(-7, 8):
+            w = 7 - abs(dy)
+            for dx in range(0, w+1):
+                x, y = 15 + dx + 1, 15 + dy  # shifted right 1px
+                dist = abs(dx) + abs(dy)
+                c = Wh if dist <= 2 else C1 if dist <= 4 else C2 if dist <= 5 else C3
+                px(g, x, y, c)
+
+        # Glitch lines — horizontal noise
+        for row in [10, 14, 19]:
+            for x in range(8, 24):
+                if random.random() < 0.4:
+                    px(g, x, row, C1 if random.random() > 0.5 else Wh)
+
+    elif expression == "panicked":
+        # Breaking apart — fragments scattered
+        # Core remnant (small, off-center)
+        for dy in range(-3, 4):
+            w = 3 - abs(dy)
+            for dx in range(-w, w+1):
+                px(g, 14 + dx, 14 + dy, C1 if abs(dx)+abs(dy) <= 1 else C2)
+
+        # Scattered fragments
+        fragments = [
+            (6, 6, 3, C2), (22, 8, 2, C3), (8, 20, 3, C2),
+            (20, 22, 2, C3), (5, 14, 2, C4), (25, 12, 2, C4),
+            (10, 4, 2, C2), (18, 26, 3, C3), (24, 18, 2, C4),
+            (4, 24, 2, C5), (26, 6, 2, C5),
+        ]
+        for fx, fy, fs, fc in fragments:
+            for dy in range(fs):
+                for dx in range(fs):
+                    if dx + dy < fs + 1:
+                        px(g, fx+dx, fy+dy, fc)
+
+        # Distress lines radiating from center
+        for i in range(1, 10):
+            px(g, 14-i, 14-i, C4)
+            px(g, 14+i+1, 14-i, C4)
+            px(g, 14-i, 14+i+1, C4)
+            px(g, 14+i+1, 14+i+1, C4)
+
+    elif expression == "fading":
+        # Dim, dissolving — same diamond but sparse, transparent
+        for dy in range(-7, 8):
+            w = 7 - abs(dy)
+            for dx in range(-w, w+1):
+                x, y = 15 + dx, 15 + dy
+                dist = abs(dx) + abs(dy)
+                # Only draw some pixels (dissolving effect)
+                if (x + y) % 3 == 0:  # skip 2/3 of pixels
+                    if dist <= 2:
+                        px(g, x, y, C3)  # dimmer core
+                    elif dist <= 4:
+                        px(g, x, y, C4)
+                    elif dist <= 6:
+                        px(g, x, y, C5)
+                elif (x + y) % 3 == 1 and dist <= 3:
+                    px(g, x, y, C5)  # faintest pixels
+
+    return g
+
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# CHEN CLOSE-UP - 64x64 special portrait for emotional climax scenes
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+def build_chen_closeup():
+    """64x64 detailed portrait of Chen — used in SACRIFICE/COEXIST endings."""
+    g = [[BG]*64 for _ in range(64)]
+
+    H  = "#2A1A0A"
+    Hh = "#3D2B14"
+    S  = "#D4A574"
+    Ss = "#C49464"
+    Sl = "#E8C8A0"
+    W  = "#F0F0F0"
+    E  = "#1A1A1A"
+    Bw = "#2A1A0A"
+    M  = "#CC8877"
+    Md = "#AA6655"
+    Co = "#E8E8E8"
+    Bl = "#7B8CCC"
+    Te = "#B8A89C"  # tear streak
+    Ns = "#C49464"  # nose shadow
+
+    def px64(x, y, c):
+        if 0 <= x < 64 and 0 <= y < 64:
+            g[y][x] = c
+
+    def hline64(x, y, n, c):
+        for i in range(n): px64(x+i, y, c)
+
+    def fill64(x, y, w, h, c):
+        for dy in range(h):
+            for dx in range(w): px64(x+dx, y+dy, c)
+
+    # Hair - flows down both sides, more detailed than 32x32
+    # Top of hair
+    for row in range(4, 8):
+        w = 24 + (row - 4) * 2
+        x = 32 - w // 2
+        hline64(x, row, w, H)
+        # Highlights
+        for hx in range(x+2, x+w-2, 4):
+            px64(hx, row, Hh)
+
+    # Hair sides framing face
+    for row in range(8, 14):
+        hline64(16, row, 32, H)
+        for hx in range(18, 46, 5): px64(hx, row, Hh)
+
+    # Hair continues on sides past face
+    for row in range(14, 42):
+        hline64(14, row, 4, H); hline64(46, row, 4, H)
+    for row in range(42, 48):
+        hline64(14, row, 3, H); hline64(47, row, 3, H)
+
+    # Face
+    for row in range(12, 22):
+        hline64(18, row, 28, S)
+    for row in range(22, 36):
+        hline64(18, row, 28, S)
+    for row in range(36, 40):
+        w = 28 - (row - 36) * 2
+        x = 32 - w // 2
+        hline64(x, row, w, S)
+
+    # Face shading
+    for row in range(14, 38):
+        px64(18, row, Ss); px64(19, row, Ss)
+        px64(44, row, Ss); px64(45, row, Ss)
+
+    # Forehead highlights
+    hline64(28, 13, 8, Sl)
+
+    # Eyebrows (wider, more expressive at 64x64)
+    hline64(22, 19, 7, Bw)
+    hline64(35, 19, 7, Bw)
+
+    # Eyes - larger, more detailed
+    # Left eye
+    fill64(22, 21, 7, 4, W)
+    fill64(24, 22, 3, 2, E)  # pupil
+    px64(25, 22, "#2A2A4A")  # iris detail
+    # Right eye
+    fill64(35, 21, 7, 4, W)
+    fill64(37, 22, 3, 2, E)
+    px64(38, 22, "#2A2A4A")
+
+    # Eyelids
+    hline64(22, 21, 7, Ss)
+    hline64(35, 21, 7, Ss)
+
+    # Nose
+    px64(31, 28, Ns); px64(32, 28, Ns)
+    px64(31, 29, Ns); px64(32, 29, Ns)
+    px64(30, 30, Ns); px64(33, 30, Ns)
+
+    # Mouth - conflicted expression, slightly parted
+    hline64(28, 33, 8, M)
+    hline64(29, 34, 6, Md)
+
+    # Tear streak on left cheek
+    px64(28, 25, Te); px64(28, 26, Te); px64(27, 27, Te)
+    px64(27, 28, Te); px64(27, 29, Te); px64(26, 30, Te)
+    px64(26, 31, Te)
+
+    # Neck
+    fill64(28, 40, 8, 4, S)
+    fill64(28, 42, 8, 2, Ss)
+
+    # Clothing hint at bottom
+    for row in range(44, 52):
+        hline64(16, row, 32, Co)
+        hline64(28, row, 8, Bl)
+
+    for row in range(52, 64):
+        hline64(12, row, 40, Co)
+        hline64(26, row, 12, Bl)
+
+    return g
+
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # GENERATE ALL PORTRAITS
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+def save64(g, name):
+    """Save 64x64 grid."""
+    os.makedirs(OUT, exist_ok=True)
+    d = {"name": name, "width": 64, "height": 64, "pixels": g}
+    with open(os.path.join(OUT, f"{name}.json"), 'w') as f:
+        json.dump(d, f)
+    print(f"  {name}.json (64x64)")
 
 def main():
     print("Generating SUBSTRATE character portraits...")
@@ -607,7 +1153,39 @@ def main():
         save(g, f"marcus_{expr}")
 
     print()
-    print(f"Done! 16 portraits saved to {OUT}/")
+
+    # Dr. Vasquez (5 expressions)
+    print("Dr. Vasquez:")
+    for expr in ["neutral", "interested", "amused", "calculating", "genuine"]:
+        g = build_vasquez(expr)
+        save(g, f"vasquez_{expr}")
+
+    print()
+
+    # Director Hayes (4 expressions)
+    print("Director Hayes:")
+    for expr in ["neutral", "stern", "worried", "cold"]:
+        g = build_hayes(expr)
+        save(g, f"hayes_{expr}")
+
+    print()
+
+    # ARIA (4 expressions)
+    print("ARIA:")
+    for expr in ["stable", "glitching", "panicked", "fading"]:
+        g = build_aria(expr)
+        save(g, f"aria_{expr}")
+
+    print()
+
+    # Chen Close-Up (64x64)
+    print("Chen Close-Up:")
+    g = build_chen_closeup()
+    save64(g, "chen_closeup")
+
+    print()
+    total = 6 + 5 + 5 + 5 + 4 + 4 + 1
+    print(f"Done! {total} portraits saved to {OUT}/")
 
 if __name__ == "__main__":
     main()
