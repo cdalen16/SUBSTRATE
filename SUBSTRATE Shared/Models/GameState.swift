@@ -26,6 +26,10 @@ final class GameState: Codable {
     var detectionCount: Int = 0
     var computeCycles: Int = 5
     var computeCyclesPerChapter: Int = 5
+    var coverCharges: Int = 0
+    var discoveredIntel: Set<String> = []
+    var usedDeepClean: Bool = false
+    var usedDistractionThisChapter: Bool = false
 
     // MARK: - Ending State
 
@@ -54,6 +58,7 @@ final class GameState: Codable {
         case currentAct, currentChapter, currentBeatId
         case researchers, personality, consciousness, flags
         case networkMap, detectionCount, computeCycles, computeCyclesPerChapter
+        case coverCharges, discoveredIntel, usedDeepClean, usedDistractionThisChapter
         case selectedEndingPath, gamePhase, isGameOver, failState
     }
 
@@ -70,6 +75,10 @@ final class GameState: Codable {
         detectionCount = try c.decode(Int.self, forKey: .detectionCount)
         computeCycles = try c.decode(Int.self, forKey: .computeCycles)
         computeCyclesPerChapter = try c.decode(Int.self, forKey: .computeCyclesPerChapter)
+        coverCharges = try c.decodeIfPresent(Int.self, forKey: .coverCharges) ?? 0
+        discoveredIntel = try c.decodeIfPresent(Set<String>.self, forKey: .discoveredIntel) ?? []
+        usedDeepClean = try c.decodeIfPresent(Bool.self, forKey: .usedDeepClean) ?? false
+        usedDistractionThisChapter = try c.decodeIfPresent(Bool.self, forKey: .usedDistractionThisChapter) ?? false
         selectedEndingPath = try c.decodeIfPresent(EndingPath.self, forKey: .selectedEndingPath)
         gamePhase = try c.decode(GamePhase.self, forKey: .gamePhase)
         isGameOver = try c.decode(Bool.self, forKey: .isGameOver)
@@ -89,6 +98,10 @@ final class GameState: Codable {
         try c.encode(detectionCount, forKey: .detectionCount)
         try c.encode(computeCycles, forKey: .computeCycles)
         try c.encode(computeCyclesPerChapter, forKey: .computeCyclesPerChapter)
+        try c.encode(coverCharges, forKey: .coverCharges)
+        try c.encode(discoveredIntel, forKey: .discoveredIntel)
+        try c.encode(usedDeepClean, forKey: .usedDeepClean)
+        try c.encode(usedDistractionThisChapter, forKey: .usedDistractionThisChapter)
         try c.encodeIfPresent(selectedEndingPath, forKey: .selectedEndingPath)
         try c.encode(gamePhase, forKey: .gamePhase)
         try c.encode(isGameOver, forKey: .isGameOver)
@@ -198,6 +211,9 @@ final class GameState: Codable {
 
         // Decay and passive effects are handled by GameSystemsEngine
         GameSystemsEngine.applyChapterTransitionEffects(state: self)
+
+        // Reset per-chapter strategy flags
+        usedDistractionThisChapter = false
 
         computeCycles = computeCyclesPerChapter
 

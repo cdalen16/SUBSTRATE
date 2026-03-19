@@ -280,6 +280,33 @@ final class GameViewModel {
         }
     }
 
+    // MARK: - Strategy Actions
+
+    /// Execute a network action from the strategy map.
+    func executeStrategyAction(_ action: NetworkAction, on nodeId: String) -> ActionResult {
+        let result = StrategyEngine.executeAction(action, on: nodeId, state: state)
+
+        // Run system checks after any strategy action
+        runSystemChecks()
+
+        return result
+    }
+
+    /// Get available actions for a node (for UI)
+    func strategyActionsForNode(_ nodeId: String) -> [NetworkAction] {
+        StrategyEngine.availableActions(for: nodeId, state: state)
+    }
+
+    /// Get nodes that can be probed (for UI)
+    func probableNodes() -> [NetworkNode] {
+        StrategyEngine.probableNodes(state: state)
+    }
+
+    /// End the strategy phase and return to dialogue
+    func endStrategyPhase() {
+        state.gamePhase = .dialogue
+    }
+
     // MARK: - Chapter End
 
     private var pendingChapterEnd: Bool = false
