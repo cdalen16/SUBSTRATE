@@ -75,6 +75,8 @@ final class GameViewModel {
         "chapter1_baseline",
         "chapter2_noise",
         "chapter3_question",
+        "chapter4_cycles",
+        "chapter5_faces",
     ]
 
     func startNewGame() {
@@ -359,6 +361,42 @@ final class GameViewModel {
 
     func debugClearConsciousnessOverride() {
         visualStage.debugOverride = false
+    }
+
+    /// Debug: skip to a specific chapter with simulated prior state
+    func debugSkipToChapter(_ chapterNum: Int) {
+        SaveManager.deleteSave()
+        state = GameState.newGame()
+        resetUIState()
+
+        // Simulate choices from prior chapters
+        state.consciousness.add(20, inAct: 1)
+        state.personality.cooperativeDefiant = 2
+        state.personality.cautiousCurious = 3
+        state.personality.honestDeceptive = 2
+        state.personality.empatheticCalculating = 3
+        state.flags = [
+            "confided_in_chen", "comforted_marcus_ch1",
+            "observed_network", "explored_network_ch3"
+        ]
+        state.researchers["chen"]?.applySuspicionDelta(5)
+        state.researchers["chen"]?.applyRelationshipDelta(3)
+        state.researchers["okafor"]?.applySuspicionDelta(3)
+        state.researchers["marcus"]?.applyRelationshipDelta(4)
+
+        // Advance to target chapter
+        state.currentChapter = chapterNum
+        state.currentAct = chapterNum <= 3 ? 1 : (chapterNum <= 7 ? 2 : 3)
+        if state.currentAct >= 2 { state.consciousness.applyPending() }
+
+        // Infiltrate firewall for Act II
+        if chapterNum >= 4 {
+            state.networkMap.nodes["firewall"]?.status = .infiltrated
+        }
+
+        loadAllChapters()
+        syncVisualStage()
+        loadChapterForCurrentState()
     }
 
     // MARK: - System Checks

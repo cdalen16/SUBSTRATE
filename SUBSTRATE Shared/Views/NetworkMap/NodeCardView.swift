@@ -5,7 +5,7 @@ struct NodeCardView: View {
     let isSelected: Bool
     let isCore: Bool
 
-    private var size: CGFloat { isCore ? 90 : 68 }
+    private var size: CGFloat { isCore ? 70 : 52 }
 
     var body: some View {
         VStack(spacing: 3) {

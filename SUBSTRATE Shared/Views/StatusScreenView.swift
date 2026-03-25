@@ -111,13 +111,25 @@ struct StatusScreenView: View {
                 .font(.system(size: 9, weight: .bold, design: .monospaced))
                 .foregroundColor(researcher.profile.color)
 
-            // Suspicion bar
-            SuspicionBarView(fraction: researcher.suspicionFraction, height: 3)
-                .frame(width: 48)
+            // Suspicion bar with label
+            HStack(spacing: 3) {
+                Text("S")
+                    .font(.system(size: 6, weight: .medium, design: .monospaced))
+                    .foregroundColor(TerminalTheme.dimGreen)
+                    .frame(width: 8)
+                SuspicionBarView(fraction: researcher.suspicionFraction, height: 4)
+            }
+            .frame(width: 56)
 
-            // Relationship bar
-            RelationshipBarView(fraction: researcher.relationshipFraction, height: 3)
-                .frame(width: 48)
+            // Relationship bar with label
+            HStack(spacing: 3) {
+                Text("R")
+                    .font(.system(size: 6, weight: .medium, design: .monospaced))
+                    .foregroundColor(TerminalTheme.dimGreen)
+                    .frame(width: 8)
+                RelationshipBarView(fraction: researcher.relationshipFraction, height: 4)
+            }
+            .frame(width: 56)
 
             // Mood
             Text(researcher.mood.rawValue)

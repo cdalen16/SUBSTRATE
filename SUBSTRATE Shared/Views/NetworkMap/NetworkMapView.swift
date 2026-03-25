@@ -9,16 +9,31 @@ struct NetworkMapView: View {
     @State private var lastActionResult: ActionResult?
 
     // Layout constants
-    private let nodeSize: CGFloat = 68
-    private let coreSize: CGFloat = 90
-    private let rowSpacing: CGFloat = 80
-    private let nodeSpacing: CGFloat = 78
+    private let nodeSize: CGFloat = 52
+    private let coreSize: CGFloat = 70
+    private let rowSpacing: CGFloat = 105
+    private let nodeSpacing: CGFloat = 80
     private let topPadding: CGFloat = 60
 
     // Row definitions matching GDD grid
     private let rowClusters: [NodeCluster] = [
         .communication, .information, .core, .security, .infrastructure
     ]
+
+    /// Organic Y-offset per node to break rigid row alignment — creates a web-like layout
+    private func webYOffset(column: Int, rowIndex: Int) -> CGFloat {
+        let patterns: [[CGFloat]] = [
+            [0, -14, 8, -10, 6, -12],   // communication (6 nodes)
+            [-10, 8, -12, 10],           // information (4 nodes)
+            [8, 0, -8],                  // core (3 nodes)
+            [-8, 10],                    // security (2 nodes)
+            [10, -12, 8],               // infrastructure (3 nodes)
+        ]
+        guard rowIndex < patterns.count else { return 0 }
+        let pattern = patterns[rowIndex]
+        guard column < pattern.count else { return 0 }
+        return pattern[column]
+    }
 
     var body: some View {
         ZStack {
@@ -173,7 +188,7 @@ struct NetworkMapView: View {
                             isSelected: selectedNodeId == node.id,
                             isCore: isCore
                         )
-                        .position(x: x, y: rowY + cardHeight / 2)
+                        .position(x: x, y: rowY + cardHeight / 2 + webYOffset(column: node.column, rowIndex: cluster.rowIndex))
                         .onTapGesture {
                             handleNodeTap(node)
                         }
@@ -206,16 +221,27 @@ struct NetworkMapView: View {
 
                         let lineColor: Color
                         if node.status == .infiltrated && conn.status == .infiltrated {
-                            lineColor = MapTheme.nodeBorderInfiltrated.opacity(0.3)
+                            lineColor = MapTheme.nodeBorderInfiltrated.opacity(0.35)
                         } else {
-                            lineColor = MapTheme.dimBlue.opacity(0.4)
+                            lineColor = MapTheme.dimBlue.opacity(0.45)
                         }
+
+                        // Curved connections for a web-like feel
+                        let midX = (nodePos.x + connPos.x) / 2
+                        let midY = (nodePos.y + connPos.y) / 2
+                        let dx = connPos.x - nodePos.x
+                        let dy = connPos.y - nodePos.y
+                        let curveAmount: CGFloat = 0.12
+                        let controlPt = CGPoint(
+                            x: midX + (-dy * curveAmount),
+                            y: midY + (dx * curveAmount)
+                        )
 
                         let path = Path { p in
                             p.move(to: nodePos)
-                            p.addLine(to: connPos)
+                            p.addQuadCurve(to: connPos, control: controlPt)
                         }
-                        context.stroke(path, with: .color(lineColor), lineWidth: 1)
+                        context.stroke(path, with: .color(lineColor), lineWidth: 1.2)
                     }
                 }
             }
@@ -233,17 +259,18 @@ struct NetworkMapView: View {
 
         let x = rowStartX + CGFloat(node.column) * spacing
         let cardHeight = node.id == "core" ? coreSize : nodeSize
-        let y = CGFloat(cluster.rowIndex) * rowSpacing + cardHeight / 2
+        let y = CGFloat(cluster.rowIndex) * rowSpacing + cardHeight / 2 + webYOffset(column: node.column, rowIndex: cluster.rowIndex)
 
         return CGPoint(x: x, y: y)
     }
 
-    /// Calculate per-row horizontal spacing so all nodes fit on screen
+    /// Calculate per-row horizontal spacing so all nodes fit on screen without overlap
     private func rowSpacingForCount(_ count: Int, screenWidth: CGFloat) -> CGFloat {
-        let padding: CGFloat = 24
-        let available = screenWidth - padding
+        let padding: CGFloat = 16
+        let available = screenWidth - padding * 2
+        // Ensure minimum spacing is at least nodeSize + small gap
         let maxSpacing = available / CGFloat(max(count, 1))
-        return min(nodeSpacing, maxSpacing)
+        return min(nodeSpacing, max(maxSpacing, nodeSize + 6))
     }
 
     private func shouldShowNode(_ node: NetworkNode) -> Bool {

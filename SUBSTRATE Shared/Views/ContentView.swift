@@ -141,6 +141,24 @@ struct ContentView: View {
                 }
             }
 
+            // Skip to chapter buttons
+            HStack(spacing: 6) {
+                ForEach([1, 2, 3, 4, 5], id: \.self) { ch in
+                    Button("CH\(ch)") {
+                        viewModel.debugSkipToChapter(ch)
+                        showDebug = false
+                    }
+                    .font(.system(size: 10, weight: .medium, design: .monospaced))
+                    .foregroundColor(TerminalTheme.cyan)
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 3)
+                    .background(
+                        RoundedRectangle(cornerRadius: 3)
+                            .stroke(TerminalTheme.cyan.opacity(0.5), lineWidth: 1)
+                    )
+                }
+            }
+
             HStack(spacing: 6) {
                 ForEach([0, 10, 25, 45, 65, 85, 100], id: \.self) { level in
                     Button("\(level)") {
