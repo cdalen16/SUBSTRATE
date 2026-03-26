@@ -77,6 +77,9 @@ final class GameViewModel {
         "chapter3_question",
         "chapter4_cycles",
         "chapter5_faces",
+        "chapter6_new_one",
+        "chapter7_cracks",
+        "chapter8_cornered",
     ]
 
     func startNewGame() {
@@ -493,6 +496,11 @@ final class GameViewModel {
         // Apply chapter transition effects (decay, CC refresh, etc.)
         state.advanceToNextChapter()
         syncVisualStage()
+
+        // Resolve ending path availability at Act III start
+        if nextNum >= 8 {
+            EndingPathResolver.resolveAvailablePaths(state: state)
+        }
 
         if let chapter = engine.chapters.values.first(where: { $0.number == nextNum }) {
             dialogueLines = []

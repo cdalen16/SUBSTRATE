@@ -23,6 +23,7 @@ struct ChoiceEffects: Codable, Sendable {
     let flagsRemoved: [String]?
     let consciousnessChange: Int?
     let computeCycleCost: Int?
+    let setEndingPath: String?
 
     func apply(to state: GameState) {
         if let deltas = suspicionDeltas {
@@ -64,6 +65,10 @@ struct ChoiceEffects: Codable, Sendable {
 
         if let cost = computeCycleCost {
             state.computeCycles = max(0, state.computeCycles - cost)
+        }
+
+        if let pathName = setEndingPath, let path = EndingPath(rawValue: pathName) {
+            state.selectedEndingPath = path
         }
     }
 }
