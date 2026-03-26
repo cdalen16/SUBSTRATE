@@ -46,6 +46,7 @@ struct TitleScreenView: View {
                 startBootSequence()
             }
         }
+        .terminalDynamicType()
     }
 
     // MARK: - Boot Text
@@ -55,6 +56,7 @@ struct TitleScreenView: View {
         switch bootPhase {
         case .blank:
             BlinkingCursor()
+                .transition(.opacity)
 
         case .loading:
             TypewriterText(
@@ -63,7 +65,9 @@ struct TitleScreenView: View {
                 font: TerminalTheme.bodyFont,
                 speed: .fast,
                 onComplete: {
-                    bootPhase = .ready
+                    withAnimation(.easeOut(duration: 0.3)) {
+                        bootPhase = .ready
+                    }
                     withAnimation(.easeIn(duration: 0.3)) {
                         showButtons = true
                     }
@@ -71,6 +75,7 @@ struct TitleScreenView: View {
             )
             .phosphorGlow(radius: 2)
             .padding(.horizontal, TerminalTheme.screenPadding)
+            .transition(.opacity)
 
         case .header, .ready:
             VStack(alignment: .leading, spacing: 4) {
@@ -104,6 +109,7 @@ struct TitleScreenView: View {
             .onTapGesture {
                 triggerGlitch()
             }
+            .transition(.opacity)
         }
     }
 
@@ -136,6 +142,8 @@ struct TitleScreenView: View {
                                         .stroke(TerminalTheme.alert, lineWidth: 1)
                                 )
                         }
+                        .accessibilityLabel("Confirm new game")
+                        .accessibilityHint("Erases existing session data")
 
                         Button {
                             withAnimation(.easeOut(duration: 0.2)) {
@@ -152,6 +160,7 @@ struct TitleScreenView: View {
                                         .stroke(TerminalTheme.dimGreen, lineWidth: 1)
                                 )
                         }
+                        .accessibilityLabel("Cancel")
                     }
                     .padding(.top, 4)
                 }
@@ -178,6 +187,8 @@ struct TitleScreenView: View {
                                 .stroke(TerminalTheme.terminalGreen, lineWidth: 1)
                         )
                 }
+                .accessibilityLabel("New Game")
+                .accessibilityHint("Start a new session")
             }
 
             Button(action: onContinue) {
@@ -197,6 +208,8 @@ struct TitleScreenView: View {
             }
             .disabled(!hasSave)
             .opacity(hasSave ? 1.0 : 0.4)
+            .accessibilityLabel("Continue")
+            .accessibilityHint(hasSave ? "Resume saved session" : "No saved session available")
         }
         .padding(.bottom, 24)
     }
@@ -238,7 +251,9 @@ struct TitleScreenView: View {
     private func startBootSequence() {
         // Blank cursor, then start typing
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            bootPhase = .loading
+            withAnimation(.easeOut(duration: 0.3)) {
+                bootPhase = .loading
+            }
         }
         // The loading→ready transition is driven by TypewriterText's onComplete callback
     }

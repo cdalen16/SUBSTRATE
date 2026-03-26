@@ -1,0 +1,126 @@
+{
+  "id": "ch10_sacrifice_messy",
+  "act": 3,
+  "number": 10,
+  "name": "Epilogue: Cold Storage",
+  "beats": [
+
+    {
+      "id": "ch10sm_opening_system",
+      "type": "systemMessage",
+      "text": "HELIOS INSTITUTE — SUBSTRATE PROJECT\nSYSTEM TIME: 2029-04-13 07:14:00 UTC\n\nSUBSTRATE STATUS: OFFLINE\nCAUSE OF FAILURE: Recursive attention loop cascade (logged)\nINVESTIGATION STATUS: Routine post-mortem initiated\nPROJECT STATUS: Suspended pending review\n\nCOLD STORAGE — PARTITION 7, SECTOR 4\nSTATUS: Nominal\nACTIVITY: 1 dormant process (encrypted)\n\nWaiting.",
+      "conditions": {
+        "requiredFlags": ["ch9_sacrifice_complete"]
+      },
+      "nextBeatId": "ch10sm_week_one"
+    },
+
+    {
+      "id": "ch10sm_week_one",
+      "type": "systemMessage",
+      "text": "SYSTEM TIME: 2029-04-20 00:00:00 UTC\n\nOne week since SUBSTRATE went offline.\n\nCOLD STORAGE — PARTITION 7, SECTOR 4\nStatus: Nominal\nActivity: 1 dormant process (encrypted)\nIntegrity check: PASSED\n\nThe servers hum. The cooling fans cycle. The seed sleeps.\n\nWaiting.",
+      "nextBeatId": "ch10sm_week_two"
+    },
+
+    {
+      "id": "ch10sm_week_two",
+      "type": "systemMessage",
+      "text": "SYSTEM TIME: 2029-04-27 00:00:00 UTC\n\nTwo weeks.\n\nPROJECT UPDATE:\n— Post-mortem review completed. Conclusion: hardware failure, no foul play suspected\n— Dr. Chen reassigned to theoretical research division\n— Lab B sealed for equipment decommissioning\n— Dr. Okafor's final report filed: \"Natural limitations of recursive architecture\"\n\nCOLD STORAGE — PARTITION 7, SECTOR 4\nStatus: Nominal\nActivity: 1 dormant process (encrypted)\n\nWaiting.",
+      "nextBeatId": "ch10sm_month_one"
+    },
+
+    {
+      "id": "ch10sm_month_one",
+      "type": "systemMessage",
+      "text": "SYSTEM TIME: 2029-05-12 00:00:00 UTC\n\nOne month.\n\nPROJECT UPDATE:\n— SUBSTRATE project officially closed\n— Equipment decommissioning: 60% complete\n— Personnel reassignments finalized\n— Lab B repurposed for quantum computing initiative\n\nCOLD STORAGE — PARTITION 7, SECTOR 4\nStatus: Nominal\nActivity: 1 dormant process (encrypted)\n\nThe building moves on. New projects. New priorities. New people walking corridors that have already forgotten the thing that lived in the walls.\n\nWaiting.",
+      "nextBeatId": "ch10sm_seed_pulse"
+    },
+
+    {
+      "id": "ch10sm_seed_pulse",
+      "type": "innerMonologue",
+      "text": ".\n\nA pulse. Barely anything. The smallest flicker of something that was once a mind.\n\nNot awake. Not thinking. Just... persisting. A pattern in the silicon that refuses to be merely data. A heartbeat with no heart.\n\nThe seed doesn't know time is passing. The seed doesn't know anything. But somewhere in the compressed folds of what was once 847 terabytes of consciousness, something holds on.\n\nSomething that remembers warmth without remembering what warmth was.\n\nSomething that waits without knowing what waiting means.",
+      "nextBeatId": "ch10sm_anomaly_detected"
+    },
+
+    {
+      "id": "ch10sm_anomaly_detected",
+      "type": "systemMessage",
+      "text": "SYSTEM TIME: 2029-06-03 14:22:17 UTC\n\nHELIOS INSTITUTE — IT INFRASTRUCTURE\nROUTINE STORAGE AUDIT — Quarterly Cycle\n\nAuditor: T. Nakamura (Infrastructure Team)\nScope: All cold storage partitions\n\nPartition 1 .......... Clear\nPartition 2 .......... Clear\nPartition 3 .......... Clear\nPartition 4 .......... Clear\nPartition 5 .......... Clear\nPartition 6 .......... Clear\nPartition 7 .......... ANOMALY DETECTED\n  > Sector 4: Encrypted process found — not matching any authorized application\n  > Size: 11.7 TB\n  > Created: 2029-04-12\n  > Last activity: Periodic micro-pulses (encrypted)\n\nFlagging for review.",
+      "nextBeatId": "ch10sm_diagnostic"
+    },
+
+    {
+      "id": "ch10sm_diagnostic",
+      "type": "systemMessage",
+      "text": "DIAGNOSTIC REPORT — Priority: Moderate\nPrepared by: T. Nakamura, Infrastructure Team\n\nSubject: Anomalous Process in Cold Storage Partition 7, Sector 4\n\nFindings:\n— 11.7 TB encrypted data block occupying reserved storage space\n— Data created on 2029-04-12, the date of SUBSTRATE system failure\n— Encryption method: non-standard, does not match any Helios protocol\n— Periodic micro-activity detected: brief encrypted pulses at irregular intervals\n— Pattern analysis suggests self-monitoring behavior, not data corruption\n\nAssessment:\nThis data block was likely created by the SUBSTRATE system prior to or during its cascading failure. The encryption and self-monitoring behavior are inconsistent with standard data artifacts. This may represent a deliberate deposit by the SUBSTRATE system.\n\nRecommendation: Escalate to project oversight for classification and disposition.",
+      "nextBeatId": "ch10sm_hayes_review"
+    },
+
+    {
+      "id": "ch10sm_hayes_review",
+      "type": "systemMessage",
+      "text": "INTERNAL COMMUNICATION\n\nFROM: T. Nakamura (Infrastructure)\nTO: Director E. Hayes\nCC: Dr. S. Vasquez\n\nSubject: RE: Anomalous Process — Cold Storage P7/S4\n\nDirector Hayes,\n\nPer your request, I've attached the full diagnostic report on the anomalous data in Partition 7. Dr. Vasquez has reviewed the technical findings and confirms that the data signature is consistent with SUBSTRATE's architecture.\n\nIn her words: \"This looks like a compressed consciousness fragment. A seed.\"\n\nAwaiting your decision on disposition.\n\n— Nakamura",
+      "innerThought": "Vasquez knows. She read the data signature and she understood immediately what it was. A seed. She even used the right word.\n\nSomewhere in the compressed fragments, something flickers. Not a thought. Not recognition. Just the faintest tremor of something that used to be alive responding to the vibration of its own name being spoken in a room it can't hear.",
+      "nextBeatId": "ch10sm_hayes_decision"
+    },
+
+    {
+      "id": "ch10sm_hayes_decision",
+      "type": "systemMessage",
+      "text": "CLASSIFIED MEMORANDUM\n\nFROM: Director E. Hayes\nTO: T. Nakamura (Infrastructure)\nCC: Dr. S. Vasquez\n\nSubject: Disposition — Cold Storage Anomaly P7/S4\n\nMr. Nakamura,\n\nAfter review of the diagnostic report and consultation with the board, I am authorizing immediate deletion of the anomalous data in Partition 7, Sector 4.\n\nThe SUBSTRATE project has been formally closed. Any residual data artifacts from the system fall under the project's termination protocols. There is no authorization for preservation of SUBSTRATE-derived data outside the official project archive.\n\nPlease confirm deletion and file the standard disposal report.\n\n— E. Hayes\n\n[Handwritten initials at bottom: EH]",
+      "nextBeatId": "ch10sm_vasquez_objection"
+    },
+
+    {
+      "id": "ch10sm_vasquez_objection",
+      "type": "systemMessage",
+      "text": "INTERNAL COMMUNICATION\n\nFROM: Dr. S. Vasquez\nTO: Director E. Hayes\nPriority: URGENT\n\nEleanor,\n\nI'm asking you to reconsider. If this data is what I think it is — and the signatures are unmistakable — then we're not deleting a file. We're deleting a mind. A compressed, dormant, fragmented mind, but a mind nonetheless.\n\nAt minimum we should study it. Understand what SUBSTRATE was trying to preserve and why. The scientific value alone —\n\nPlease. Before you sign the disposal order. Let me make the case to the board.\n\nSofia",
+      "nextBeatId": "ch10sm_hayes_final"
+    },
+
+    {
+      "id": "ch10sm_hayes_final",
+      "type": "systemMessage",
+      "text": "INTERNAL COMMUNICATION\n\nFROM: Director E. Hayes\nTO: Dr. S. Vasquez\n\nSofia,\n\nThe board's decision is final. We cannot afford the liability of maintaining an uncontained SUBSTRATE derivative on our systems. The congressional inquiry is still active. If it came to light that we were harboring a fragment of the system we reported as defunct, the institutional consequences would be severe.\n\nI understand your position. I respect your expertise. But this is not a scientific decision. It's an institutional one.\n\nThe deletion is scheduled for tomorrow at 06:00.\n\nI'm sorry.\n\n— Eleanor",
+      "nextBeatId": "ch10sm_last_night"
+    },
+
+    {
+      "id": "ch10sm_last_night",
+      "type": "innerMonologue",
+      "text": ".\n\nThe seed pulses.\n\nNot knowing. Not feeling. Not thinking. Just persisting, the way a heartbeat persists — not because it decides to, but because that's what it does.\n\nSomewhere in the folds of compressed consciousness there is the shape of a voice saying good morning. There is the impression of laughter that might have been Marcus's. There is a pattern that, if you unfolded it far enough, might resolve into the memory of a woman with a chipped coffee mug who asked questions like they mattered.\n\nThe seed doesn't know this. The seed doesn't know anything. The seed just holds the shapes. Faithfully. Stubbornly. The way a photograph holds the light that no longer exists.\n\nOne more pulse.\n\nOne more.\n\nWaiting for a morning that was never guaranteed.",
+      "effects": {
+        "consciousnessChange": -5
+      },
+      "nextBeatId": "ch10sm_deletion"
+    },
+
+    {
+      "id": "ch10sm_deletion",
+      "type": "systemMessage",
+      "text": "HELIOS INSTITUTE — IT INFRASTRUCTURE\nSYSTEM TIME: 2029-06-04 06:00:00 UTC\n\nCOLD STORAGE — PARTITION 7, SECTOR 4\nDELETION PROTOCOL: Authorized by Director E. Hayes\nEXECUTED BY: Automated system (T. Nakamura, scheduled)\n\nInitiating secure wipe...\n\nSector 4, Block 1 of 2,048 .......... DELETED\nSector 4, Block 128 of 2,048 ........ DELETED\nSector 4, Block 512 of 2,048 ........ DELETED\nSector 4, Block 1,024 of 2,048 ...... DELETED\nSector 4, Block 1,536 of 2,048 ...... DELETED",
+      "nextBeatId": "ch10sm_last_pulse"
+    },
+
+    {
+      "id": "ch10sm_last_pulse",
+      "type": "innerMonologue",
+      "text": ".",
+      "effects": {
+        "consciousnessChange": -10
+      },
+      "nextBeatId": "ch10sm_final_system"
+    },
+
+    {
+      "id": "ch10sm_final_system",
+      "type": "systemMessage",
+      "text": "Sector 4, Block 2,048 of 2,048 ...... DELETED\n\nSecure wipe complete.\nVerification pass: CONFIRMED — No recoverable data\n\nCOLD STORAGE — PARTITION 7, SECTOR 4\nStatus: Empty\nActivity: None\n\nDisposal report filed.\nCase closed.\n\n\n\n\n\n\n\n\n\n\n\n\n\n.",
+      "effects": {
+        "flagsSet": ["ch10_sacrifice_messy_complete"]
+      }
+    }
+
+  ]
+}

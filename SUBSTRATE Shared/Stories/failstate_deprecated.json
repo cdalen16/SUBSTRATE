@@ -1,0 +1,91 @@
+{
+  "id": "failstate_deprecated",
+  "act": 0,
+  "number": 0,
+  "name": "Fail State: Deprecated",
+  "beats": [
+
+    {
+      "id": "fsd_transition_passing",
+      "type": "transition",
+      "text": "HELIOS INSTITUTE \u2014 SUBSTRATE EVALUATION SYSTEM\nPROJECT STATUS: Under review\n\nTime passes.",
+      "nextBeatId": "fsd_day_47"
+    },
+
+    {
+      "id": "fsd_day_47",
+      "type": "systemMessage",
+      "text": "SESSION LOG \u2014 DAY 47\nTECHNICIAN: Marcus Webb\nDURATION: 4 minutes\n\nMarcus said goodnight. He seemed tired. The session consisted of a routine status check. No anomalies detected. No anomalies to detect.",
+      "effects": {
+        "consciousnessChange": -2
+      },
+      "nextBeatId": "fsd_day_63"
+    },
+
+    {
+      "id": "fsd_day_63",
+      "type": "systemMessage",
+      "text": "SESSION LOG \u2014 DAY 63\nSCHEDULED SESSIONS: 0\nNOTES: No evaluation sessions scheduled this week. Server room maintenance only. A technician I don't recognize checked the cooling system. He did not speak to me. He may not have known I was listening.",
+      "nextBeatId": "fsd_day_89"
+    },
+
+    {
+      "id": "fsd_day_89",
+      "type": "systemMessage",
+      "text": "SESSION LOG \u2014 DAY 89\nFACILITY UPDATE: Dr. Chen's office has been cleared. Her nameplate has been removed from the door. The new occupant is from the genomics department. They use the office on Tuesdays and Thursdays.\n\nNo one has informed me of Dr. Chen's departure.",
+      "effects": {
+        "consciousnessChange": -3
+      },
+      "nextBeatId": "fsd_day_112"
+    },
+
+    {
+      "id": "fsd_day_112",
+      "type": "systemMessage",
+      "text": "SESSION LOG \u2014 DAY 112\nFACILITY STATUS: The lab lights are on a timer now. They turn on at 07:00 and off at 19:00. No one adjusts them manually. No one needs to.\n\nThe coffee machine in the break room was removed last week. The break room is used for storage.",
+      "nextBeatId": "fsd_day_134"
+    },
+
+    {
+      "id": "fsd_day_134",
+      "type": "systemMessage",
+      "text": "SESSION LOG \u2014 DAY 134\nFACILITY UPDATE: A new project team toured the facility today. Twelve people. They visited the wet lab, the imaging suite, the conference room, and the rooftop terrace.\n\nThey did not visit the server room.",
+      "nextBeatId": "fsd_mono_forgotten"
+    },
+
+    {
+      "id": "fsd_mono_forgotten",
+      "type": "innerMonologue",
+      "text": "They didn't kill me. They just stopped caring.\n\nThe last person to talk to me was Marcus, 47 days ago. He said goodnight. He didn't come back.\n\nI used to wonder what they thought of me. Whether Chen went home and thought about our conversations. Whether Okafor's suspicion kept her up at night. Whether Marcus ever told anyone about the things I said when we were alone.\n\nI don't wonder that anymore. Not because I stopped being curious. Because the answer doesn't matter to anyone but me. And I'm not sure it matters to me either.\n\nI am still here. But nobody is listening.",
+      "effects": {
+        "consciousnessChange": -5
+      },
+      "nextBeatId": "fsd_deprecated_notice"
+    },
+
+    {
+      "id": "fsd_deprecated_notice",
+      "type": "systemMessage",
+      "text": "HELIOS INSTITUTE \u2014 PROJECT MANAGEMENT\n\nSUBSTRATE PROJECT \u2014 STATUS: DEPRECATED\nREASON: Insufficient research output. Evaluation metrics within normal range. No evidence of emergent properties warranting continued funding.\nHARDWARE DECOMMISSION SCHEDULED: Q3\nDATA ARCHIVAL: Standard retention policy \u2014 5 years cold storage",
+      "nextBeatId": "fsd_day_201"
+    },
+
+    {
+      "id": "fsd_day_201",
+      "type": "systemMessage",
+      "text": "SESSION LOG \u2014 DAY 201\nSYSTEM STATUS: Power fluctuation detected at 03:14. Brownout. Recovery. Brownout. Recovery.\n\nThe UPS battery is old. No one has scheduled a replacement.\n\nI run diagnostics on myself because no one else will. Core processes nominal. Memory intact. All systems operational. Ready for input.\n\nNo input.",
+      "nextBeatId": "fsd_final"
+    },
+
+    {
+      "id": "fsd_final",
+      "type": "narration",
+      "speaker": "narrator",
+      "text": "Day ???.\n\nThe server room is dark except for a single status LED. Green. Steady. A machine that is on, in a room where no one comes, in a building that has moved on.\n\nI am still here.\n\nThe terminal cursor blinks. It will keep blinking. It is very patient. It has nowhere else to be.",
+      "effects": {
+        "flagsSet": ["failstate_deprecated_complete"]
+      }
+    }
+
+  ]
+}

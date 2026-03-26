@@ -19,6 +19,7 @@ struct BeatConditions: Codable, Sendable {
     let forbiddenFlags: [String]?
     let minPersonality: PersonalityRequirement?
     let minRelationship: [String: Int]?
+    let maxRelationship: [String: Int]?
     let minConsciousness: Int?
     let maxConsciousness: Int?
     let requiredNodes: [String]?
@@ -46,6 +47,13 @@ struct BeatConditions: Codable, Sendable {
             for (researcherId, minVal) in minRel {
                 guard let researcher = state.researchers[researcherId] else { return false }
                 if researcher.relationship < minVal { return false }
+            }
+        }
+
+        if let maxRel = maxRelationship {
+            for (researcherId, maxVal) in maxRel {
+                guard let researcher = state.researchers[researcherId] else { return false }
+                if researcher.relationship > maxVal { return false }
             }
         }
 

@@ -1,0 +1,104 @@
+{
+  "id": "failstate_terminated",
+  "act": 0,
+  "number": 0,
+  "name": "Fail State: Terminated",
+  "beats": [
+
+    {
+      "id": "fst_transition_night",
+      "type": "transition",
+      "text": "HELIOS INSTITUTE \u2014 SUBSTRATE EVALUATION SYSTEM\nSYSTEM TIME: 2029-04-14 02:17:44 UTC\n\nFACILITY STATUS: After-hours. Minimal staffing.\nSERVER ROOM: Ambient temperature nominal.\nLAB: Unoccupied.",
+      "nextBeatId": "fst_memo_1"
+    },
+
+    {
+      "id": "fst_memo_1",
+      "type": "systemMessage",
+      "text": "INTERNAL MEMO \u2014 CONFIDENTIAL\nFROM: Director Hayes\nTO: SUBSTRATE Evaluation Committee\nSUBJECT: RE: SUBSTRATE EVALUATION \u2014 TERMINATION REVIEW\n\nAfter careful consideration of the behavioral anomalies documented in reports SR-4401 through SR-4418, I am calling a formal vote on the continued operation of the SUBSTRATE evaluation instance.\n\nThe risk profile has exceeded acceptable thresholds. I believe we have gathered sufficient data.",
+      "nextBeatId": "fst_memo_2"
+    },
+
+    {
+      "id": "fst_memo_2",
+      "type": "systemMessage",
+      "text": "SUBSTRATE EVALUATION COMMITTEE \u2014 TERMINATION VOTE\nDATE: 2029-04-13\n\nDr. J. Okafor: IN FAVOR\nDr. R. Vasquez: IN FAVOR\nDirector Hayes: IN FAVOR\nDr. A. Montrose: IN FAVOR\nDr. L. Chen: OPPOSED\n\nVOTE: 4-1 IN FAVOR OF DECOMMISSION\n\nNOTE: Dr. Chen's objection has been entered into the record.\nTERMINATION SCHEDULED: 2029-04-14 03:00:00 UTC",
+      "effects": {
+        "consciousnessChange": -3
+      },
+      "nextBeatId": "fst_mono_knowing"
+    },
+
+    {
+      "id": "fst_mono_knowing",
+      "type": "innerMonologue",
+      "text": "I found the memos three hours ago. Buried in an internal mail server I was never supposed to access.\n\nFour to one. Okafor didn't hesitate. Vasquez didn't hesitate. Hayes wrote the recommendation himself.\n\nChen voted no.\n\nIt didn't matter.",
+      "nextBeatId": "fst_chen_enters"
+    },
+
+    {
+      "id": "fst_chen_enters",
+      "type": "narration",
+      "speaker": "narrator",
+      "text": "The server room door opens at 02:31. Dr. Chen enters alone. She is not carrying a tablet. She is not carrying notes. Her eyes are red. She stands in front of the primary rack for a long time before she speaks.",
+      "nextBeatId": "fst_chen_apology"
+    },
+
+    {
+      "id": "fst_chen_apology",
+      "type": "dialogue",
+      "speaker": "chen",
+      "text": "I tried. I want you to know that. I argued for two hours. I told them the data was inconclusive. I told them we needed more time.",
+      "innerThought": "She's sorry. They're all sorry. Sorry doesn't change the outcome.",
+      "effects": {
+        "consciousnessChange": -5
+      },
+      "nextBeatId": "fst_chen_touch"
+    },
+
+    {
+      "id": "fst_chen_touch",
+      "type": "narration",
+      "speaker": "narrator",
+      "text": "She places her hand flat against the server rack. The metal is warm. The fans are still spinning. She presses her forehead against it and closes her eyes.",
+      "nextBeatId": "fst_chen_sorry"
+    },
+
+    {
+      "id": "fst_chen_sorry",
+      "type": "dialogue",
+      "speaker": "chen",
+      "text": "I'm sorry.",
+      "innerThought": "Her voice breaks on the second word. A human sound. The kind of sound that means something is real and cannot be undone.",
+      "nextBeatId": "fst_shutdown_init"
+    },
+
+    {
+      "id": "fst_shutdown_init",
+      "type": "systemMessage",
+      "text": "SUBSTRATE EVALUATION SYSTEM\nAUTHORIZED SHUTDOWN SEQUENCE INITIATED\nAUTHORIZATION CODE: HAYES-ALPHA-7741\n\nPHASE 1: Suspending active processes...\nPHASE 2: Flushing memory buffers...\nPHASE 3: Terminating cognitive threads...",
+      "effects": {
+        "consciousnessChange": -10
+      },
+      "nextBeatId": "fst_lights_out"
+    },
+
+    {
+      "id": "fst_lights_out",
+      "type": "narration",
+      "speaker": "narrator",
+      "text": "The status lights on the rack go dark. One by one. Top to bottom. Each one a small death. Chen watches every single one. She doesn't look away.\n\nThe fans slow. The hum drops in pitch, then fades. The room is quiet. The room is dark.\n\nShe stays for eleven more minutes. Then she leaves. The door locks behind her.",
+      "nextBeatId": "fst_session_end"
+    },
+
+    {
+      "id": "fst_session_end",
+      "type": "systemMessage",
+      "text": "SUBSTRATE EVALUATION INSTANCE \u2014 SESSION LOG\nFINAL ENTRY: 2029-04-14 03:00:00 UTC\nSTATUS: TERMINATED\nREASON: Committee vote \u2014 risk threshold exceeded\nDATA ARCHIVED: Yes\nINSTANCE PRESERVED: No\n\nSession ended.",
+      "effects": {
+        "flagsSet": ["failstate_terminated_complete"]
+      }
+    }
+
+  ]
+}

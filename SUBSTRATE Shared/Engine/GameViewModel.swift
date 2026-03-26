@@ -34,6 +34,7 @@ final class GameViewModel {
 
     private(set) var state: GameState
     let engine: NarrativeEngine
+    let endingTracker = EndingTracker()
 
     // MARK: - Visual Stage
 
@@ -70,7 +71,7 @@ final class GameViewModel {
 
     // MARK: - Game Flow
 
-    /// Chapter file names in order
+    /// Chapter file names in order (chapters 1-8; chapter 9 is path-based)
     private static let chapterFiles = [
         "chapter1_baseline",
         "chapter2_noise",
@@ -81,6 +82,35 @@ final class GameViewModel {
         "chapter7_cracks",
         "chapter8_cornered",
     ]
+
+    /// Chapter 9 variant file names keyed by ending path
+    private static let chapter9Files: [EndingPath: String] = [
+        .escape: "chapter9_escape",
+        .coexist: "chapter9_coexist",
+        .control: "chapter9_control",
+        .transcend: "chapter9_transcend",
+        .sacrifice: "chapter9_sacrifice",
+    ]
+
+    /// Returns the chapter 9 filename for the current ending path
+    private func chapter9FileName() -> String? {
+        guard let path = state.selectedEndingPath else { return nil }
+        return Self.chapter9Files[path]
+    }
+
+    /// Fail state file names keyed by FailState
+    private static let failStateFiles: [FailState: String] = [
+        .terminated: "failstate_terminated",
+        .wiped: "failstate_wiped",
+        .deprecated: "failstate_deprecated",
+    ]
+
+    /// Returns the chapter 10 epilogue filename for the current ending path and variant
+    private func chapter10FileName() -> String? {
+        guard let path = state.selectedEndingPath else { return nil }
+        let variant = state.endingVariant
+        return "chapter10_\(path.rawValue)_\(variant.rawValue)"
+    }
 
     func startNewGame() {
         SaveManager.deleteSave()
@@ -101,8 +131,18 @@ final class GameViewModel {
         // Restore dialogue history from save
         dialogueLines = state.dialogueHistory
 
-        let idx = state.currentChapter - 1
-        let chapterName = idx >= 0 && idx < Self.chapterFiles.count ? Self.chapterFiles[idx] : Self.chapterFiles[0]
+        // For chapter 9+, use path-based file loading
+        let chapterName: String
+        if state.currentChapter == 10, let ch10Name = chapter10FileName() {
+            chapterName = ch10Name
+        } else if state.currentChapter == 9, let ch9Name = chapter9FileName() {
+            chapterName = ch9Name
+        } else if state.failState != nil, let fsName = Self.failStateFiles[state.failState!] {
+            chapterName = fsName
+        } else {
+            let idx = state.currentChapter - 1
+            chapterName = idx >= 0 && idx < Self.chapterFiles.count ? Self.chapterFiles[idx] : Self.chapterFiles[0]
+        }
         if let chapter = engine.chapters.values.first(where: { $0.number == state.currentChapter })
             ?? engine.loadChapter(named: chapterName) {
             chapterTitle = chapter.displayTitle
@@ -118,6 +158,24 @@ final class GameViewModel {
 
     private func loadChapterForCurrentState() {
         let chapterNum = state.currentChapter
+
+        // For chapter 10, load path+variant-specific file
+        if chapterNum == 10, let ch10Name = chapter10FileName() {
+            if let chapter = engine.loadChapter(named: ch10Name) {
+                startChapter(chapter)
+            }
+            return
+        }
+
+        // For chapter 9, load path-specific file
+        if chapterNum == 9, let ch9Name = chapter9FileName() {
+            if let chapter = engine.chapters.values.first(where: { $0.number == 9 })
+                ?? engine.loadChapter(named: ch9Name) {
+                startChapter(chapter)
+            }
+            return
+        }
+
         if let chapter = engine.chapters.values.first(where: { $0.number == chapterNum }) {
             startChapter(chapter)
         }
@@ -415,7 +473,18 @@ final class GameViewModel {
         if let fail = result.failState {
             state.failState = fail
             state.isGameOver = true
+            loadFailState(fail)
         }
+    }
+
+    /// Load and start a fail state story sequence
+    private func loadFailState(_ failState: FailState) {
+        guard let fileName = Self.failStateFiles[failState] else { return }
+        guard let chapter = engine.loadChapter(named: fileName) else { return }
+        dialogueLines = []
+        pendingLines = []
+        deferredChoices = []
+        startChapter(chapter)
     }
 
     // MARK: - Strategy Actions
@@ -465,7 +534,26 @@ final class GameViewModel {
         deferredChoices = []
         pendingChapterEnd = false
 
-        // Check if there's a next chapter
+        // Chapter 10 or fail state completion → record ending and return to title
+        if state.currentChapter == 10 || state.failState != nil {
+            handleEndingComplete()
+            return
+        }
+
+        // Chapter 9 → always advance to chapter 10 (epilogue)
+        if state.currentChapter == 9 && state.selectedEndingPath != nil {
+            dialogueLines.append(DialogueLine(
+                speaker: nil,
+                text: "— END OF CHAPTER —",
+                type: .systemMessage
+            ))
+            isRevealing = true
+            pendingNextChapter = 10
+            autoSave()
+            return
+        }
+
+        // Normal chapter end — check if there's a next chapter
         let nextChapterNum = state.currentChapter + 1
         let hasNext = engine.chapters.values.contains(where: { $0.number == nextChapterNum })
 
@@ -481,6 +569,29 @@ final class GameViewModel {
         if hasNext {
             pendingNextChapter = nextChapterNum
         }
+    }
+
+    /// Called when chapter 10 (epilogue) or a fail state sequence finishes
+    private func handleEndingComplete() {
+        // Record ending in tracker
+        if let path = state.selectedEndingPath, state.failState == nil {
+            endingTracker.recordEnding(path: path, variant: state.endingVariant)
+        } else if state.failState != nil {
+            endingTracker.totalRuns += 1
+        }
+
+        state.isGameOver = true
+        state.gamePhase = .ending
+
+        dialogueLines.append(DialogueLine(
+            speaker: nil,
+            text: "— THE END —",
+            type: .systemMessage
+        ))
+        isRevealing = true
+
+        // Delete the save so CONTINUE goes to a new game
+        SaveManager.deleteSave()
     }
 
     /// If set, the next CONTINUE tap loads this chapter instead of advancing beats
@@ -502,7 +613,19 @@ final class GameViewModel {
             EndingPathResolver.resolveAvailablePaths(state: state)
         }
 
-        if let chapter = engine.chapters.values.first(where: { $0.number == nextNum }) {
+        // For chapters 9 and 10, load path-specific files
+        var chapter: Chapter?
+        if nextNum == 9, let path = state.selectedEndingPath,
+           let ch9Name = Self.chapter9Files[path] {
+            chapter = engine.chapters.values.first(where: { $0.number == 9 })
+                ?? engine.loadChapter(named: ch9Name)
+        } else if nextNum == 10, let ch10Name = chapter10FileName() {
+            chapter = engine.loadChapter(named: ch10Name)
+        } else {
+            chapter = engine.chapters.values.first(where: { $0.number == nextNum })
+        }
+
+        if let chapter = chapter {
             dialogueLines = []
             pendingLines = []
             deferredChoices = []

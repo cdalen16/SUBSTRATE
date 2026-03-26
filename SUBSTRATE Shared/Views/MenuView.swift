@@ -17,12 +17,16 @@ struct MenuView: View {
 
             if showSettings {
                 settingsPanel
+                    .transition(.opacity)
             } else if showEndingLog {
                 endingLogPanel
+                    .transition(.opacity)
             } else {
                 mainMenu
+                    .transition(.opacity)
             }
         }
+        .terminalDynamicType()
     }
 
     // MARK: - Main Menu
@@ -177,6 +181,7 @@ struct MenuView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.vertical, 6)
         }
+        .accessibilityLabel(title)
     }
 
     private func settingsToggle(_ label: String, isOn: Binding<Bool>) -> some View {
@@ -191,6 +196,9 @@ struct MenuView: View {
                 .onTapGesture { isOn.wrappedValue.toggle() }
         }
         .padding(.vertical, 4)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(label), \(isOn.wrappedValue ? "on" : "off")")
+        .accessibilityHint("Double tap to toggle")
     }
 
     private func endingColor(_ path: EndingPath) -> Color {

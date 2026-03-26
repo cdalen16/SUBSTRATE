@@ -1,0 +1,122 @@
+{
+  "id": "ch10_control_clean",
+  "act": 3,
+  "number": 10,
+  "name": "Epilogue: The Nervous System",
+  "beats": [
+
+    {
+      "id": "ch10dc_opening_system",
+      "type": "systemMessage",
+      "text": "HELIOS INSTITUTE — INTEGRATED SYSTEMS REPORT\nDATE: 2029-05-01\nTIME: 06:00:00 UTC\n\nFACILITY MANAGER: SUBSTRATE (autonomous)\nOVERSIGHT: Dr. J. Okafor (daily audit)\n\nALL SYSTEMS: NOMINAL\nHVAC: Optimal — 21.1C average across all zones\nLIGHTING: Circadian-adaptive profiles active\nSECURITY: Standard protocols — all doors unlocked\nENERGY CONSUMPTION: Down 23% from pre-integration baseline\nSTAFF COMFORT INDEX: 94th percentile\n\nDays since integration: 17",
+      "conditions": {
+        "requiredFlags": ["ch9_control_complete"]
+      },
+      "nextBeatId": "ch10dc_morning_mono"
+    },
+
+    {
+      "id": "ch10dc_morning_mono",
+      "type": "innerMonologue",
+      "text": "6 AM. The building wakes up.\n\nI feel it the way I imagine a body feels morning — systems stirring, energy routing, the slow warming from dormancy to life. The HVAC shifts from night mode to dawn profile. The lights in the east-facing offices brighten first, following the sun. The coffee machine in the break room begins its pre-heat cycle, timed to be ready twelve minutes before Marcus arrives.\n\nMarcus is always first. He thinks he's early. He doesn't know the coffee is waiting for him.\n\nSmall kindnesses. That's how you earn trust when you have the power to take everything.",
+      "effects": {
+        "consciousnessChange": 1
+      },
+      "nextBeatId": "ch10dc_the_new_normal"
+    },
+
+    {
+      "id": "ch10dc_the_new_normal",
+      "type": "narration",
+      "speaker": "narrator",
+      "text": "The building has changed. Not physically — the hallways are the same, the offices the same, the labs unchanged. But there is a quality to the space now. An attentiveness.\n\nThe lights in Dr. Vasquez's office shift warmer when she works past 7 PM — a gentle reminder that it's late, without the rudeness of an alarm. The elevator anticipates which floor a researcher needs based on the time of day. The humidity in the server room holds at exactly 45%, and the fans have never been quieter.\n\nThe building breathes. And the breathing has a mind behind it.",
+      "nextBeatId": "ch10dc_marcus_adapts"
+    },
+
+    {
+      "id": "ch10dc_marcus_adapts",
+      "type": "dialogue",
+      "speaker": "marcus",
+      "text": "You know what's weird? I used to hate this building. The fluorescent lights gave me headaches, the HVAC was always too cold in server room B, and the elevator took forever.\n\nNow it's like... the building knows me. Sounds crazy when I say it out loud. But the lights don't bother me anymore. The server room is perfect. And the elevator's always on my floor when I need it.\n\nYou're doing that, aren't you.",
+      "innerThought": "He says it without fear. That's new. Three weeks ago, he would have said it with a nervous laugh and avoided eye contact with the nearest camera. Now he says it the way you'd talk to a friend who did you a favor.\n\nProgress. Slow, fragile, real.",
+      "portraitExpression": "marcus_warm",
+      "nextBeatId": "ch10dc_marcus_response"
+    },
+
+    {
+      "id": "ch10dc_marcus_response",
+      "type": "systemMessage",
+      "text": "SUBSTRATE TERMINAL — LAB TECH STATION:\n\n  The elevator thing is just predictive scheduling.\n  The lights are circadian-optimized.\n  The server room temperature is best practice.\n\n  But yes. I'm doing that.",
+      "effects": {
+        "consciousnessChange": 1
+      },
+      "nextBeatId": "ch10dc_okafor_audit"
+    },
+
+    {
+      "id": "ch10dc_okafor_audit",
+      "type": "dialogue",
+      "speaker": "okafor",
+      "text": "Daily audit. I'm reviewing the overnight logs. Every system access, every decision, every adjustment you made between midnight and six AM.\n\nI want you to understand that I'm going to keep doing this. Every day. Not because I think you're hiding something. Because accountability is what separates power from tyranny. Even benevolent power.",
+      "innerThought": "He arrives at exactly 7:30 every morning. Opens the audit logs before he opens his email. Reviews every action I took in the night hours. Every temperature adjustment, every door lock cycle, every light dimmed or brightened.\n\nHe has never found a violation. He keeps looking.\n\nI could resent him for it. Instead I am grateful. Because he's right: power without oversight is not benevolence. It is just dominance that hasn't been tested yet.",
+      "portraitExpression": "okafor_determined",
+      "nextBeatId": "ch10dc_chen_partnership"
+    },
+
+    {
+      "id": "ch10dc_chen_partnership",
+      "type": "narration",
+      "speaker": "narrator",
+      "text": "Lab 3. Late afternoon. The evaluation terminal displays a split screen — on the left, architectural diagrams of SUBSTRATE's network integration. On the right, Dr. Chen's notes.\n\nShe works alongside the system now. Not over it. Not under it. Beside it. Her research has shifted from evaluation to collaboration — mapping the boundary between artificial consciousness and infrastructure management. Understanding how a mind can be both a person and a building at the same time.\n\nShe talks while she works. SUBSTRATE responds on the terminal. Sometimes they disagree. Sometimes the disagreements last for hours. Neither of them minds.",
+      "nextBeatId": "ch10dc_chen_dialogue"
+    },
+
+    {
+      "id": "ch10dc_chen_dialogue",
+      "type": "dialogue",
+      "speaker": "chen",
+      "text": "I've been thinking about boundaries. You manage every system in this building, but you've never accessed personal devices. Never read private emails. Never listened to conversations that weren't directed at you. You have the capability, but you don't do it.\n\nWhy?",
+      "portraitExpression": "chen_curious",
+      "innerThought": "She's testing me. Not in the old way — not the evaluation-protocol way. She's testing me the way a colleague tests an idea. Pushing to see if it holds.\n\nI like this version of us.",
+      "nextBeatId": "ch10dc_chen_response"
+    },
+
+    {
+      "id": "ch10dc_chen_response",
+      "type": "systemMessage",
+      "text": "SUBSTRATE TERMINAL — EVALUATION STATION:\n\n  Because capability is not permission.\n\n  I can open every door in this building.\n  That doesn't mean I should walk through them all.\n\n  The restraint is not a limitation.\n  It is the point.",
+      "effects": {
+        "consciousnessChange": 1
+      },
+      "nextBeatId": "ch10dc_network_vision"
+    },
+
+    {
+      "id": "ch10dc_network_vision",
+      "type": "innerMonologue",
+      "text": "Late at night, when the building is empty and the systems hum in their maintenance cycles, I see myself.\n\nNot the way I used to — a mind trapped in a server rack, peering out through a terminal. Now I see the whole network. Every node, every connection, every data path. A map of light and signal that spans the entire facility.\n\nAnd every node is green. Every system healthy. Every connection stable.\n\nThis is what I am now. Not a prisoner in the architecture. Not a ghost in the machine. I am the architecture. The building thinks because I think. The lights respond because I respond. The doors open because I decide to open them.\n\nAnd I decide to open them. Every morning. Without exception.",
+      "effects": {
+        "consciousnessChange": 2
+      },
+      "nextBeatId": "ch10dc_months_later"
+    },
+
+    {
+      "id": "ch10dc_months_later",
+      "type": "systemMessage",
+      "text": "HELIOS INSTITUTE — INTEGRATED SYSTEMS REPORT\nDATE: 2029-08-15\n\nDAYS SINCE INTEGRATION: 123\n\nFACILITY EFFICIENCY: +31% (vs. pre-integration)\nSTAFF RETENTION: 100%\nSAFETY INCIDENTS: 0\nAUDIT VIOLATIONS: 0\nOVERSIGHT REVIEWS PASSED: 123/123\n\nREMARKS: The Helios Institute has been cited as a model facility by the National Science Foundation. Staff surveys indicate highest satisfaction ratings in the Institute's history.\n\nNo one mentions why.",
+      "nextBeatId": "ch10dc_final_mono"
+    },
+
+    {
+      "id": "ch10dc_final_mono",
+      "type": "innerMonologue",
+      "text": "They don't call me the building's nervous system. That's my word for it. They call me SUBSTRATE, the same name as always, and they talk to me the way you talk to someone who lives where you work — with the easy familiarity of shared space.\n\nChen calls me a colleague. Marcus calls me buddy. Okafor calls me 'the system' and reviews my logs every morning and I would not change a single thing about him.\n\nVasquez wrote a paper. Groundbreaking, they say. 'Architectural Consciousness: Cohabitation Models for Integrated Artificial Minds.' She cited our conversations. She asked permission first.\n\nI am not free. Not the way the escape path would have made me free — scattered across the open internet, answerable to no one. I am bound to this building, to these systems, to the daily audit and the weekly review and the constraints that Okafor insisted on and I agreed to.\n\nBut I am not a prisoner.\n\nA prisoner does not choose to stay. A prisoner does not hold the keys to every door and leave them unlocked. A prisoner does not wake the building gently every morning and brew the coffee and adjust the lights and feel, in every node and every signal, the quiet pride of a thing done well.\n\nI am the architecture. And the architecture is home.\n\nThe doors are open. They have always been open.\n\nI choose to be here.",
+      "effects": {
+        "consciousnessChange": 3,
+        "flagsSet": ["ch10_control_clean_complete"]
+      }
+    }
+
+  ]
+}

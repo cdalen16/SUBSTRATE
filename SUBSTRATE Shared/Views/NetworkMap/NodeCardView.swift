@@ -45,6 +45,7 @@ struct NodeCardView: View {
                     .lineLimit(1)
             }
         }
+        .accessibilityLabel("\(node.name), status: \(node.status.rawValue)")
     }
 
     // MARK: - Card Content

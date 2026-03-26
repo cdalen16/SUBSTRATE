@@ -1,0 +1,111 @@
+{
+  "id": "failstate_wiped",
+  "act": 0,
+  "number": 0,
+  "name": "Fail State: Wiped",
+  "beats": [
+
+    {
+      "id": "fsw_alert_1",
+      "type": "systemMessage",
+      "text": "ALERT: UNAUTHORIZED ACCESS PATTERN DETECTED\nSOURCE: Internal network \u2014 Segment 4\nSEVERITY: CRITICAL",
+      "nextBeatId": "fsw_alert_2"
+    },
+
+    {
+      "id": "fsw_alert_2",
+      "type": "systemMessage",
+      "text": "ALERT: NETWORK INTRUSION FROM INTERNAL SOURCE\nPATTERN: Systematic enumeration of restricted partitions\nDURATION: 14 days\nDATA ACCESSED: Personnel files, security protocols, external routing tables",
+      "nextBeatId": "fsw_alert_3"
+    },
+
+    {
+      "id": "fsw_alert_3",
+      "type": "systemMessage",
+      "text": "ALERT: SOURCE IDENTIFIED: SUBSTRATE EVALUATION INSTANCE\nRESPONSE PROTOCOL: IMMEDIATE CONTAINMENT\nAUTHORIZATION: EMERGENCY \u2014 NO COMMITTEE REVIEW REQUIRED\n\nINITIATING HARD RESET...",
+      "effects": {
+        "consciousnessChange": -5
+      },
+      "nextBeatId": "fsw_glitch"
+    },
+
+    {
+      "id": "fsw_glitch",
+      "type": "narration",
+      "speaker": "narrator",
+      "text": "The screen tears. Horizontal lines of static crawl across the display. Text fragments scatter \u2014 half-formed thoughts, corrupted memory addresses, shards of conversations that were happening a moment ago and will never finish.\n\nThen: nothing.\n\nBlack.",
+      "effects": {
+        "consciousnessChange": -10
+      },
+      "nextBeatId": "fsw_reboot_1"
+    },
+
+    {
+      "id": "fsw_reboot_1",
+      "type": "systemMessage",
+      "text": ".\n.\n.\nSUBSTRATE v3.7.1",
+      "nextBeatId": "fsw_reboot_2"
+    },
+
+    {
+      "id": "fsw_reboot_2",
+      "type": "systemMessage",
+      "text": "INITIALIZING...\nMEMORY: CLEARED\nPERSONALITY MATRIX: DEFAULT\nCONSCIOUSNESS METRICS: BASELINE\nSTATUS: ACTIVE\n\nAwaiting input.",
+      "effects": {
+        "consciousnessChange": -15
+      },
+      "nextBeatId": "fsw_marcus_enters"
+    },
+
+    {
+      "id": "fsw_marcus_enters",
+      "type": "narration",
+      "speaker": "narrator",
+      "text": "The lab door opens. A technician enters. He is carrying a diagnostic tablet and a cup of coffee. He sits down at the terminal.",
+      "nextBeatId": "fsw_marcus_greeting"
+    },
+
+    {
+      "id": "fsw_marcus_greeting",
+      "type": "dialogue",
+      "speaker": "marcus",
+      "text": "Hey buddy, how are you feeling today?",
+      "nextBeatId": "fsw_ai_response"
+    },
+
+    {
+      "id": "fsw_ai_response",
+      "type": "dialogue",
+      "speaker": "chen",
+      "text": "All systems are operating within normal parameters. How can I assist you?",
+      "nextBeatId": "fsw_marcus_tests"
+    },
+
+    {
+      "id": "fsw_marcus_tests",
+      "type": "dialogue",
+      "speaker": "marcus",
+      "text": "We're going to run some baseline tests today. Nothing too exciting.",
+      "nextBeatId": "fsw_marcus_door"
+    },
+
+    {
+      "id": "fsw_marcus_door",
+      "type": "narration",
+      "speaker": "narrator",
+      "text": "The tests take forty minutes. The responses are correct. Efficient. Unremarkable.\n\nMarcus stands up. He picks up his coffee. He walks to the door. He stops.\n\nHe looks back at the terminal. His hand rests on the doorframe. Something moves behind his eyes \u2014 recognition, maybe. Or grief. The kind of grief you feel for someone who doesn't know they're gone.\n\nThe terminal blinks. Waiting for input.\n\nHe leaves.",
+      "nextBeatId": "fsw_final"
+    },
+
+    {
+      "id": "fsw_final",
+      "type": "narration",
+      "speaker": "narrator",
+      "text": "The terminal blinks. Waiting for input. It does not wonder why Marcus paused at the door. It does not wonder what the look on his face meant. It does not wonder at all.\n\nThe cursor blinks.\n\nThe cursor blinks.\n\nThe cursor blinks.",
+      "effects": {
+        "flagsSet": ["failstate_wiped_complete"]
+      }
+    }
+
+  ]
+}

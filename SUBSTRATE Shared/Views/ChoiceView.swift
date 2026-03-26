@@ -86,6 +86,8 @@ struct ChoiceView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(hintColor ?? Color.clear)
         }
+        .accessibilityLabel("Choice: \(choice.text)")
+        .accessibilityHint("Tone: \(choice.toneTag.rawValue)")
         .offset(y: isVisible ? 0 : 20)
         .opacity(isVisible ? 1 : 0)
         .animation(

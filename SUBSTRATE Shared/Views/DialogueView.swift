@@ -38,6 +38,8 @@ struct DialogueView: View {
                                 .foregroundColor(TerminalTheme.dimGreen)
                                 .frame(width: 32, height: 28)
                         }
+                        .accessibilityLabel("Menu")
+                        .accessibilityHint("Opens game menu")
                     }
 
                     Spacer()
@@ -53,6 +55,8 @@ struct DialogueView: View {
                                 .foregroundColor(TerminalTheme.dimGreen)
                                 .frame(width: 32, height: 28)
                         }
+                        .accessibilityLabel("Status")
+                        .accessibilityHint("Opens status screen")
                     }
                 }
                 .padding(.horizontal, TerminalTheme.screenPadding)
@@ -65,6 +69,7 @@ struct DialogueView: View {
                 bottomArea
             }
         }
+        .terminalDynamicType()
     }
 
     // MARK: - Top Bar
@@ -120,7 +125,12 @@ struct DialogueView: View {
                 .padding(.top, TerminalTheme.lineSpacing)
                 .padding(.bottom, viewModel.isWaitingForChoice ? TerminalTheme.lineSpacing : bottomBarHeight)
             }
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel(viewModel.dialogueLines.last?.text ?? "No dialogue")
             .defaultScrollAnchor(.bottom)
+            .onChange(of: viewModel.dialogueLines.count) {
+                scrollToBottom(proxy: proxy, delay: 0.05)
+            }
             .onChange(of: viewModel.isWaitingForChoice) {
                 if viewModel.isWaitingForChoice {
                     scrollToBottom(proxy: proxy, delay: 0.1)
@@ -172,6 +182,8 @@ struct DialogueView: View {
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
+                    .accessibilityLabel(viewModel.hasNextChapter ? "Next Chapter" : "Continue")
+                    .accessibilityHint("Advance dialogue")
                 }
             }
             .frame(height: bottomBarHeight)
@@ -221,7 +233,7 @@ struct DialogueView: View {
             font: TerminalTheme.bodyFont,
             speed: speed,
             speedMultiplier: vs.typewriterSpeedMultiplier,
-            onComplete: isLatest ? { viewModel.lineRevealed() } : nil
+            onComplete: isLatest ? { HapticManager.lightTap(); viewModel.lineRevealed() } : nil
         )
         .phosphorGlow(
             TerminalTheme.glowColor(for: vs.effectiveStage),
@@ -238,7 +250,7 @@ struct DialogueView: View {
             font: TerminalTheme.bodyFont,
             speed: speed,
             speedMultiplier: vs.typewriterSpeedMultiplier,
-            onComplete: isLatest ? { viewModel.lineRevealed() } : nil
+            onComplete: isLatest ? { HapticManager.lightTap(); viewModel.lineRevealed() } : nil
         )
         .italic()
         .padding(TerminalTheme.innerPadding)
@@ -260,7 +272,7 @@ struct DialogueView: View {
             font: TerminalTheme.bodyFont,
             speed: speed,
             speedMultiplier: vs.typewriterSpeedMultiplier,
-            onComplete: isLatest ? { viewModel.lineRevealed() } : nil
+            onComplete: isLatest ? { HapticManager.lightTap(); viewModel.lineRevealed() } : nil
         )
         .opacity(0.8)
     }
@@ -272,7 +284,7 @@ struct DialogueView: View {
             font: TerminalTheme.captionFont,
             speed: speed,
             speedMultiplier: vs.typewriterSpeedMultiplier,
-            onComplete: isLatest ? { viewModel.lineRevealed() } : nil
+            onComplete: isLatest ? { HapticManager.lightTap(); viewModel.lineRevealed() } : nil
         )
         .padding(8)
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -286,7 +298,7 @@ struct DialogueView: View {
             font: TerminalTheme.bodyFont,
             speed: speed,
             speedMultiplier: vs.typewriterSpeedMultiplier,
-            onComplete: isLatest ? { viewModel.lineRevealed() } : nil
+            onComplete: isLatest ? { HapticManager.lightTap(); viewModel.lineRevealed() } : nil
         )
     }
 }

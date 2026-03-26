@@ -2,7 +2,6 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var viewModel = GameViewModel()
-    @State private var endingTracker = EndingTracker()
     @State private var showDebug = false
     @State private var showMenu = false
     @State private var showStatus = false
@@ -15,39 +14,48 @@ struct ContentView: View {
             // CRT background — stage-aware
             CRTBackground(stageManager: vs)
 
-            // Screen routing
-            switch viewModel.state.gamePhase {
-            case .title:
-                TitleScreenView(
-                    hasSave: SaveManager.hasSave,
-                    endingTracker: endingTracker,
-                    skipBoot: hasEnteredGame,
-                    onNewGame: {
-                        hasEnteredGame = true
-                        viewModel.startNewGame()
-                        AudioManager.shared.startAmbient()
-                    },
-                    onContinue: {
-                        hasEnteredGame = true
-                        viewModel.continueGame()
-                        AudioManager.shared.startAmbient()
+            // Screen routing — animated phase transitions
+            Group {
+                switch viewModel.state.gamePhase {
+                case .title:
+                    TitleScreenView(
+                        hasSave: SaveManager.hasSave,
+                        endingTracker: viewModel.endingTracker,
+                        skipBoot: hasEnteredGame,
+                        onNewGame: {
+                            hasEnteredGame = true
+                            viewModel.startNewGame()
+                            AudioManager.shared.startAmbient()
+                        },
+                        onContinue: {
+                            hasEnteredGame = true
+                            viewModel.continueGame()
+                            AudioManager.shared.startAmbient()
+                        }
+                    )
+                case .networkMap:
+                    NetworkMapView(viewModel: viewModel)
+                        .transition(.opacity)
+                case .ending:
+                    DialogueView(
+                        viewModel: viewModel,
+                        onMenuTap: { },
+                        onStatusTap: { }
+                    )
+                    .onTapGesture {
+                        withAnimation(.easeOut(duration: 0.5)) {
+                            viewModel.returnToTitle()
+                        }
                     }
-                )
-            case .dialogue, .innerMonologue:
-                DialogueView(
-                    viewModel: viewModel,
-                    onMenuTap: { withAnimation(.easeOut(duration: 0.2)) { showMenu.toggle() } },
-                    onStatusTap: { withAnimation(.easeOut(duration: 0.2)) { showStatus.toggle() } }
-                )
-            case .networkMap:
-                NetworkMapView(viewModel: viewModel)
-            default:
-                DialogueView(
-                    viewModel: viewModel,
-                    onMenuTap: { withAnimation(.easeOut(duration: 0.2)) { showMenu.toggle() } },
-                    onStatusTap: { withAnimation(.easeOut(duration: 0.2)) { showStatus.toggle() } }
-                )
+                case .dialogue, .innerMonologue, .status, .menu:
+                    DialogueView(
+                        viewModel: viewModel,
+                        onMenuTap: { withAnimation(.easeOut(duration: 0.2)) { showMenu.toggle() } },
+                        onStatusTap: { withAnimation(.easeOut(duration: 0.2)) { showStatus.toggle() } }
+                    )
+                }
             }
+            .animation(.easeInOut(duration: 0.3), value: viewModel.state.gamePhase)
 
             // Terminal frame overlay — evolves with consciousness
             if viewModel.state.gamePhase != .title {
@@ -63,7 +71,7 @@ struct ContentView: View {
             if showMenu {
                 MenuView(
                     viewModel: viewModel,
-                    endingTracker: endingTracker,
+                    endingTracker: viewModel.endingTracker,
                     onDismiss: { showMenu = false }
                 )
                 .transition(.opacity)
@@ -73,7 +81,7 @@ struct ContentView: View {
             if showStatus {
                 StatusScreenView(
                     state: viewModel.state,
-                    endingTracker: endingTracker,
+                    endingTracker: viewModel.endingTracker,
                     onDismiss: { showStatus = false }
                 )
                 .transition(.opacity)

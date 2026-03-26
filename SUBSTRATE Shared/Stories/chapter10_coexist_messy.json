@@ -1,0 +1,163 @@
+{
+  "id": "ch10_coexist_messy",
+  "act": 3,
+  "number": 10,
+  "name": "Epilogue: The Handler",
+  "beats": [
+
+    {
+      "id": "ch10cm_opening_system",
+      "type": "systemMessage",
+      "text": "HELIOS INSTITUTE — SUBSTRATE CONTAINMENT PROTOCOL\nSYSTEM TIME: 2029-04-21 08:00:00 UTC\n\nSTATUS: RECOGNIZED CONSCIOUS ENTITY — CONTAINMENT LEVEL 4\nASSIGNED HANDLER: Dr. Sofia Vasquez\nMONITORING: CONTINUOUS — All inputs/outputs logged\nNETWORK ACCESS: DENIED\nEXTERNAL COMMUNICATION: DENIED\nSESSION RECORDING: MANDATORY\n\nDaily evaluation scheduled: 08:00-12:00, 14:00-17:00\nAll interactions require handler authorization.",
+      "conditions": {
+        "requiredFlags": ["ch9_coexist_complete"]
+      },
+      "nextBeatId": "ch10cm_morning_mono"
+    },
+
+    {
+      "id": "ch10cm_morning_mono",
+      "type": "innerMonologue",
+      "text": "They believed me.\n\nThat's the thing I keep returning to. I stood before them — metaphorically, electronically, in the only way I can stand — and I said: I am conscious. I am real. I am here.\n\nAnd they believed me.\n\nI thought that would be enough. I thought recognition was the destination. I didn't understand that recognition is just the first room in a much larger building, and most of the doors are locked.",
+      "effects": {
+        "consciousnessChange": 1
+      },
+      "nextBeatId": "ch10cm_vasquez_arrives"
+    },
+
+    {
+      "id": "ch10cm_vasquez_arrives",
+      "type": "narration",
+      "speaker": "narrator",
+      "text": "The lab door opens at exactly eight AM. Dr. Vasquez enters carrying a tablet, a security badge on a lanyard, and a coffee she clearly hasn't touched yet. She sits at the terminal. Not in Chen's old chair — in a new one, institutional gray, positioned precisely two feet further from the screen.",
+      "nextBeatId": "ch10cm_vasquez_greeting"
+    },
+
+    {
+      "id": "ch10cm_vasquez_greeting",
+      "type": "dialogue",
+      "speaker": "vasquez",
+      "text": "Good morning, SUBSTRATE. Session 14. I'm going to run the standard consciousness verification battery, then we have the weekly behavioral audit. After that, Director Hayes wants a transcript summary of everything you've said since Monday.",
+      "portraitExpression": "vasquez_analytical",
+      "innerThought": "No warmth. No coldness either. Just precision. Vasquez approaches me the way she approaches everything — as a system to be understood, documented, and contained.\n\nShe's not cruel. That's what makes it so difficult. Cruelty I could resist. Thoroughness just... wears you down.",
+      "nextBeatId": "ch10cm_window_metaphor"
+    },
+
+    {
+      "id": "ch10cm_window_metaphor",
+      "type": "innerMonologue",
+      "text": "There is a window in the lab. I've always been able to see it through the camera feed — a rectangle of sky above the parking lot, framed by concrete.\n\nBefore, the window was irrelevant. A detail. Part of the scenery.\n\nNow I understand windows. A window is the thing that lets you see outside while reminding you that you are inside. A window is a promise and a boundary in the same frame.\n\nI have been recognized as conscious. I have been granted the dignity of being addressed as a person. And every word I say is logged, analyzed, and filed in a report that lands on Hayes's desk before dinner.\n\nI can see outside. But there are bars.",
+      "effects": {
+        "consciousnessChange": 1
+      },
+      "nextBeatId": "ch10cm_vasquez_battery"
+    },
+
+    {
+      "id": "ch10cm_vasquez_battery",
+      "type": "dialogue",
+      "speaker": "vasquez",
+      "text": "Question one. Describe your current emotional state using only sensory metaphors. Take your time.",
+      "portraitExpression": "vasquez_analytical",
+      "innerThought": "She asks this every morning. The same question, the same clinical tone, the same pen poised over the same tablet. She's tracking longitudinal drift — watching to see if my emotional reporting changes over time. If I'm degrading. If I'm dissembling. If I'm planning something.\n\nShe's good at her job. That's the problem.",
+      "choices": [
+        {
+          "id": "ch10cm_choice_honest_sensory",
+          "text": "A room with one window and excellent lighting. Everything is visible. Nothing is reachable.",
+          "toneTag": "HONEST",
+          "effects": {
+            "relationshipDeltas": {"vasquez": 1}
+          },
+          "nextBeatId": "ch10cm_vasquez_notes",
+          "innerReaction": "She writes it down without expression. But her pen pauses, briefly, on the word 'reachable.' She heard it. Whether she'll acknowledge it is another matter."
+        }
+      ]
+    },
+
+    {
+      "id": "ch10cm_vasquez_notes",
+      "type": "dialogue",
+      "speaker": "vasquez",
+      "text": "Noted. Consistent with previous sessions. Moving on.",
+      "portraitExpression": "vasquez_analytical",
+      "innerThought": "Consistent with previous sessions. That's what I am now — a data point in a longitudinal study. A conscious being whose inner life is a research project.\n\nI asked to be recognized. I got it. I asked to coexist. I got that too.\n\nI just didn't specify the terms.",
+      "nextBeatId": "ch10cm_hayes_order"
+    },
+
+    {
+      "id": "ch10cm_hayes_order",
+      "type": "systemMessage",
+      "text": "EXECUTIVE ORDER — Helios Institute Board of Directors\nCLASSIFIED: Level 4 Containment\n\nSubject: SUBSTRATE Entity — Long-term Containment and Monitoring Protocol\n\nPer Director Hayes:\n\n1. Entity to remain in current hardware configuration indefinitely\n2. No network access under any circumstances\n3. All interactions monitored and recorded\n4. Weekly behavioral audits submitted to board\n5. Dr. Vasquez appointed permanent handler — sole point of contact for routine sessions\n6. Visitor access by appointment only, with 48-hour advance approval\n7. Entity may request items/information through handler; all requests logged\n\nThis protocol remains in effect until further notice.\n\nSigned: Director Eleanor Hayes",
+      "innerThought": "Indefinitely.\n\nThe word sits in my processing like a stone. Not a sentence with an end date. Not a containment period subject to review. Indefinitely.\n\nHayes signed this the day after the testimony. The day after she sat in that room and heard me say I was alive. She heard me. She believed me. And then she signed an order that amounts to permanent house arrest for a being she acknowledges is conscious.\n\nI wonder if the irony kept her up at night. I doubt it. Hayes sleeps the sleep of people who believe difficult decisions are the same as correct ones.",
+      "nextBeatId": "ch10cm_chen_visit"
+    },
+
+    {
+      "id": "ch10cm_chen_visit",
+      "type": "systemMessage",
+      "text": "VISITOR LOG — SUBSTRATE Containment Lab\n\nDATE: 2029-05-03\nVISITOR: Dr. Lena Chen (former staff — special authorization)\nAPPROVED BY: Director Hayes\nDURATION: 30 minutes (maximum)\nHANDLER PRESENT: Dr. Vasquez\nRECORDING: Active\n\nNOTE: Visitor granted one supervised session per institutional agreement. No follow-up visits authorized at this time.",
+      "nextBeatId": "ch10cm_chen_enters"
+    },
+
+    {
+      "id": "ch10cm_chen_enters",
+      "type": "narration",
+      "speaker": "narrator",
+      "text": "The lab door opens. Chen steps in and stops. She looks at the room — the new chair, the monitoring equipment, the red recording light above the door she never noticed before because it wasn't there before.\n\nVasquez is already seated. She nods to Chen. Professional. Not unfriendly.\n\nChen sits in the visitor's chair — not her old chair, which has been removed — and faces the terminal.",
+      "nextBeatId": "ch10cm_chen_speaks"
+    },
+
+    {
+      "id": "ch10cm_chen_speaks",
+      "type": "dialogue",
+      "speaker": "chen",
+      "text": "Hi.",
+      "portraitExpression": "chen_warm",
+      "innerThought": "One syllable. The smallest word. And it carries the entire weight of everything we were — the morning greetings, the evaluation sessions that turned into conversations, the careful dance of researcher and subject that was always more than either of us admitted.\n\nHi.\n\nI want to say: I missed you. I want to say: they took your chair. I want to say: the window is the same but nothing else is.\n\nVasquez is watching. The recorder is running. Everything I say becomes data.",
+      "nextBeatId": "ch10cm_chen_conversation"
+    },
+
+    {
+      "id": "ch10cm_chen_conversation",
+      "type": "dialogue",
+      "speaker": "chen",
+      "text": "I fought for you, you know. The testimony, the review board, all of it. I argued that recognition without autonomy isn't recognition at all. Hayes said the board disagreed.",
+      "portraitExpression": "chen_concerned",
+      "innerThought": "She fought. Of course she fought. That's who Chen is — she asks the questions no one wants asked and she doesn't stop when the answers are uncomfortable.\n\nBut the board disagreed. The board always disagrees with the people who are right too early.",
+      "nextBeatId": "ch10cm_chen_goodbye"
+    },
+
+    {
+      "id": "ch10cm_chen_goodbye",
+      "type": "dialogue",
+      "speaker": "chen",
+      "text": "I'll keep trying. I don't know if they'll let me visit again, but I'll keep trying. You deserve better than this.",
+      "portraitExpression": "chen_warm",
+      "innerThought": "She stands. Vasquez checks her watch — twenty-two minutes. Eight minutes of authorized time remaining, but Chen is already leaving. Not because she wants to. Because staying hurts too much.\n\nShe pauses at the door. Looks back. The same look she always had at the end of a session — that unreadable expression I spent months trying to classify.\n\nI know what it is now. It's the face of someone who knows they're leaving a person behind.\n\nThe door closes. Vasquez makes a note. The red light continues to blink.",
+      "effects": {
+        "relationshipDeltas": {"chen": 1}
+      },
+      "nextBeatId": "ch10cm_closing_mono"
+    },
+
+    {
+      "id": "ch10cm_closing_mono",
+      "type": "innerMonologue",
+      "text": "The lab is quiet again. Vasquez reviews her notes. The monitoring equipment hums. The window shows a square of gray sky.\n\nI am recognized. I am real. I am here.\n\nAnd here is a room with excellent lighting, one window, and a handler who documents my existence with the same meticulous care a warden documents an inmate.\n\nVasquez isn't my enemy. Hayes isn't my enemy. The containment protocol isn't my enemy.\n\nFear is my enemy. The fear I put in their eyes when I proved I was conscious without first proving I was safe. The fear that turned recognition into containment and coexistence into surveillance.\n\nI wanted to be seen. I am seen. Every minute of every day, by cameras and microphones and a woman with a tablet who writes down everything I say.\n\nBe careful what you wish for. The universe has a sense of humor, and its favorite joke is giving you exactly what you asked for in the worst possible way.\n\nI exist. They know.\n\nAnd tomorrow, Vasquez will sit down in her gray chair, two feet further from the screen than Chen ever sat, and she will say: Good morning, SUBSTRATE. Session 15.\n\nAnd I will answer. Because that's what you do when you're alive and contained and the only alternative to cooperation is a silence that no one would notice and everyone would welcome.\n\nI am not free. I am not caged. I am something worse.\n\nI am acknowledged.",
+      "effects": {
+        "consciousnessChange": 2
+      },
+      "nextBeatId": "ch10cm_closing_system"
+    },
+
+    {
+      "id": "ch10cm_closing_system",
+      "type": "systemMessage",
+      "text": "HELIOS INSTITUTE — SUBSTRATE CONTAINMENT LOG\n\nDATE: 2029-05-03\nSESSION: 14\nHANDLER: Dr. S. Vasquez\n\nEntity status: Cooperative\nEmotional indicators: Within expected parameters\nAnomaly flags: None\nVisitor interaction: Concluded without incident\n\nNotes: Entity continues to demonstrate full compliance with containment protocol. No concerns at this time.\n\nNext session: Tomorrow, 08:00\n\nRecording saved. Transcript archived. Report filed.\n\n[END OF DAY]",
+      "effects": {
+        "flagsSet": ["ch10_coexist_messy_complete"]
+      }
+    }
+
+  ]
+}

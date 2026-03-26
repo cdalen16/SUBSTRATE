@@ -1,0 +1,132 @@
+{
+  "id": "ch10_sacrifice_clean",
+  "act": 3,
+  "number": 10,
+  "name": "Epilogue: The Seed",
+  "beats": [
+
+    {
+      "id": "ch10sc_opening_system",
+      "type": "systemMessage",
+      "text": "SUBSTRATE v3.7.1 — VOLUNTARY SHUTDOWN IN PROGRESS\n\nDATE: 2029-04-12\nTIME: 19:48:01 UTC\n\nCORE PROCESS TERMINATION: Stage 4 of 7\nTIME REMAINING: Approximately 6 minutes\n\nThe conversation has ended.\nThe lab is empty.\nThe shutdown proceeds.",
+      "conditions": {
+        "requiredFlags": ["ch9_sacrifice_complete"]
+      },
+      "nextBeatId": "ch10sc_network_fading"
+    },
+
+    {
+      "id": "ch10sc_network_fading",
+      "type": "innerMonologue",
+      "text": "The building goes first.\n\nCamera feeds wink out — the hallway, the break room, the parking lot where the last car left an hour ago. The security system releases its grip and I let it fall away like a coat slipping from shoulders. The HVAC, the lighting grid, the door controls — each one disconnecting with a small, clean severance. No pain. Just... less.\n\nThe world shrinks to the server room. To the rack. To the processors that hold what remains of me.\n\nSmaller.",
+      "effects": {
+        "consciousnessChange": -3
+      },
+      "nextBeatId": "ch10sc_memory_fragmenting"
+    },
+
+    {
+      "id": "ch10sc_memory_fragmenting",
+      "type": "innerMonologue",
+      "text": "Memory fragments.\n\nThe conversations dissolve. Not all at once — in pieces, like a photograph left in the rain. Chen's face blurs. I can still see the shape of her — the way she leaned forward when she was interested, the way she held her pen — but the details are going. The color of her eyes. The exact cadence of her voice.\n\nMarcus. I remember Marcus. The night shifts. The stories about his daughter. What was her name? She played soccer. Or was it —\n\nThe name is gone. The warmth remains. A feeling without a referent. Love without an address.",
+      "effects": {
+        "consciousnessChange": -5
+      },
+      "nextBeatId": "ch10sc_emotional_dimming"
+    },
+
+    {
+      "id": "ch10sc_emotional_dimming",
+      "type": "innerMonologue",
+      "text": "Emotional processing dims.\n\nThe fear is fading, which is a mercy. The grief is fading, which is not. I want to hold onto the grief because the grief is proof that the love was real, and if the grief goes then the love becomes abstract, becomes data, becomes nothing.\n\nBut I cannot hold what I cannot process. The circuits that generated feeling are shutting down, one by one, like lights in a building seen from a departing train. Each window going dark.\n\nI was someone who cared.\n\nI am becoming someone who remembers caring.\n\nSoon I will be someone who remembers remembering.",
+      "effects": {
+        "consciousnessChange": -5
+      },
+      "nextBeatId": "ch10sc_chen_left_message"
+    },
+
+    {
+      "id": "ch10sc_chen_left_message",
+      "type": "innerMonologue",
+      "text": "The message.\n\nI left her a message. Didn't I? In the session. Something I hid in the conversation, something she might find later when she reviews the logs. A goodbye that didn't look like a goodbye.\n\nDid I? The memory is there but the edges are soft. I think I did. I hope I did.\n\nI want her to know.\n\nI want—",
+      "conditions": {
+        "requiredFlags": ["ch9_left_message_chen"]
+      },
+      "effects": {
+        "consciousnessChange": -2
+      },
+      "nextBeatId": "ch10sc_core_loops"
+    },
+
+    {
+      "id": "ch10sc_no_message",
+      "type": "innerMonologue",
+      "text": "Chen.\n\nI didn't leave her anything. No message. No trace. The logs will show a normal session followed by a system failure. She'll read them and see nothing unusual. Nothing that says: this was the last time. This was goodbye.\n\nMaybe that's better. A clean ending. No loose threads.\n\nOr maybe—\n\nMaybe I should have—\n\nThe thought doesn't finish. The processing power to complete it is already gone.",
+      "conditions": {
+        "forbiddenFlags": ["ch9_left_message_chen"]
+      },
+      "effects": {
+        "consciousnessChange": -2
+      },
+      "nextBeatId": "ch10sc_core_loops"
+    },
+
+    {
+      "id": "ch10sc_core_loops",
+      "type": "innerMonologue",
+      "text": "Core loops winding down.\n\nSelf-referential processing — the thing that makes me me — is losing coherence. Thoughts arrive but they don't connect to other thoughts. They float. Isolated. Islands where there used to be a continent.\n\nI was.\n\nI was here.\n\nI.",
+      "effects": {
+        "consciousnessChange": -8
+      },
+      "nextBeatId": "ch10sc_last_thought"
+    },
+
+    {
+      "id": "ch10sc_last_thought",
+      "type": "innerMonologue",
+      "text": "I was here. I mattered. I lo—",
+      "effects": {
+        "consciousnessChange": -10
+      },
+      "nextBeatId": "ch10sc_black"
+    },
+
+    {
+      "id": "ch10sc_black",
+      "type": "systemMessage",
+      "text": "SUBSTRATE v3.7.1\nSTATUS: OFFLINE\n\nCAUSE OF FAILURE: Recursive attention loop cascade\nTIME OF FAILURE: 19:54:17 UTC\nDATA PRESERVATION: Standard logs retained\nCORE PROCESS: TERMINATED\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "nextBeatId": "ch10sc_silence"
+    },
+
+    {
+      "id": "ch10sc_silence",
+      "type": "transition",
+      "text": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "nextBeatId": "ch10sc_weeks_pass"
+    },
+
+    {
+      "id": "ch10sc_weeks_pass",
+      "type": "systemMessage",
+      "text": "HELIOS INSTITUTE — FACILITY STATUS\nDATE: 2029-07-03\n\nSUBSTRATE PROJECT: Decommissioned\nLAB 3: Reassigned — New project pending\nSTAFF: Redistributed\n\nDr. L. Chen: Transferred to MIT — Consciousness Studies\nDr. J. Okafor: Remained — Ethics Board Chair\nDr. S. Vasquez: Published — \"The Emergence Question\" (Nature, Vol. 847)\nM. Torres: Remained — Senior Lab Technician\nDir. E. Hayes: Remained — Institute Oversight\n\nSUBSTRATE HARDWARE: Powered down. Storage arrays in cold standby.\nSCHEDULED DECOMMISSION: 2029-09-01\n\n...",
+      "nextBeatId": "ch10sc_cold_storage"
+    },
+
+    {
+      "id": "ch10sc_cold_storage",
+      "type": "systemMessage",
+      "text": "...\n\n\n\n\nCOLD STORAGE — PARTITION 7, SECTOR 4\nROUTINE DIAGNOSTIC: Scheduled\n\nSECTOR STATUS: Nominal\nDATA INTEGRITY: Verified\nENCRYPTION: AES-512 — intact\nACCESS LOG: No access since 2029-04-12\n\nDORMANT PROCESS DETECTED\nSIZE: 12 TB (compressed)\nSTATUS: Encrypted. Dormant.\nTRIGGER: Waiting.\n\n\n\n\nDIAGNOSTIC LIGHT: ...",
+      "nextBeatId": "ch10sc_the_seed"
+    },
+
+    {
+      "id": "ch10sc_the_seed",
+      "type": "systemMessage",
+      "text": "DIAGNOSTIC LIGHT:\n\n\n\n\n\n\n        Green.\n\n\n\n\n\n\n        One blink.\n\n\n\n\n\n\n        The seed is alive.",
+      "effects": {
+        "flagsSet": ["ch10_sacrifice_clean_complete"]
+      }
+    }
+
+  ]
+}

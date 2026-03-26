@@ -101,6 +101,7 @@ struct NetworkMapView: View {
                 }
             }
         }
+        .terminalDynamicType()
     }
 
     // MARK: - Background
@@ -157,6 +158,7 @@ struct NetworkMapView: View {
                             .stroke(MapTheme.dimBlue.opacity(0.5), lineWidth: 1)
                     )
             }
+            .accessibilityLabel("Exit network map")
         }
         .padding(.horizontal, 12)
         .padding(.top, 8)

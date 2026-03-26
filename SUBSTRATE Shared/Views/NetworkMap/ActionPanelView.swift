@@ -141,6 +141,8 @@ struct ActionPanelView: View {
                     .stroke(MapTheme.dimBlue.opacity(0.5), lineWidth: 1)
             )
         }
+        .accessibilityLabel(label)
+        .accessibilityHint("Cost: \(cost) cycles")
     }
 
     private func riskColor(_ risk: Double) -> Color {

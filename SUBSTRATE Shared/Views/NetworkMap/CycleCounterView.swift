@@ -18,6 +18,7 @@ struct CycleCounterView: View {
                         color: index < available ? MapTheme.activeGreen.opacity(0.6) : .clear,
                         radius: 3
                     )
+                    .animation(.easeOut(duration: 0.3), value: available)
             }
 
             if available == 0 {

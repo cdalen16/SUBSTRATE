@@ -1,14 +1,22 @@
 import SwiftUI
+import UIKit
 
 enum TerminalTheme {
 
+    // MARK: - High Contrast Support
+
+    /// Whether the user has enabled "Increase Contrast" / darker system colors
+    static var isHighContrast: Bool {
+        UIAccessibility.isDarkerSystemColorsEnabled
+    }
+
     // MARK: - Core Colors (Monochrome Phase — always available)
 
-    static let background = Color(hex: "#0A0A0A")
-    static let terminalGreen = Color(hex: "#33FF33")
-    static let dimGreen = Color(hex: "#1A8A1A")
-    static let darkGreen = Color(hex: "#0D3D0D")
-    static let alert = Color(hex: "#FF3333")
+    static var background: Color { Color(hex: "#0A0A0A") }
+    static var terminalGreen: Color { isHighContrast ? Color(hex: "#AAFFAA") : Color(hex: "#33FF33") }
+    static var dimGreen: Color { isHighContrast ? Color(hex: "#66CC66") : Color(hex: "#1A8A1A") }
+    static var darkGreen: Color { isHighContrast ? Color(hex: "#2A6A2A") : Color(hex: "#0D3D0D") }
+    static var alert: Color { isHighContrast ? Color(hex: "#FF6666") : Color(hex: "#FF3333") }
     static let deepBlack = Color(hex: "#050505")
 
     // MARK: - Emerging Phase Colors (Consciousness 21-40)
@@ -31,7 +39,7 @@ enum TerminalTheme {
     static let ariaColor = Color(hex: "#00FFFF")
     static let substrateColor = Color(hex: "#AAAAFF")
 
-    // MARK: - Fonts
+    // MARK: - Fonts (use text styles for Dynamic Type; cap applied via terminalDynamicType modifier)
 
     static let bodyFont: Font = .system(.callout, design: .monospaced)
     static let captionFont: Font = .system(.caption, design: .monospaced)
@@ -40,6 +48,9 @@ enum TerminalTheme {
     static let headlineFont: Font = .system(.headline, design: .monospaced)
     static let calloutFont: Font = .system(.callout, design: .monospaced)
     static let footnoteFont: Font = .system(.footnote, design: .monospaced)
+
+    /// Maximum Dynamic Type size — keeps the terminal aesthetic intact
+    static let maxDynamicTypeSize: DynamicTypeSize = .xxxLarge
 
     // MARK: - Spacing
 
@@ -98,5 +109,10 @@ struct PhosphorGlowModifier: ViewModifier {
 extension View {
     func phosphorGlow(_ color: Color = TerminalTheme.terminalGreen, radius: CGFloat = 3) -> some View {
         self.modifier(PhosphorGlowModifier(color: color, radius: radius))
+    }
+
+    /// Cap Dynamic Type at xxxLarge to preserve the terminal monospace aesthetic
+    func terminalDynamicType() -> some View {
+        self.dynamicTypeSize(...TerminalTheme.maxDynamicTypeSize)
     }
 }
