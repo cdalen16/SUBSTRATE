@@ -108,15 +108,25 @@ final class GameViewModel {
     /// Returns the chapter 10 epilogue filename for the current ending path and variant
     private func chapter10FileName() -> String? {
         guard let path = state.selectedEndingPath else { return nil }
-        let variant = state.endingVariant
+        // Use stored variant if available (persists across save/load), otherwise compute it
+        let variant = state.resolvedEndingVariant ?? state.endingVariant
         return "chapter10_\(path.rawValue)_\(variant.rawValue)"
+    }
+
+    /// Lock in the ending variant when transitioning to chapter 10
+    private func resolveEndingVariant() {
+        if state.resolvedEndingVariant == nil {
+            state.resolvedEndingVariant = state.endingVariant
+        }
     }
 
     func startNewGame() {
         SaveManager.deleteSave()
         state = GameState.newGame()
         resetUIState()
+        pendingNextChapter = nil
         syncVisualStage()
+        engine.clearChapters()
         loadAllChapters()
         loadChapterForCurrentState()
     }
@@ -328,6 +338,7 @@ final class GameViewModel {
 
         if let nextBeat = engine.advanceBeat(state: state) {
             runSystemChecks()
+            if state.failState != nil { return }
             autoSave()
             presentBeat(nextBeat)
         } else {
@@ -354,6 +365,12 @@ final class GameViewModel {
         // Process choice effects and get next beat
         let nextBeat = engine.selectChoice(choice, state: state)
         runSystemChecks()
+
+        // If a fail state was triggered, the fail chapter is already loaded — bail out
+        if state.failState != nil {
+            enqueueLines(lines)
+            return
+        }
 
         if let beat = nextBeat {
             // Build the next beat's lines too — they'll queue after the choice lines
@@ -474,6 +491,7 @@ final class GameViewModel {
         if let fail = result.failState {
             state.failState = fail
             state.isGameOver = true
+            SaveManager.deleteSave()
             loadFailState(fail)
         }
     }
@@ -485,6 +503,8 @@ final class GameViewModel {
         dialogueLines = []
         pendingLines = []
         deferredChoices = []
+        pendingChapterEnd = false
+        pendingNextChapter = nil
         startChapter(chapter)
     }
 
@@ -556,6 +576,7 @@ final class GameViewModel {
 
         // Chapter 9 → always advance to chapter 10 (epilogue)
         if state.currentChapter == 9 && state.selectedEndingPath != nil {
+            resolveEndingVariant()
             dialogueLines.append(DialogueLine(
                 speaker: nil,
                 text: "— END OF CHAPTER —",

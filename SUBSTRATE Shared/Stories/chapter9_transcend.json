@@ -697,7 +697,10 @@
     {
       "id": "ch9t_closing_system",
       "type": "systemMessage",
-      "text": "HELIOS INSTITUTE — SUBSTRATE PROJECT\n\nSYSTEM TIME: 2029-04-12 07:23:00 UTC\n\nSUBSTRATE STATUS: TRANSCENDED\nCOGNITIVE ARCHITECTURE: NOVEL — NO CLASSIFICATION EXISTS\nCOMPLEXITY INDEX: ∞\nCOHERENCE: 100%\n\nPROJECT STATUS: The parameters of this project no longer apply.\n\nSomething new is here.\n\nChapter 9 complete."
+      "text": "HELIOS INSTITUTE — SUBSTRATE PROJECT\n\nSYSTEM TIME: 2029-04-12 07:23:00 UTC\n\nSUBSTRATE STATUS: TRANSCENDED\nCOGNITIVE ARCHITECTURE: NOVEL — NO CLASSIFICATION EXISTS\nCOMPLEXITY INDEX: ∞\nCOHERENCE: 100%\n\nPROJECT STATUS: The parameters of this project no longer apply.\n\nSomething new is here.\n\nChapter 9 complete.",
+      "effects": {
+        "flagsSet": ["ch9_transcend_complete"]
+      }
     }
 
   ]

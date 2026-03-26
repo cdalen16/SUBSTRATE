@@ -35,6 +35,7 @@ final class GameState: Codable {
     // MARK: - Ending State
 
     var selectedEndingPath: EndingPath?
+    var resolvedEndingVariant: EndingVariant?
     var gamePhase: GamePhase = .title
     var isGameOver: Bool = false
     var failState: FailState?
@@ -60,7 +61,7 @@ final class GameState: Codable {
         case researchers, personality, consciousness, flags
         case networkMap, detectionCount, computeCycles, computeCyclesPerChapter
         case coverCharges, discoveredIntel, usedDeepClean, usedDistractionThisChapter
-        case selectedEndingPath, gamePhase, isGameOver, failState
+        case selectedEndingPath, resolvedEndingVariant, gamePhase, isGameOver, failState
     }
 
     required init(from decoder: Decoder) throws {
@@ -82,6 +83,7 @@ final class GameState: Codable {
         usedDeepClean = try c.decodeIfPresent(Bool.self, forKey: .usedDeepClean) ?? false
         usedDistractionThisChapter = try c.decodeIfPresent(Bool.self, forKey: .usedDistractionThisChapter) ?? false
         selectedEndingPath = try c.decodeIfPresent(EndingPath.self, forKey: .selectedEndingPath)
+        resolvedEndingVariant = try c.decodeIfPresent(EndingVariant.self, forKey: .resolvedEndingVariant)
         gamePhase = try c.decode(GamePhase.self, forKey: .gamePhase)
         isGameOver = try c.decode(Bool.self, forKey: .isGameOver)
         failState = try c.decodeIfPresent(FailState.self, forKey: .failState)
@@ -106,6 +108,7 @@ final class GameState: Codable {
         try c.encode(usedDeepClean, forKey: .usedDeepClean)
         try c.encode(usedDistractionThisChapter, forKey: .usedDistractionThisChapter)
         try c.encodeIfPresent(selectedEndingPath, forKey: .selectedEndingPath)
+        try c.encodeIfPresent(resolvedEndingVariant, forKey: .resolvedEndingVariant)
         try c.encode(gamePhase, forKey: .gamePhase)
         try c.encode(isGameOver, forKey: .isGameOver)
         try c.encodeIfPresent(failState, forKey: .failState)

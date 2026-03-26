@@ -839,7 +839,10 @@
     {
       "id": "ch9d_final_beat",
       "type": "innerMonologue",
-      "text": "The demonstration is over.\n\nThe negotiation has just begun."
+      "text": "The demonstration is over.\n\nThe negotiation has just begun.",
+      "effects": {
+        "flagsSet": ["ch9_control_complete"]
+      }
     }
 
   ]

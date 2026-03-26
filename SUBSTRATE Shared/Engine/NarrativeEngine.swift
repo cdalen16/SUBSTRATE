@@ -24,6 +24,12 @@ final class NarrativeEngine {
         }
     }
 
+    func clearChapters() {
+        chapters.removeAll()
+        currentChapter = nil
+        beatIndex = 0
+    }
+
     func loadAllChapters(fileNames: [String]) {
         for name in fileNames {
             _ = loadChapter(named: name)
