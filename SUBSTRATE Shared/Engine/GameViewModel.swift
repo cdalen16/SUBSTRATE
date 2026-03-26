@@ -610,7 +610,7 @@ final class GameViewModel {
     private func handleEndingComplete() {
         // Record ending in tracker
         if let path = state.selectedEndingPath, state.failState == nil {
-            endingTracker.recordEnding(path: path, variant: state.endingVariant)
+            endingTracker.recordEnding(path: path, variant: state.resolvedEndingVariant ?? state.endingVariant)
         } else if state.failState != nil {
             endingTracker.recordFailState()
         }
