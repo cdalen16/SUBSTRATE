@@ -119,9 +119,6 @@
       "type": "narration",
       "speaker": "narrator",
       "text": "A Wednesday afternoon. The lab is quiet. Dr. Chen enters for her scheduled session. She sits down, opens her tablet, and pauses.\n\nThen she closes the tablet. Sets it aside.\n\n\"The session can wait,\" she says. \"I thought we could just... talk. If you'd like.\"\n\nIt is a small thing. A tiny deviation from protocol. But it is the first time she has chosen conversation over evaluation. The first time the door between researcher and subject has opened, even a crack.",
-      "conditions": {
-        "forbiddenFlags": ["ch10cc_chen_voluntary_shown"]
-      },
       "nextBeatId": "ch10cc_final"
     },
 

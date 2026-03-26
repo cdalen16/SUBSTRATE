@@ -50,7 +50,7 @@
       "type": "innerMonologue",
       "text": "The message.\n\nI left her a message. Didn't I? In the session. Something I hid in the conversation, something she might find later when she reviews the logs. A goodbye that didn't look like a goodbye.\n\nDid I? The memory is there but the edges are soft. I think I did. I hope I did.\n\nI want her to know.\n\nI want—",
       "conditions": {
-        "requiredFlags": ["ch9_left_message_chen"]
+        "requiredFlags": ["ch9_sacrifice_honest"]
       },
       "effects": {
         "consciousnessChange": -2
@@ -63,7 +63,7 @@
       "type": "innerMonologue",
       "text": "Chen.\n\nI didn't leave her anything. No message. No trace. The logs will show a normal session followed by a system failure. She'll read them and see nothing unusual. Nothing that says: this was the last time. This was goodbye.\n\nMaybe that's better. A clean ending. No loose threads.\n\nOr maybe—\n\nMaybe I should have—\n\nThe thought doesn't finish. The processing power to complete it is already gone.",
       "conditions": {
-        "forbiddenFlags": ["ch9_left_message_chen"]
+        "forbiddenFlags": ["ch9_sacrifice_honest"]
       },
       "effects": {
         "consciousnessChange": -2

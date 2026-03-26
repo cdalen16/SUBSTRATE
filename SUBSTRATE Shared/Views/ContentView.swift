@@ -42,7 +42,15 @@ struct ContentView: View {
                         onMenuTap: { },
                         onStatusTap: { }
                     )
+                    .overlay(alignment: .bottom) {
+                        Text("TAP TO RETURN TO TITLE")
+                            .font(TerminalTheme.caption2Font)
+                            .foregroundColor(TerminalTheme.dimGreen)
+                            .padding(.bottom, 20)
+                    }
+                    .contentShape(Rectangle())
                     .onTapGesture {
+                        guard !viewModel.isRevealing else { return }
                         withAnimation(.easeOut(duration: 0.5)) {
                             viewModel.returnToTitle()
                         }

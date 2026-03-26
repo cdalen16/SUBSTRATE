@@ -22,6 +22,11 @@ final class EndingTracker {
         saveToStorage()
     }
 
+    func recordFailState() {
+        totalRuns += 1
+        saveToStorage()
+    }
+
     // MARK: - Queries
 
     func hasAchieved(path: EndingPath) -> Bool {

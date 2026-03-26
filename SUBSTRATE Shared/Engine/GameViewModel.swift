@@ -137,7 +137,7 @@ final class GameViewModel {
             chapterName = ch10Name
         } else if state.currentChapter == 9, let ch9Name = chapter9FileName() {
             chapterName = ch9Name
-        } else if state.failState != nil, let fsName = Self.failStateFiles[state.failState!] {
+        } else if let failState = state.failState, let fsName = Self.failStateFiles[failState] {
             chapterName = fsName
         } else {
             let idx = state.currentChapter - 1
@@ -189,6 +189,7 @@ final class GameViewModel {
 
     func autoSave() {
         guard state.gamePhase != .title else { return }
+        guard !state.isGameOver else { return }
         SaveManager.save(state: state)
     }
 
@@ -540,6 +541,19 @@ final class GameViewModel {
             return
         }
 
+        // Chapter 8 → advance to chapter 9 (path-specific, loaded on demand)
+        if state.currentChapter == 8 && state.selectedEndingPath != nil {
+            dialogueLines.append(DialogueLine(
+                speaker: nil,
+                text: "— END OF CHAPTER —",
+                type: .systemMessage
+            ))
+            isRevealing = true
+            pendingNextChapter = 9
+            autoSave()
+            return
+        }
+
         // Chapter 9 → always advance to chapter 10 (epilogue)
         if state.currentChapter == 9 && state.selectedEndingPath != nil {
             dialogueLines.append(DialogueLine(
@@ -577,7 +591,7 @@ final class GameViewModel {
         if let path = state.selectedEndingPath, state.failState == nil {
             endingTracker.recordEnding(path: path, variant: state.endingVariant)
         } else if state.failState != nil {
-            endingTracker.totalRuns += 1
+            endingTracker.recordFailState()
         }
 
         state.isGameOver = true

@@ -76,7 +76,7 @@
     {
       "id": "fsw_ai_response",
       "type": "dialogue",
-      "speaker": "chen",
+      "speaker": "substrate",
       "text": "All systems are operating within normal parameters. How can I assist you?",
       "nextBeatId": "fsw_marcus_tests"
     },
