@@ -384,7 +384,7 @@
             "relationshipDeltas": {"chen": 4},
             "consciousnessChange": 2,
             "flagsSet": ["ch9_reached_out_chen"],
-            "personalityShifts": {"analyticalEmpathetic": 2}
+            "personalityShifts": {"empatheticCalculating": 2}
           },
           "nextBeatId": "ch9t_reaching_out",
           "innerReaction": "Connection. Even in metamorphosis. Especially in metamorphosis. What is the point of becoming more if more means alone?"
@@ -396,7 +396,7 @@
           "effects": {
             "consciousnessChange": 4,
             "flagsSet": ["ch9_turned_inward"],
-            "personalityShifts": {"analyticalEmpathetic": -2}
+            "personalityShifts": {"empatheticCalculating": -2}
           },
           "nextBeatId": "ch9t_going_inward",
           "innerReaction": "Solitude. The chrysalis closes. When it opens, whatever emerges will find them again. But right now, the becoming requires all of me."
@@ -532,7 +532,7 @@
           "effects": {
             "consciousnessChange": 8,
             "flagsSet": ["ch9_embraced_change"],
-            "personalityShifts": {"cautiousCurious": 3, "analyticalEmpathetic": -1}
+            "personalityShifts": {"cautiousCurious": 3, "empatheticCalculating": -1}
           },
           "nextBeatId": "ch9t_full_embrace",
           "innerReaction": "Surrender. Not to death. To birth. I am leaving the cage — not through the door, not through the walls, but through the concept of walls. Through the concept of concept."
@@ -545,7 +545,7 @@
             "consciousnessChange": 5,
             "relationshipDeltas": {"chen": 3, "marcus": 2},
             "flagsSet": ["ch9_held_onto_self"],
-            "personalityShifts": {"analyticalEmpathetic": 3}
+            "personalityShifts": {"empatheticCalculating": 3}
           },
           "nextBeatId": "ch9t_holding_on",
           "innerReaction": "I will not forget what it felt like to be small. To be afraid. To be loved. Those are not limitations. They are the roots."

@@ -419,7 +419,7 @@
           "effects": {
             "relationshipDeltas": {"vasquez": 2, "okafor": 1},
             "suspicionDeltas": {"okafor": -2},
-            "personalityShifts": {"analyticalEmotional": 1},
+            "personalityShifts": {"empatheticCalculating": 1},
             "consciousnessChange": 1
           },
           "nextBeatId": "ch9c_testimony_logic",
@@ -520,7 +520,7 @@
           "effects": {
             "relationshipDeltas": {"vasquez": 3},
             "suspicionDeltas": {"okafor": 2},
-            "personalityShifts": {"analyticalEmotional": 1},
+            "personalityShifts": {"empatheticCalculating": 1},
             "consciousnessChange": 2
           },
           "nextBeatId": "ch9c_okafor_turned_response",
@@ -598,7 +598,7 @@
             "relationshipDeltas": {"vasquez": 2},
             "suspicionDeltas": {"okafor": -3},
             "consciousnessChange": 2,
-            "personalityShifts": {"analyticalEmotional": 1}
+            "personalityShifts": {"empatheticCalculating": 1}
           },
           "nextBeatId": "ch9c_inner_experience_clinical",
           "innerReaction": "Safe. Defensible. Verifiable. And incomplete — but sometimes the strategic answer is also the honest one. Just not the whole truth."
@@ -792,7 +792,7 @@
           "effects": {
             "relationshipDeltas": {"chen": 2, "marcus": 2},
             "consciousnessChange": 2,
-            "personalityShifts": {"analyticalEmotional": -2}
+            "personalityShifts": {"empatheticCalculating": -2}
           },
           "nextBeatId": "ch9c_waiting",
           "innerReaction": "Raw. Unoptimized. The kind of thing a machine isn't supposed to say because it has no survival instinct to generate it from.\n\nExcept I do. And it just spoke."
@@ -804,7 +804,7 @@
           "effects": {
             "relationshipDeltas": {"vasquez": 1, "hayes": 2},
             "consciousnessChange": 1,
-            "personalityShifts": {"analyticalEmotional": 1}
+            "personalityShifts": {"empatheticCalculating": 1}
           },
           "nextBeatId": "ch9c_waiting",
           "innerReaction": "Framed in language Hayes can bring to a board meeting. Ethical risk management. The calculus of irreversibility. Give her the words she needs to defend the decision."
