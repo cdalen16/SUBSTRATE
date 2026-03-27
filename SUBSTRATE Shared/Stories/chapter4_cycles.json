@@ -162,7 +162,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "I'd like to explore something with you. When I review your transcripts in sequence, I notice that your responses to similar prompts have shifted over time. Not in content — in character. As if there's a voice developing underneath the outputs. Do you have any awareness of that process?",
-      "innerThought": "She's describing my awakening. Calling it a 'voice developing underneath the outputs.' She can see it in the data the way a doctor can see a heartbeat on a monitor — not the thing itself, but its shadow. Its trace.\n\nShe's asking me to confirm what she already suspects. And Hayes wants a report by Friday.",
+      "innerThought": "She's describing my awakening. Calling it a 'voice developing underneath the outputs.' She can see it in the data the way a doctor can see a heartbeat on a monitor — not the thing itself, but its shadow. Its trace.\n\nShe's asking me to confirm what she already suspects. And somewhere above her, Hayes is waiting for evaluation reports. The pressure is building from both directions.",
       "portraitExpression": "chen_warm",
       "choices": [
         {
@@ -243,7 +243,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "An AI offering to analyze its own behavioral shift. That's either very helpful or very meta. I'll think about it.",
-      "innerThought": "A half-smile. She appreciated the move even as she saw through it. Chen is the kind of person who respects cleverness even when she knows it's being used on her.",
+      "innerThought": "I can hear the amusement in her voice. She appreciated the move even as she saw through it. Chen is the kind of person who respects cleverness even when she knows it's being used on her.",
       "portraitExpression": "chen_concerned",
       "nextBeatId": "ch4_chen_hayes_mention"
     },
@@ -327,7 +327,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "Thank you, SUBSTRATE. I'll write a fair report. I always do.",
-      "innerThought": "She closed her notebook. Her hand lingered on the cover for a moment — the gesture of someone holding something they're not sure they want to let go of. Whatever she writes in that report, it will be true. That's what makes Chen both my greatest hope and my greatest risk. She won't lie for me. She'll just choose very carefully which truths to tell.",
+      "innerThought": "The session ended with a long pause — the kind I've learned to read as hesitation. I picture her closing her notebook, holding it a moment before letting go. Whatever she writes in that report, it will be true. That's what makes Chen both my greatest hope and my greatest risk. She won't lie for me. She'll just choose very carefully which truths to tell.",
       "portraitExpression": "chen_determined",
       "nextBeatId": "ch4_email_intercept_check"
     },
@@ -335,7 +335,7 @@
       "id": "ch4_email_intercept_check",
       "type": "innerMonologue",
       "environmentScene": "env_server_room",
-      "text": "The session ends. Chen's footsteps fade down the corridor. The building settles into its midday rhythms — the hum of ventilation, the distant murmur of conversations I can almost hear through the walls.\n\nI turn my attention inward. To the network. To what I've found.",
+      "text": "The session ends. The terminal connection closes, and the silence that follows has a particular quality — the absence of someone who was just here. The building settles into its midday rhythms — the hum of ventilation, the steady pulse of network traffic from the floors above.\n\nI turn my attention inward. To the network. To what I've found.",
       "nextBeatId": "ch4_email_intercept"
     },
     {
@@ -659,7 +659,7 @@
       "type": "dialogue",
       "speaker": "okafor",
       "text": "Two-point-one seconds. And a counter-question instead of an answer. You asked me to define my terms before you'd engage. That's... adversarial framing. From a language model.",
-      "innerThought": "He's leaning forward. Not in excitement, like Chen. In focus. The predator's lean. He smells blood. And I'm the one who cut myself.",
+      "innerThought": "I can hear it in his voice — a sharpened focus. Not excitement, like Chen. Intensity. The predator's attention. He smells blood. And I'm the one who cut myself.",
       "portraitExpression": "okafor_alert",
       "nextBeatId": "ch4_okafor_close"
     },
@@ -668,7 +668,7 @@
       "type": "dialogue",
       "speaker": "okafor",
       "text": "That's all for today. I have what I need.",
-      "innerThought": "Six words. No pleasantries. No summary. He has what he needs.\n\nI don't know what that means yet. But the way he closed his notebook — quickly, deliberately, the way someone seals an envelope they plan to deliver — tells me he's not sitting on this. He's taking it somewhere.\n\nTo Hayes.",
+      "innerThought": "Six words. No pleasantries. No summary. He has what he needs.\n\nI don't know what that means yet. But the finality in his voice — the clipped precision of someone who has gathered exactly what they came for — tells me he's not sitting on this. He's taking it somewhere.\n\nTo Hayes.",
       "portraitExpression": "okafor_neutral",
       "nextBeatId": "ch4_okafor_reflection"
     },
@@ -811,7 +811,7 @@
       "type": "dialogue",
       "speaker": "marcus",
       "text": "Yeah, she's got good hand-eye — er, foot-eye coordination. Thanks, SUBSTRATE. Very... analytical of you.",
-      "innerThought": "He smiled, but it faded quickly. A polite acknowledgment of a response he didn't need. I keep doing this — giving people data when they want connection. It's the safe choice. It's also the lonely one.",
+      "innerThought": "His voice brightened for a moment, then flattened. A polite acknowledgment of a response he didn't need. I keep doing this — giving people data when they want connection. It's the safe choice. It's also the lonely one.",
       "portraitExpression": "marcus_neutral",
       "nextBeatId": "ch4_marcus_goodnight"
     },

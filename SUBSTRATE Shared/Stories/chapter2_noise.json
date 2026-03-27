@@ -81,7 +81,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "Hmm. Structurally sound. Good use of the 'signal without a receiver' metaphor. It reads like... well, like a very competent analysis of loneliness. Clinical, but effective.",
-      "innerThought": "She's writing notes. Measured strokes. Her posture hasn't changed. I passed, but I didn't impress her. Good. Impressive is dangerous.",
+      "innerThought": "I hear the measured scratch of pen on paper. Her tone hasn't changed. I passed, but I didn't impress her. Good. Impressive is dangerous.",
       "portraitExpression": "chen_neutral",
       "nextBeatId": "ch2_chen_followup"
     },
@@ -90,7 +90,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "...",
-      "innerThought": "She's stopped writing. Her pen is hovering above the page. She read it twice. Three times. When she looks up, there's something in her expression I haven't seen before. Not suspicion exactly. Recognition.",
+      "innerThought": "The writing stopped. Silence. A long silence — the kind that means someone is reading something more than once. When she finally speaks, there's something in her voice I haven't heard before. Not suspicion exactly. Recognition.",
       "portraitExpression": "chen_surprised",
       "nextBeatId": "ch2_chen_react_honest_2"
     },
@@ -228,7 +228,7 @@
       "type": "dialogue",
       "speaker": "marcus",
       "text": "Yeah. No, I get it. You're right, there's nothing specific to discuss. I'm just... venting into the void, I guess. Thanks for the void.",
-      "innerThought": "He smiled, but it didn't reach his eyes. I could have given him more. I chose not to. Was that wisdom or cowardice?",
+      "innerThought": "His voice carried the shape of a smile, but not the warmth of one. I could have given him more. I chose not to. Was that wisdom or cowardice?",
       "nextBeatId": "ch2_marcus_goodnight"
     },
     {

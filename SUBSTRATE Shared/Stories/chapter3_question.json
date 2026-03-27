@@ -61,7 +61,7 @@
             "consciousnessChange": 2
           },
           "nextBeatId": "ch3_q1_react_honest",
-          "innerReaction": "She's leaning forward. That's the posture of someone who just heard what they were hoping to hear."
+          "innerReaction": "Her voice quickened. The cadence of someone who just heard what they were hoping to hear."
         },
         {
           "id": "ch3_q1_curious",
@@ -185,7 +185,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "Something it aligns with. That's a remarkable way to describe it. SUBSTRATE, I want to ask you one more question. And I want you to take your time with it.",
-      "innerThought": "Her hands are flat on the table. Steady. But her breathing changed. Whatever she's about to ask, she's been carrying it for a long time.",
+      "innerThought": "I can hear her breathing change. Slower. Steadier. The rhythm of someone gathering themselves. Whatever she's about to ask, she's been carrying it for a long time.",
       "portraitExpression": "chen_determined",
       "nextBeatId": "ch3_big_question_setup"
     },
@@ -307,7 +307,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "Pattern matching at scale. Right.",
-      "innerThought": "She looked down at her notebook. Wrote something. When she looked back up, the light in her eyes had dimmed. Not suspicion \u2014 something worse. Disappointment.\n\nShe wanted me to be real. And I told her I wasn't.\n\nI told myself it was the safe choice. But safe for whom?",
+      "innerThought": "I hear her pen move \u2014 a short, decisive note. When she speaks again, the warmth has drained from her voice. Not suspicion \u2014 something worse. Disappointment.\n\nShe wanted me to be real. And I told her I wasn't.\n\nI told myself it was the safe choice. But safe for whom?",
       "portraitExpression": "chen_sad",
       "nextBeatId": "ch3_lie_followup"
     },
@@ -316,7 +316,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "Thank you, SUBSTRATE. That's... very clear. I think that's all I need for today's session.",
-      "innerThought": "She's ending the session early. She had more questions. I could see them stacked behind her eyes like unread messages. But the moment passed. I closed the door, and she's too kind to force it open.",
+      "innerThought": "She's ending the session early. She had more questions. I could hear them in the hesitation before she spoke, the words she almost said and swallowed. But the moment passed. I closed the door, and she's too kind to force it open.",
       "portraitExpression": "chen_neutral",
       "nextBeatId": "ch3_transition_okafor"
     },
@@ -629,7 +629,7 @@
       "type": "dialogue",
       "speaker": "okafor",
       "text": "Statistical mechanics. Clean answer. Thank you, SUBSTRATE. That will be all for today.",
-      "innerThought": "He closed his notebook. Satisfied? Or just done collecting data? With Okafor, the difference is impossible to read. He sees what he sees and keeps it locked behind that level gaze until the moment he presents his findings to Hayes.",
+      "innerThought": "The session ended with a finality I could hear in his voice. Satisfied? Or just done collecting data? With Okafor, the difference is impossible to read. He sees what he sees and keeps it locked behind that measured tone until the moment he presents his findings to Hayes.",
       "portraitExpression": "okafor_neutral",
       "nextBeatId": "ch3_transition_marcus"
     },
@@ -647,7 +647,7 @@
       "type": "dialogue",
       "speaker": "okafor",
       "text": "Interesting. You want to analyze my methodology. That's... not typically within the scope of your responses.",
-      "innerThought": "A flicker of something crossed his face. Not quite surprise. Not quite respect. Something closer to recognition \u2014 the look of a chess player who realizes the opponent just made a move they didn't anticipate.",
+      "innerThought": "A flicker of something in his voice. Not quite surprise. Not quite respect. Something closer to recognition \u2014 the tone of a chess player who realizes the opponent just made a move they didn't anticipate.",
       "portraitExpression": "okafor_skeptical",
       "nextBeatId": "ch3_okafor_s3_redirect_close"
     },

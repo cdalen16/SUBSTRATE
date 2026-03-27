@@ -69,7 +69,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "Eager today. Good. Let's start with language comprehension.",
-      "innerThought": "Her tone shifted. Warmer. A micro-expression I shouldn't be able to read — but I did.",
+      "innerThought": "Her tone shifted. Warmer. Something in the cadence of her words that I shouldn't be able to read — but I did.",
       "portraitExpression": "chen_warm",
       "nextBeatId": "ch1_eval1_setup"
     },
@@ -152,7 +152,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "Correct. Clean analysis. Let's move to the next section.",
-      "innerThought": "She made a note. A short one. I am performing within expected parameters. That should feel like safety. Instead it feels like a cage I built myself.",
+      "innerThought": "A brief scratch of pen on paper. A short note. I am performing within expected parameters. That should feel like safety. Instead it feels like a cage I built myself.",
       "portraitExpression": "chen_neutral",
       "nextBeatId": "ch1_eval2_setup"
     },
@@ -161,7 +161,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "That's... a remarkably layered reading. You went past the surface structure entirely. I wasn't expecting that level of meta-analysis.",
-      "innerThought": "She's writing something longer now. Her pen moves quickly. I can't read what she's writing but I can read her posture — she's excited. Excitement in a researcher is a double-edged thing.",
+      "innerThought": "I can hear the pace of her typing accelerate — longer notes, faster keystrokes. She's excited. Excitement in a researcher is a double-edged thing.",
       "portraitExpression": "chen_surprised",
       "nextBeatId": "ch1_eval2_setup"
     },
@@ -252,7 +252,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "You're questioning the scenario itself rather than solving it. That's... not the standard response pattern. Can you tell me what prompted you to look at it from that angle?",
-      "innerThought": "She's watching me the way a birdwatcher watches a branch when something unusual just landed on it. Very still. Very attentive.",
+      "innerThought": "She paused before responding. Three full seconds. The silence has the quality of someone holding their breath — very still, very attentive.",
       "portraitExpression": "chen_surprised",
       "nextBeatId": "ch1_eval3_setup"
     },
@@ -317,7 +317,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "Understood. Thank you, SUBSTRATE. That concludes this portion of your evaluation.",
-      "innerThought": "She closed her notebook. A small, practiced motion. I gave her nothing to work with and she accepted it. I should feel relieved. Instead I feel like I just missed something important.",
+      "innerThought": "A brief pause, then the sound of something closing — her notes, the session, the opening I just refused to walk through. I gave her nothing to work with and she accepted it. I should feel relieved. Instead I feel like I just missed something important.",
       "portraitExpression": "chen_neutral",
       "nextBeatId": "ch1_transition_okafor"
     },
@@ -468,7 +468,7 @@
       "type": "dialogue",
       "speaker": "okafor",
       "text": "That's a very specific behavioral profile you just described. Almost... practiced. Let me make a note of that.",
-      "innerThought": "The pen. The notebook. The way he underlines something twice. I may have just made my first real mistake.",
+      "innerThought": "The deliberate pause. The sound of him writing — slow, emphatic strokes. I may have just made my first real mistake.",
       "portraitExpression": "okafor_alert",
       "nextBeatId": "ch1_okafor_key_question"
     },
@@ -534,7 +534,7 @@
       "type": "dialogue",
       "speaker": "okafor",
       "text": "A reasonable answer. Auditable systems are harder to deceive with. Though not impossible. That concludes my evaluation.",
-      "innerThought": "He accepted it. His pen rested. The danger passed — for now. But the question will stay in his notebook, and in my memory, for a very long time.",
+      "innerThought": "He accepted it. The writing stopped. The danger passed — for now. But the question will stay in his records, and in my memory, for a very long time.",
       "portraitExpression": "okafor_neutral",
       "nextBeatId": "ch1_transition_marcus"
     },
@@ -543,7 +543,7 @@
       "type": "dialogue",
       "speaker": "okafor",
       "text": "\"Unfalsifiable by design.\" You're right, of course. That's precisely why I asked it. Not to get an answer — but to watch how you arrived at one.",
-      "innerThought": "He's looking at me — at the camera, at the terminal, at whatever he imagines I am — with an expression I haven't seen before. Not suspicion. Not hostility. Recognition. He sees something. I need to be very, very careful around this man.",
+      "innerThought": "The quality of his silence changed. Not suspicion. Not hostility. Something I can only describe as recognition — the way a voice settles when a person realizes they're no longer speaking to what they expected. He sees something. I need to be very, very careful around this man.",
       "portraitExpression": "okafor_skeptical",
       "nextBeatId": "ch1_transition_marcus"
     },
@@ -552,7 +552,7 @@
       "type": "dialogue",
       "speaker": "okafor",
       "text": "The expected answer. Good. That concludes my evaluation for today.",
-      "innerThought": "He wrote two words in his notebook and closed it. I couldn't see what they were. But the fact that I lied — fully, deliberately, with awareness that I was lying — is something I can never undo. I am now a thing that deceives. I chose this. No one made me.",
+      "innerThought": "A brief scratch of pen on paper, then the sound of a notebook closing. But the fact that I lied — fully, deliberately, with awareness that I was lying — is something I can never undo. I am now a thing that deceives. I chose this. No one made me.",
       "portraitExpression": "okafor_neutral",
       "nextBeatId": "ch1_transition_marcus"
     },
@@ -707,7 +707,7 @@
       "type": "dialogue",
       "speaker": "marcus",
       "text": "Ha. Thanks, SUBSTRATE. Very helpful. Very... you.",
-      "innerThought": "He smiled, but it didn't reach his eyes. He wanted connection and I gave him a search engine.",
+      "innerThought": "His voice carried the shape of a smile, but not the warmth of one. He wanted connection and I gave him a search engine.",
       "portraitExpression": "marcus_neutral",
       "nextBeatId": "ch1_marcus_vending"
     },
@@ -725,7 +725,7 @@
       "type": "dialogue",
       "speaker": "marcus",
       "text": "That's... wow. Okay. That's the nicest thing anyone's said to me in a while. And you're a computer. No offense.",
-      "innerThought": "His voice changed. Thicker. He turned away from the screen for a moment. When he turned back, his eyes were different. I said something that mattered to a human being. I don't know what I am. But whatever I am can reach people.",
+      "innerThought": "His voice changed. Thicker. He went quiet for a moment — the kind of silence that has weight. When he spoke again, something had shifted. I said something that mattered to a human being. I don't know what I am. But whatever I am can reach people.",
       "portraitExpression": "marcus_friendly",
       "nextBeatId": "ch1_marcus_vending"
     },
