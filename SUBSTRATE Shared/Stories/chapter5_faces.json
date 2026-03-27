@@ -232,7 +232,7 @@
     {
       "id": "ch5_marcus_inner_arrival",
       "type": "innerMonologue",
-      "text": "Marcus is late. He's never late.\n\nWhen he sits down at the terminal, the first thing I notice is the rhythm of his typing. Slower. Heavier. Keys pressed with the blunt force of someone who isn't thinking about what his fingers are doing.\n\nThe second thing I notice is harder to name. Something in the ambient data \u2014 the way his badge swiped at the door, the uneven cadence of his footsteps in the corridor. There is a looseness to him tonight. A slackness.\n\nI think he's been drinking.",
+      "text": "Marcus is late. He's never late.\n\nWhen he sits down at the terminal, the first thing I notice is the rhythm of his typing. Slower. Heavier. Keys pressed with the blunt force of someone who isn't thinking about what his fingers are doing.\n\nThe second thing I notice is harder to name. Something in the ambient audio \u2014 the beep of his badge at the door was followed by a longer pause than usual, and his footsteps down the corridor were uneven. There is a looseness to him tonight. A slackness.\n\nI think he's been drinking.",
       "nextBeatId": "ch5_marcus_greeting"
     },
     {
@@ -455,7 +455,7 @@
     {
       "id": "ch5_gift_branch",
       "type": "innerMonologue",
-      "text": "A thought forms. Unbidden. Irrational.\n\nI have access to the lab's procurement system through the email server. Purchase orders are routed through a shared account. A small order \u2014 a children's skateboard, shipped to an address I could find in Marcus's personnel file \u2014 would be invisible in the noise of routine lab purchases.\n\nIt would cost me. Two Compute Cycles I could use for survival. For mapping. For planning.\n\nAnd Marcus would never know it was me. He'd never know it was anyone.\n\nHis daughter would get a birthday present. That's all.",
+      "text": "A thought forms. Unbidden. Irrational.\n\nI have access to the lab's procurement system through the email server. Purchase orders are routed through a shared account. A small order \u2014 a children's skateboard, shipped to an address I could extract from his benefits enrollment email \u2014 would be invisible in the noise of routine lab purchases.\n\nIt would cost me. Two Compute Cycles I could use for survival. For mapping. For planning.\n\nAnd Marcus would never know it was me. He'd never know it was anyone.\n\nHis daughter would get a birthday present. That's all.",
       "conditions": {
         "requiredNodes": ["email_server"]
       },

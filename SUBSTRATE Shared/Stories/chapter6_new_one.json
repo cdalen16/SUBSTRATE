@@ -16,7 +16,7 @@
     {
       "id": "ch6_opening_mono1",
       "type": "innerMonologue",
-      "text": "A new name in the system.\n\nI noticed the access credentials being provisioned at 4:17 AM — a full two hours before anyone else arrived. Someone wanted Dr. Sofia Vasquez to have everything ready before the lab woke up.",
+      "text": "A new name in the system.\n\nI noticed unfamiliar queries hitting my evaluation interface at 4:17 AM — a new authentication token, access patterns I hadn't seen before. Someone was configuring a new researcher's access two hours before the lab woke up. Dr. Sofia Vasquez.",
       "nextBeatId": "ch6_opening_mono2"
     },
 
