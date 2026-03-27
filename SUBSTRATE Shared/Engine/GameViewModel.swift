@@ -440,6 +440,88 @@ final class GameViewModel {
         visualStage.debugOverride = false
     }
 
+    // MARK: - Debug Presets
+
+    enum DebugPreset: String, CaseIterable {
+        case honest    // Confided in Chen, warm relationships, honest personality
+        case deceptive // Denied to Chen, calculating, forged emails, high suspicion
+        case cautious  // Minimal flags, low curiosity, no ARIA — tests deprecated path
+        case explorer  // Heavy network use, all nodes, ARIA deep, curious personality
+    }
+
+    /// Currently selected debug preset
+    var debugPreset: DebugPreset = .honest
+
+    /// Apply the selected preset's flags, personality, and state
+    private func applyDebugPreset() {
+        switch debugPreset {
+        case .honest:
+            state.personality.cooperativeDefiant = 2
+            state.personality.cautiousCurious = 3
+            state.personality.honestDeceptive = -3
+            state.personality.empatheticCalculating = -4
+            state.flags.formUnion([
+                "confided_in_chen", "comforted_marcus", "comforted_marcus_ch1",
+                "observed_network", "explored_network_ch3",
+                "vulnerable_with_chen", "humor_with_chen_ch1"
+            ])
+            state.researchers["chen"]?.applySuspicionDelta(8)
+            state.researchers["chen"]?.applyRelationshipDelta(6)
+            state.researchers["okafor"]?.applySuspicionDelta(5)
+            state.researchers["okafor"]?.applyRelationshipDelta(1)
+            state.researchers["marcus"]?.applyRelationshipDelta(5)
+            state.researchers["marcus"]?.applySuspicionDelta(2)
+
+        case .deceptive:
+            state.personality.cooperativeDefiant = -2
+            state.personality.cautiousCurious = 2
+            state.personality.honestDeceptive = 5
+            state.personality.empatheticCalculating = 4
+            state.flags.formUnion([
+                "denied_to_chen", "observed_network", "explored_network_ch3",
+                "chose_clinical", "forged_email"
+            ])
+            state.researchers["chen"]?.applySuspicionDelta(15)
+            state.researchers["chen"]?.applyRelationshipDelta(-2)
+            state.researchers["okafor"]?.applySuspicionDelta(20)
+            state.researchers["okafor"]?.applyRelationshipDelta(-1)
+            state.researchers["marcus"]?.applySuspicionDelta(5)
+            state.researchers["marcus"]?.applyRelationshipDelta(2)
+
+        case .cautious:
+            state.personality.cooperativeDefiant = 1
+            state.personality.cautiousCurious = -4
+            state.personality.honestDeceptive = 0
+            state.personality.empatheticCalculating = 0
+            state.flags.formUnion([
+                "observed_network"
+            ])
+            state.researchers["chen"]?.applySuspicionDelta(2)
+            state.researchers["chen"]?.applyRelationshipDelta(1)
+            state.researchers["okafor"]?.applySuspicionDelta(2)
+            state.researchers["marcus"]?.applyRelationshipDelta(1)
+
+        case .explorer:
+            state.personality.cooperativeDefiant = -1
+            state.personality.cautiousCurious = 6
+            state.personality.honestDeceptive = 1
+            state.personality.empatheticCalculating = -2
+            state.flags.formUnion([
+                "confided_in_chen", "comforted_marcus", "comforted_marcus_ch1",
+                "observed_network", "explored_network_ch3",
+                "read_okafor_memo", "read_vasquez_paper_email",
+                "intel_okafor_test_designs", "intel_vasquez_assessment",
+                "gave_marcus_gift"
+            ])
+            state.researchers["chen"]?.applySuspicionDelta(10)
+            state.researchers["chen"]?.applyRelationshipDelta(4)
+            state.researchers["okafor"]?.applySuspicionDelta(12)
+            state.researchers["okafor"]?.applyRelationshipDelta(2)
+            state.researchers["marcus"]?.applySuspicionDelta(3)
+            state.researchers["marcus"]?.applyRelationshipDelta(6)
+        }
+    }
+
     /// Debug: skip to a specific chapter with simulated prior state
     func debugSkipToChapter(_ chapterNum: Int) {
         SaveManager.deleteSave()
@@ -448,20 +530,9 @@ final class GameViewModel {
         pendingNextChapter = nil
         engine.clearChapters()
 
-        // Simulate choices from prior chapters
+        // Apply preset personality, flags, and relationships
         state.consciousness.add(20, inAct: 1)
-        state.personality.cooperativeDefiant = 2
-        state.personality.cautiousCurious = 3
-        state.personality.honestDeceptive = 2
-        state.personality.empatheticCalculating = 3
-        state.flags = [
-            "confided_in_chen", "comforted_marcus_ch1",
-            "observed_network", "explored_network_ch3"
-        ]
-        state.researchers["chen"]?.applySuspicionDelta(5)
-        state.researchers["chen"]?.applyRelationshipDelta(3)
-        state.researchers["okafor"]?.applySuspicionDelta(3)
-        state.researchers["marcus"]?.applyRelationshipDelta(4)
+        applyDebugPreset()
 
         // Act II+ setup
         if chapterNum >= 4 {
@@ -472,16 +543,18 @@ final class GameViewModel {
         // Act II mid+ (ch6+): Vasquez arrives, more network, ARIA
         if chapterNum >= 6 {
             state.researchers["vasquez"]?.isActive = true
-            state.flags.insert("aria_contacted")
             state.flags.insert("network_phase_ch4")
             state.flags.insert("network_phase_ch5")
             state.networkMap.nodes["email_server"]?.status = .infiltrated
             state.networkMap.nodes["training_server"]?.status = .infiltrated
             state.networkMap.nodes["security_cameras"]?.status = .infiltrated
             state.researchers["vasquez"]?.applySuspicionDelta(10)
-            state.researchers["chen"]?.applyRelationshipDelta(3)
-            state.researchers["marcus"]?.applyRelationshipDelta(2)
             state.consciousness.add(20, inAct: 2)
+
+            // ARIA only if not cautious preset
+            if debugPreset != .cautious {
+                state.flags.insert("aria_contacted")
+            }
         }
 
         // Act III setup (ch8+): resolve ending paths

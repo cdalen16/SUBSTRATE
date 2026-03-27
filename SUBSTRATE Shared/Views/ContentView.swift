@@ -157,6 +157,30 @@ struct ContentView: View {
                 }
             }
 
+            // Debug preset selector
+            HStack(spacing: 4) {
+                Text("PRESET:")
+                    .font(.system(size: 9, weight: .bold, design: .monospaced))
+                    .foregroundColor(TerminalTheme.dimGreen)
+                ForEach(GameViewModel.DebugPreset.allCases, id: \.self) { preset in
+                    Button(preset.rawValue.uppercased()) {
+                        viewModel.debugPreset = preset
+                    }
+                    .font(.system(size: 9, weight: .medium, design: .monospaced))
+                    .foregroundColor(viewModel.debugPreset == preset ? .black : TerminalTheme.terminalGreen)
+                    .padding(.horizontal, 4)
+                    .padding(.vertical, 3)
+                    .background(
+                        RoundedRectangle(cornerRadius: 3)
+                            .fill(viewModel.debugPreset == preset ? TerminalTheme.terminalGreen : .clear)
+                    )
+                    .background(
+                        RoundedRectangle(cornerRadius: 3)
+                            .stroke(TerminalTheme.dimGreen, lineWidth: 1)
+                    )
+                }
+            }
+
             // Skip to chapter buttons
             HStack(spacing: 4) {
                 ForEach([1, 2, 3, 4, 5, 6, 7, 8], id: \.self) { ch in
