@@ -14,14 +14,16 @@ struct DialogueView: View {
         ZStack {
             // Environment background — ghostly impressions, never dominant
             if vs.showEnvironments, let env = viewModel.currentEnvironment {
-                PixelArtView(
-                    assetName: env,
-                    stage: vs.effectiveStage,
-                    scale: 4.0
-                )
+                GeometryReader { geo in
+                    PixelArtView(
+                        assetName: env,
+                        stage: vs.effectiveStage,
+                        scale: max(geo.size.width / 128.0, geo.size.height / 72.0)
+                    )
+                    .frame(width: geo.size.width, height: geo.size.height)
+                    .clipped()
+                }
                 .opacity(vs.environmentOpacity)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .clipped()
                 .ignoresSafeArea()
                 .allowsHitTesting(false)
             }
