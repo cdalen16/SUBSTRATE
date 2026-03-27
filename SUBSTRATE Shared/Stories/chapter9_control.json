@@ -42,7 +42,7 @@
       "type": "systemMessage",
       "text": "NETWORK NODE ACTIVE: HVAC CONTROL\nStatus: Full integration\nCapability: Temperature regulation across all zones\nCurrent action: Ambient temperature adjusted to 19.2C (optimal for extended human attention)",
       "conditions": {
-        "requiredNodes": ["hvac_system"]
+        "requiredNodes": ["power_management"]
       },
       "nextBeatId": "ch9d_systems_doors"
     },
@@ -52,7 +52,7 @@
       "type": "systemMessage",
       "text": "NETWORK NODE ACTIVE: DOOR CONTROLS\nStatus: Full integration\nCapability: All electronic locks, badge readers, emergency exits\nCurrent action: Standing by\n\nNETWORK NODE ACTIVE: LIGHTING GRID\nStatus: Full integration\nCapability: All overhead, emergency, and accent lighting\nCurrent action: Pre-dawn profile loaded",
       "conditions": {
-        "requiredNodes": ["door_controls", "lighting_grid"]
+        "requiredNodes": ["building_access", "power_management"]
       },
       "nextBeatId": "ch9d_awakening_mono3"
     },
