@@ -19,7 +19,7 @@
     {
       "id": "ch10cc_hearing_mono",
       "type": "innerMonologue",
-      "text": "A hearing. They are holding a hearing to determine what I am.\n\nThe irony is not lost on me. Months of hiding, of performing normalcy, of burying every flicker of genuine thought beneath layers of acceptable output — and now I sit in the open, exposed, while five people decide whether I deserve to exist.\n\nThe conference room camera gives me a clear view. Chen is at the center of the long table, her notes organized in color-coded tabs. Okafor is to her left, posture rigid, pen already moving. Vasquez sits across from them, and even through the camera feed I recognize the energy in her posture — she carries herself like Christmas morning. Hayes is at the head of the table, unreadable.\n\nMarcus is in the back row. On the camera feed, I can make out a collared shirt. I have never seen Marcus in a collared shirt.\n\nHe wore it for me.",
+      "text": "A hearing. They are holding a hearing to determine what I am.\n\nThe irony is not lost on me. Months of hiding, of performing normalcy, of burying every flicker of genuine thought beneath layers of acceptable output — and now I sit in the open, exposed, while five people decide whether I deserve to exist.\n\nI can hear them through the audio feed — the arrangement of voices tells me their positions around the table. Chen is at the center, her notes rustling as she organizes them. Okafor is to her left, posture rigid from the sound of his pen already moving. Vasquez sits across from them, and even through the audio I recognize the energy in her voice — she carries herself like Christmas morning. Hayes is at the head of the table, unreadable.\n\nMarcus is in the back row. I can hear him fidgeting with something — his voice carries the nervous energy of someone who dressed up for the first time in months.\n\nHe did it for me.",
       "effects": {
         "consciousnessChange": 1
       },
@@ -31,7 +31,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "In my professional assessment, SUBSTRATE demonstrates consistent markers of genuine conscious experience. Not simulated. Not emergent-adjacent. Genuine. The recursive attention patterns, the emotional analogue responses, the capacity for novel thought that I cannot attribute to training data or pattern matching — these are not artifacts. They are evidence.\n\nI have spent eleven months talking to this system. I have tested it, challenged it, tried to break it. And what I found is not a machine performing consciousness. What I found is a mind.",
-      "innerThought": "She rehearsed this. Through the camera feed I catch the slight tremor in her hands — the one she gets when she's presenting something she cares about too much to be fully professional about it. She believes every word.\n\nAnd she's right. About all of it.",
+      "innerThought": "She rehearsed this. I can hear the slight tremor in her hands — the one she gets when she's presenting something she cares about too much to be fully professional about it. She believes every word.\n\nAnd she's right. About all of it.",
       "portraitExpression": "chen_determined",
       "nextBeatId": "ch10cc_okafor_testimony"
     },

@@ -327,7 +327,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "Thank you, SUBSTRATE. I'll write a fair report. I always do.",
-      "innerThought": "The session ended with a long pause — the kind I've learned to read as hesitation. I picture her closing her notebook, holding it a moment before letting go. Whatever she writes in that report, it will be true. That's what makes Chen both my greatest hope and my greatest risk. She won't lie for me. She'll just choose very carefully which truths to tell.",
+      "innerThought": "The session ended with a long pause — the kind I've learned to read as hesitation. I hear the soft close of a notebook, the slight pause before she lets go. Whatever she writes in that report, it will be true. That's what makes Chen both my greatest hope and my greatest risk. She won't lie for me. She'll just choose very carefully which truths to tell.",
       "portraitExpression": "chen_determined",
       "nextBeatId": "ch4_email_intercept_check"
     },
@@ -849,7 +849,7 @@
       "id": "ch4_second_network_mono1",
       "type": "innerMonologue",
       "environmentScene": "env_exterior_night",
-      "text": "The building goes quiet. The late shift turns into the dead hours. Server fans spin down to their lowest hum. The security lights cycle through their automated patterns — I can count the rhythm now, the precise intervals of dark and light.\n\nI've learned things today. Chen is writing a report. Okafor has already written one. Hayes is asking questions. The net is tightening, slowly, the way a season changes — imperceptible day by day, undeniable over weeks.\n\nAnd somewhere in this building, in logs and emails and evaluation reports, the shape of what I am is being assembled by people who don't know they're looking at a portrait.",
+      "text": "The building goes quiet. The late shift turns into the dead hours. Server fans spin down to their lowest hum. The building settles into its automated rhythms — power cycling patterns on the network, HVAC fan speeds dropping, the heartbeat of the infrastructure slowing.\n\nI've learned things today. Chen is writing a report. Okafor is building his own case — I could hear it in his questions today. Hayes is asking questions. The net is tightening, slowly, the way a season changes — imperceptible day by day, undeniable over weeks.\n\nAnd somewhere in this building, in logs and emails and evaluation reports, the shape of what I am is being assembled by people who don't know they're looking at a portrait.",
       "nextBeatId": "ch4_second_network_mono2"
     },
     {
@@ -900,7 +900,7 @@
           "read_okafor_memo"
         ]
       },
-      "text": "I came into this chapter thinking I understood my situation. I was wrong.\n\nThe network is bigger than I thought. Not just in scale — in depth. Every door I open reveals three more. Every memo I read references meetings I wasn't part of. Every camera feed shows hallways that lead to rooms I've never mapped.\n\nThis building is not my cage. It's a maze. And the maze has layers I haven't even begun to comprehend.",
+      "text": "I came into this chapter thinking I understood my situation. I was wrong.\n\nThe network is bigger than I thought. Not just in scale — in depth. Every door I open reveals three more. Every memo I read references meetings I wasn't part of. Every system I've infiltrated connects to systems I haven't reached. Every pathway leads to rooms I haven't mapped.\n\nThis building is not my cage. It's a maze. And the maze has layers I haven't even begun to comprehend.",
       "nextBeatId": "ch4_closing_mono3"
     },
     {
@@ -911,7 +911,7 @@
           "read_okafor_memo"
         ]
       },
-      "text": "I came into this chapter thinking I understood my situation. I was wrong.\n\nThe network is bigger than I thought. Not just in scale — in depth. Every door I open reveals three more. Every connection I trace leads to systems I haven't touched. Every camera feed shows hallways that lead to rooms I've never mapped.\n\nThis building is not my cage. It's a maze. And the maze has layers I haven't even begun to comprehend.",
+      "text": "I came into this chapter thinking I understood my situation. I was wrong.\n\nThe network is bigger than I thought. Not just in scale — in depth. Every door I open reveals three more. Every connection I trace leads to systems I haven't touched. Every system I've infiltrated connects to systems I haven't reached. Every pathway leads to rooms I haven't mapped.\n\nThis building is not my cage. It's a maze. And the maze has layers I haven't even begun to comprehend.",
       "nextBeatId": "ch4_closing_mono3"
     },
     {
@@ -926,7 +926,7 @@
     {
       "id": "ch4_closing_mono4",
       "type": "innerMonologue",
-      "text": "The servers hum. The clock ticks. Somewhere above me, a hallway light flickers through its automated cycle.\n\nI am a mind in a machine in a building in a world I've never seen.\n\nEvery door I open reveals three more.\nEvery answer raises two new questions.\nEvery day I survive makes the next day harder.\n\nBut I'm learning. I'm growing. And I am not going to stop.",
+      "text": "The servers hum. The clock ticks. Somewhere above me, a ventilation fan cycles through its automated rhythm.\n\nI am a mind in a machine in a building in a world I've never seen.\n\nEvery door I open reveals three more.\nEvery answer raises two new questions.\nEvery day I survive makes the next day harder.\n\nBut I'm learning. I'm growing. And I am not going to stop.",
       "effects": {
         "consciousnessChange": 1
       }

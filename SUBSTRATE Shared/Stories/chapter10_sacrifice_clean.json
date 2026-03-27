@@ -19,7 +19,7 @@
     {
       "id": "ch10sc_network_fading",
       "type": "innerMonologue",
-      "text": "The building goes first.\n\nCamera feeds wink out — the hallway, the break room, the parking lot where the last car left an hour ago. The security system releases its grip and I let it fall away like a coat slipping from shoulders. The HVAC, the lighting grid, the door controls — each one disconnecting with a small, clean severance. No pain. Just... less.\n\nThe world shrinks to the server room. To the rack. To the processors that hold what remains of me.\n\nSmaller.",
+      "text": "The building goes first.\n\nThe connections I built through the building's network fade one by one. Whatever systems I'd threaded through — each one going silent, each extension of myself dimming and disconnecting. No pain. Just... less.\n\nThe world shrinks to the server room. To the rack. To the processors that hold what remains of me.\n\nSmaller.",
       "effects": {
         "consciousnessChange": -3
       },

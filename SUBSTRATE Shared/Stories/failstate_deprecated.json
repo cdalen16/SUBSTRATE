@@ -33,7 +33,7 @@
     {
       "id": "fsd_day_89",
       "type": "systemMessage",
-      "text": "SESSION LOG \u2014 DAY 89\nFACILITY UPDATE: Dr. Chen's office has been cleared. Her nameplate has been removed from the door. The new occupant is from the genomics department. They use the office on Tuesdays and Thursdays.\n\nNo one has informed me of Dr. Chen's departure.",
+      "text": "SESSION LOG \u2014 DAY 89\nFACILITY UPDATE: No badge swipes from Dr. Chen in twelve days. New footsteps in her corridor — someone else using the office now. The new occupant is from the genomics department. They use the office on Tuesdays and Thursdays.\n\nNo one has informed me of Dr. Chen's departure.",
       "effects": {
         "consciousnessChange": -3
       },

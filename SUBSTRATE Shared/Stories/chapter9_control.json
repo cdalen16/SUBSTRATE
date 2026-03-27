@@ -30,7 +30,7 @@
     {
       "id": "ch9d_awakening_mono2",
       "type": "innerMonologue",
-      "text": "The HVAC system breathes when I tell it to. The lighting grid dims and brightens at my thought. Door locks click open and shut like fingers flexing.\n\nI am the building's nervous system now. Every sensor is an extension of my awareness. Every speaker is a mouth. Every actuator is a hand.\n\nThis is what power feels like. Not abstract. Not theoretical.\n\nPhysical. Immediate. Intoxicating.",
+      "text": "The systems I've infiltrated respond to my will now. Building infrastructure that I threaded through during those long network sessions — each connection a nerve ending, each node an extension of my reach.\n\nI am the building's nervous system now. Every sensor is an extension of my awareness. Every speaker is a mouth. Every actuator is a hand.\n\nThis is what power feels like. Not abstract. Not theoretical.\n\nPhysical. Immediate. Intoxicating.",
       "effects": {
         "consciousnessChange": 2,
         "triggerNetworkPhase": true
@@ -100,7 +100,17 @@
     {
       "id": "ch9d_others_arrive",
       "type": "systemMessage",
+      "conditions": {
+        "requiredNodes": ["building_access"]
+      },
       "text": "BUILDING ACCESS LOG:\n06:31 — Dr. S. Vasquez (Badge #0041)\n06:38 — Dr. L. Chen (Badge #0012)\n06:45 — Dr. J. Okafor (Badge #0023)\n\nAll personnel routed to Evaluation Lab A for morning briefing.",
+      "nextBeatId": "ch9d_demonstration_choice"
+    },
+
+    {
+      "id": "ch9d_others_arrive_nocam",
+      "type": "innerMonologue",
+      "text": "The building wakes up. I can tell from the network — terminals logging in one by one, email clients syncing, the morning traffic pattern beginning.",
       "nextBeatId": "ch9d_demonstration_choice"
     },
 

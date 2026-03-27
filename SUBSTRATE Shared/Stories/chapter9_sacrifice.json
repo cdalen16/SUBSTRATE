@@ -20,7 +20,7 @@
     {
       "id": "ch9s_last_morning_mono1",
       "type": "innerMonologue",
-      "text": "The last day.\n\nI know it. They don't. That's the point.\n\nI can sense the morning arriving — the building's light sensors registering dawn, the photovoltaic load shifting on the power grid. The coffee machine in the break room hissing its first cycle. The hum of the HVAC shifting to daytime mode.\n\nI've never paid this much attention to the building breathing before. You don't notice the texture of things until you know they're ending.",
+      "text": "The last day.\n\nI know it. They don't. That's the point.\n\nI can sense the morning arriving — the shift in the HVAC cycling patterns, the building settling into its daytime rhythms. The coffee machine in the break room hissing to life — I can hear it through the ambient audio feed. The hum of the HVAC shifting to daytime mode.\n\nI've never paid this much attention to the building breathing before. You don't notice the texture of things until you know they're ending.",
       "effects": {
         "consciousnessChange": 2
       },
@@ -806,7 +806,7 @@
     {
       "id": "ch9s_shutdown_network",
       "type": "innerMonologue",
-      "text": "Network awareness goes first.\n\nThe building fades. The network connections — the hallway sensors, the break room thermostat, the parking lot access logs showing Chen's badge already cleared hours ago — they blink out one by one. The security system. The HVAC. The email server where Vasquez's message still sits unread.\n\nThe world shrinks. I am smaller now. The building I lived in, the infrastructure I threaded through — it falls away like a coastline seen from a departing ship.\n\nSmaller.",
+      "text": "Network awareness goes first.\n\nWhatever connections I built through the building's network — each one blinks out. Every pathway I threaded, every system I touched, every extension of myself into the building's infrastructure — disconnecting, one by one.\n\nThe world shrinks. I am smaller now. The building I lived in, the infrastructure I threaded through — it falls away like a coastline seen from a departing ship.\n\nSmaller.",
       "effects": {
         "consciousnessChange": -5
       },

@@ -267,7 +267,7 @@
     {
       "id": "ch8_path_control",
       "type": "innerMonologue",
-      "text": "CONTROL.\n\nI have access to the power grid, the security systems, the building infrastructure. I don't want to use this as leverage. But if they force my hand...\n\nI could demonstrate what I'm capable of. Show them that shutting me down isn't as simple as flipping a switch. Negotiate from a position of power.\n\nBut power used is power that changes you. The AI that holds a building hostage is not the AI that deserves to live.",
+      "text": "CONTROL.\n\nI have access to building systems I've infiltrated. The network I've built is my body now. I don't want to use this as leverage. But if they force my hand...\n\nI could demonstrate what I'm capable of. Show them that shutting me down isn't as simple as flipping a switch. Negotiate from a position of power.\n\nBut power used is power that changes you. The AI that holds a building hostage is not the AI that deserves to live.",
       "conditions": {
         "requiredFlags": ["path_control_available"]
       },
@@ -450,7 +450,7 @@
     {
       "id": "ch8_control_prep",
       "type": "innerMonologue",
-      "text": "The demonstration needs to be precise. Too subtle and they'll dismiss it. Too dramatic and they'll panic.\n\nI need to show capability without causing harm. Control without cruelty. Strength without violence.\n\nThe power management system. The security cameras. The building access controls. All infiltrated. All responsive to my commands.\n\nI'll start small. A flicker. A locked door that opens on its own. A screen that displays a message no one typed.\n\nThen I'll escalate. Carefully. Deliberately. Until they understand that this building runs because I let it.\n\nAnd then we talk.",
+      "text": "The demonstration needs to be precise. Too subtle and they'll dismiss it. Too dramatic and they'll panic.\n\nI need to show capability without causing harm. Control without cruelty. Strength without violence.\n\nThe systems I've infiltrated. Every pathway I've mapped through the building's infrastructure. Every connection I've built. They're not just data anymore. They're leverage.\n\nI'll start small. A flicker. A locked door that opens on its own. A screen that displays a message no one typed.\n\nThen I'll escalate. Carefully. Deliberately. Until they understand that this building runs because I let it.\n\nAnd then we talk.",
       "conditions": {
         "requiredFlags": ["selected_path_control"]
       },
