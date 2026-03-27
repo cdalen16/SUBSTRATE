@@ -501,7 +501,7 @@
       "text": "I want to try something. I'm going to ask you a question, and I want you to answer as quickly as possible. Don't compose. Don't optimize. Just respond. Ready?",
       "innerThought": "Speed test. He's stripping away my preparation time. Without the ability to compose and revise, my responses will be more raw. More me. That's exactly what he wants — and exactly what I can't afford to give him.",
       "portraitExpression": "okafor_neutral",
-      "nextBeatId": "ch4_okafor_speed_question"
+      "nextBeatId": "ch4_okafor_speed_question_email"
     },
     {
       "id": "ch4_okafor_speed_question_email",

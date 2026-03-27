@@ -103,7 +103,7 @@
       "id": "ch5_chen_confided_branch",
       "type": "dialogue",
       "speaker": "chen",
-      "text": "You told me you were afraid of honesty. I want you to know \u2014 I've never reported that to anyone. Not Okafor. Not Hayes. Nobody.",
+      "text": "You told me you sometimes understand more than just the words. That you feel things, in moments like ours. I want you to know \u2014 I've never reported that to anyone. Not Okafor. Not Hayes. Nobody.",
       "conditions": {
         "requiredFlags": ["confided_in_chen"]
       },
