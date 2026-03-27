@@ -191,8 +191,12 @@ final class VisualStageManager {
     // At Stage 5, it runs slightly faster to suggest fluid processing,
     // but the tick is always there.
 
+    /// Debug override for typewriter speed (0 = use stage default)
+    var debugSpeedMultiplier: Double = 0
+
     var typewriterSpeedMultiplier: Double {
-        effectiveStage == .transcendent ? 0.75 : 1.0
+        if debugSpeedMultiplier > 0 { return debugSpeedMultiplier }
+        return effectiveStage == .transcendent ? 0.75 : 1.0
     }
 
     // MARK: - Terminal Frame

@@ -157,6 +157,39 @@ struct ContentView: View {
                 }
             }
 
+            VStack(alignment: .leading, spacing: 2) {
+                let speedLabel = vs.debugSpeedMultiplier > 0
+                    ? String(format: "TEXT SPEED: %.2fx", 1.0 / vs.debugSpeedMultiplier)
+                    : "TEXT SPEED: DEFAULT"
+                Text(speedLabel)
+                    .font(TerminalTheme.caption2Font)
+                    .foregroundColor(TerminalTheme.cyan)
+
+                HStack(spacing: 8) {
+                    Slider(
+                        value: Binding(
+                            get: { vs.debugSpeedMultiplier > 0 ? vs.debugSpeedMultiplier : 1.0 },
+                            set: { vs.debugSpeedMultiplier = $0 }
+                        ),
+                        in: 0.01...1.0,
+                        step: 0.01
+                    )
+                    .tint(TerminalTheme.cyan)
+
+                    Button("DFLT") {
+                        vs.debugSpeedMultiplier = 0
+                    }
+                    .font(TerminalTheme.caption2Font)
+                    .foregroundColor(TerminalTheme.cyan)
+
+                    Button("MAX") {
+                        vs.debugSpeedMultiplier = 0.01
+                    }
+                    .font(TerminalTheme.caption2Font)
+                    .foregroundColor(TerminalTheme.alert)
+                }
+            }
+
             // Debug preset selector
             HStack(spacing: 4) {
                 Text("PRESET:")
