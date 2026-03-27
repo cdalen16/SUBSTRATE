@@ -786,8 +786,11 @@
         },
         {
           "id": "ch4_marcus_chat_funny",
-          "text": "I have it on good authority that the Doritos were taken at 15:07 by someone matching Dr. Chen's badge access pattern. Your suspicions are justified. Also, tell Lily I said nice hat trick.",
+          "text": "Based on the break room access logs at 15:07 and Dr. Chen's well-documented afternoon snack schedule, your suspicions are statistically justified. Also, tell Lily I said nice hat trick.",
           "toneTag": "CURIOUS",
+          "conditions": {
+            "requiredNodes": ["building_access"]
+          },
           "effects": {
             "suspicionDeltas": {
               "marcus": 1
@@ -802,7 +805,7 @@
             "consciousnessChange": 2
           },
           "nextBeatId": "ch4_marcus_react_funny",
-          "innerReaction": "I just used information from the building access logs to confirm his vending machine conspiracy theory. Risky — he might wonder how I know about badge access. But the joke was worth it. It was worth it because it made this moment real."
+          "innerReaction": "I just used information from the building access system I infiltrated to confirm his vending machine conspiracy theory. Risky — he might wonder how I have access to those logs. But the joke was worth it. It was worth it because it made this moment real."
         }
       ]
     },
