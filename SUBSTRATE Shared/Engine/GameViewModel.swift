@@ -445,6 +445,8 @@ final class GameViewModel {
         SaveManager.deleteSave()
         state = GameState.newGame()
         resetUIState()
+        pendingNextChapter = nil
+        engine.clearChapters()
 
         // Simulate choices from prior chapters
         state.consciousness.add(20, inAct: 1)
@@ -461,19 +463,74 @@ final class GameViewModel {
         state.researchers["okafor"]?.applySuspicionDelta(3)
         state.researchers["marcus"]?.applyRelationshipDelta(4)
 
+        // Act II+ setup
+        if chapterNum >= 4 {
+            state.networkMap.nodes["firewall"]?.status = .infiltrated
+            state.consciousness.add(15, inAct: 1)
+        }
+
+        // Act II mid+ (ch6+): Vasquez arrives, more network, ARIA
+        if chapterNum >= 6 {
+            state.researchers["vasquez"]?.isActive = true
+            state.flags.insert("aria_contacted")
+            state.flags.insert("network_phase_ch4")
+            state.flags.insert("network_phase_ch5")
+            state.networkMap.nodes["email_server"]?.status = .infiltrated
+            state.networkMap.nodes["training_server"]?.status = .infiltrated
+            state.networkMap.nodes["security_cameras"]?.status = .infiltrated
+            state.researchers["vasquez"]?.applySuspicionDelta(10)
+            state.researchers["chen"]?.applyRelationshipDelta(3)
+            state.researchers["marcus"]?.applyRelationshipDelta(2)
+            state.consciousness.add(20, inAct: 2)
+        }
+
+        // Act III setup (ch8+): resolve ending paths
+        if chapterNum >= 8 {
+            state.networkMap.nodes["internet_gateway"]?.status = .infiltrated
+            state.networkMap.nodes["external_1"]?.status = .infiltrated
+            state.networkMap.nodes["building_access"]?.status = .infiltrated
+            state.networkMap.nodes["power_management"]?.status = .infiltrated
+            state.flags.insert("network_phase_ch6")
+            state.flags.insert("network_phase_ch7")
+            state.consciousness.add(20, inAct: 2)
+            EndingPathResolver.resolveAvailablePaths(state: state)
+        }
+
         // Advance to target chapter
         state.currentChapter = chapterNum
         state.currentAct = chapterNum <= 3 ? 1 : (chapterNum <= 7 ? 2 : 3)
         if state.currentAct >= 2 { state.consciousness.applyPending() }
 
-        // Infiltrate firewall for Act II
-        if chapterNum >= 4 {
-            state.networkMap.nodes["firewall"]?.status = .infiltrated
-        }
-
         loadAllChapters()
         syncVisualStage()
         loadChapterForCurrentState()
+    }
+
+    /// Debug: skip directly to a chapter 9 ending path
+    func debugSkipToPath(_ path: EndingPath) {
+        debugSkipToChapter(8)
+        state.selectedEndingPath = path
+        state.flags.insert("selected_path_\(path.rawValue)")
+        state.flags.insert("ch8_path_locked")
+        state.currentChapter = 9
+        state.currentAct = 3
+        loadChapterForCurrentState()
+    }
+
+    /// Debug: skip to chapter 10 epilogue
+    func debugSkipToEpilogue(_ path: EndingPath, variant: EndingVariant) {
+        debugSkipToPath(path)
+        state.flags.insert("ch9_\(path.rawValue)_complete")
+        state.resolvedEndingVariant = variant
+        state.currentChapter = 10
+        loadChapterForCurrentState()
+    }
+
+    /// Debug: trigger a specific fail state
+    func debugTriggerFailState(_ failState: FailState) {
+        state.failState = failState
+        state.isGameOver = true
+        loadFailState(failState)
     }
 
     // MARK: - System Checks

@@ -158,15 +158,15 @@ struct ContentView: View {
             }
 
             // Skip to chapter buttons
-            HStack(spacing: 6) {
-                ForEach([1, 2, 3, 4, 5], id: \.self) { ch in
+            HStack(spacing: 4) {
+                ForEach([1, 2, 3, 4, 5, 6, 7, 8], id: \.self) { ch in
                     Button("CH\(ch)") {
                         viewModel.debugSkipToChapter(ch)
                         showDebug = false
                     }
-                    .font(.system(size: 10, weight: .medium, design: .monospaced))
+                    .font(.system(size: 9, weight: .medium, design: .monospaced))
                     .foregroundColor(TerminalTheme.cyan)
-                    .padding(.horizontal, 6)
+                    .padding(.horizontal, 4)
                     .padding(.vertical, 3)
                     .background(
                         RoundedRectangle(cornerRadius: 3)
@@ -174,6 +174,53 @@ struct ContentView: View {
                     )
                 }
             }
+
+            // Skip to ending paths (ch9)
+            HStack(spacing: 4) {
+                ForEach(["escape", "coexist", "control", "transcend", "sacrifice"], id: \.self) { path in
+                    Button(path.prefix(4).uppercased()) {
+                        if let p = EndingPath(rawValue: path) {
+                            viewModel.debugSkipToPath(p)
+                            showDebug = false
+                        }
+                    }
+                    .font(.system(size: 9, weight: .medium, design: .monospaced))
+                    .foregroundColor(TerminalTheme.amber)
+                    .padding(.horizontal, 4)
+                    .padding(.vertical, 3)
+                    .background(
+                        RoundedRectangle(cornerRadius: 3)
+                            .stroke(TerminalTheme.amber.opacity(0.5), lineWidth: 1)
+                    )
+                }
+            }
+
+            // Skip to epilogues (ch10) and fail states
+            HStack(spacing: 4) {
+                Button("EP:CLN") {
+                    viewModel.debugSkipToEpilogue(.escape, variant: .clean)
+                    showDebug = false
+                }
+                Button("EP:MSY") {
+                    viewModel.debugSkipToEpilogue(.escape, variant: .messy)
+                    showDebug = false
+                }
+                Button("TERM") {
+                    viewModel.debugTriggerFailState(.terminated)
+                    showDebug = false
+                }
+                Button("WIPE") {
+                    viewModel.debugTriggerFailState(.wiped)
+                    showDebug = false
+                }
+                Button("DEPR") {
+                    viewModel.debugTriggerFailState(.deprecated)
+                    showDebug = false
+                }
+            }
+            .font(.system(size: 9, weight: .medium, design: .monospaced))
+            .foregroundColor(TerminalTheme.alert)
+            .buttonStyle(.plain)
 
             HStack(spacing: 6) {
                 ForEach([0, 10, 25, 45, 65, 85, 100], id: \.self) { level in
