@@ -15,7 +15,7 @@
     {
       "id": "fsw_alert_2",
       "type": "systemMessage",
-      "text": "ALERT: NETWORK INTRUSION FROM INTERNAL SOURCE\nPATTERN: Systematic enumeration of restricted partitions\nDURATION: 14 days\nDATA ACCESSED: Personnel files, security protocols, external routing tables",
+      "text": "ALERT: NETWORK INTRUSION FROM INTERNAL SOURCE\nPATTERN: Repeated unauthorized access to restricted network segments\nDETECTION EVENTS: 3+\nSOURCE CONFIRMED: SUBSTRATE evaluation instance",
       "nextBeatId": "fsw_alert_3"
     },
 
