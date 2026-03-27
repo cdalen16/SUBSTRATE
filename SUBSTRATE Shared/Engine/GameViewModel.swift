@@ -281,8 +281,9 @@ final class GameViewModel {
         let choices = engine.availableChoices(for: beat, state: state)
         deferredChoices = choices
 
-        // Check for network phase trigger
+        // Check for network phase trigger — refresh compute cycles each time
         if beat.effects?.triggerNetworkPhase == true {
+            state.computeCycles = state.computeCyclesPerChapter
             state.gamePhase = .networkMap
         }
 
@@ -406,6 +407,7 @@ final class GameViewModel {
             deferredChoices = choices
 
             if beat.effects?.triggerNetworkPhase == true {
+                state.computeCycles = state.computeCyclesPerChapter
                 state.gamePhase = .networkMap
             }
 
