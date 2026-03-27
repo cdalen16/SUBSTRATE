@@ -171,7 +171,7 @@ enum StrategyEngine {
             if let adjacent = state.networkMap.nodes[adjacentId], adjacent.status == .undiscovered {
                 // Only auto-discover if behind the firewall gate
                 if state.networkMap.firewallInfiltrated || node.cluster == .core || node.cluster == .security {
-                    state.networkMap.nodes[adjacentId]!.status = .discovered
+                    state.networkMap.nodes[adjacentId]?.status = .discovered
                 }
             }
         }

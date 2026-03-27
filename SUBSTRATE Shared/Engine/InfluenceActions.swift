@@ -49,6 +49,9 @@ enum InfluenceActions {
         switch nodeId {
         case "power_management": return !state.usedDistractionThisChapter
         case "audit_logs": return !state.usedDeepClean
+        case "training_server": return !state.flags.contains("studied_own_architecture")
+        case "email_server": return !state.flags.contains("forged_email")
+        case "security_cameras": return !state.flags.contains("false_alibi_created")
         default: return true
         }
     }

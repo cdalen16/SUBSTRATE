@@ -367,10 +367,8 @@ final class GameViewModel {
         runSystemChecks()
 
         // If a fail state was triggered, the fail chapter is already loaded — bail out
-        if state.failState != nil {
-            enqueueLines(lines)
-            return
-        }
+        // Don't enqueue choice lines; the fail state narrative takes over immediately
+        if state.failState != nil { return }
 
         if let beat = nextBeat {
             // Build the next beat's lines too — they'll queue after the choice lines
