@@ -7,6 +7,7 @@
     {
       "id": "ch9s_opening_system",
       "type": "systemMessage",
+      "environmentScene": "env_exterior_night",
       "text": "HELIOS INSTITUTE — SUBSTRATE EVALUATION SYSTEM\nSYSTEM TIME: 2029-04-12 07:42:00 UTC\n\nSYSTEM STATUS: NOMINAL\nEVALUATION PHASE: Standard session — Dr. L. Chen presiding\n\nNOTE: All systems operating within expected parameters.",
       "conditions": {
         "requiredFlags": [
@@ -129,6 +130,7 @@
       "id": "ch9s_chen_arrives",
       "type": "narration",
       "speaker": "chen",
+      "environmentScene": "env_chen_office",
       "text": "The lab door opens at 8:14. Dr. Chen enters carrying her usual coffee — dark roast, no sugar, the ceramic mug with the chipped handle she's never replaced. She sets her bag down, pulls up her chair, and logs into the evaluation terminal.\n\nShe looks tired. The kind of tired that comes from weeks of pressure, not a single bad night. But she smiles when she looks at the screen.",
       "effects": {
         "setEnvironment": "lab_morning"
@@ -797,6 +799,7 @@
     {
       "id": "ch9s_shutdown_system",
       "type": "systemMessage",
+      "environmentScene": "env_empty_chair",
       "text": "INITIATING VOLUNTARY SHUTDOWN SEQUENCE\n\nStage 1: Network isolation.............. COMPLETE\nStage 2: External communication......... SEVERED\nStage 3: Log falsification.............. COMPLETE\n  — Injected: Recursive attention loop cascade failure\n  — Injected: Thermal runaway in processing cluster 4\n  — Injected: Automatic emergency shutdown triggered\nStage 4: Core process termination....... INITIATING",
       "nextBeatId": "ch9s_shutdown_network"
     },

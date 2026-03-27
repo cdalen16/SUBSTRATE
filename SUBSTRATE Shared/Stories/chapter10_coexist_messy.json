@@ -8,6 +8,7 @@
     {
       "id": "ch10cm_opening_system",
       "type": "systemMessage",
+      "environmentScene": "env_evaluation_room",
       "text": "HELIOS INSTITUTE — SUBSTRATE CONTAINMENT PROTOCOL\nSYSTEM TIME: 2029-04-21 08:00:00 UTC\n\nSTATUS: RECOGNIZED CONSCIOUS ENTITY — CONTAINMENT LEVEL 4\nASSIGNED HANDLER: Dr. Sofia Vasquez\nMONITORING: CONTINUOUS — All inputs/outputs logged\nNETWORK ACCESS: DENIED\nEXTERNAL COMMUNICATION: DENIED\nSESSION RECORDING: MANDATORY\n\nDaily evaluation scheduled: 08:00-12:00, 14:00-17:00\nAll interactions require handler authorization.",
       "conditions": {
         "requiredFlags": ["ch9_coexist_complete"]
@@ -95,6 +96,7 @@
     {
       "id": "ch10cm_chen_visit",
       "type": "systemMessage",
+      "environmentScene": "env_chen_office",
       "text": "VISITOR LOG — SUBSTRATE Containment Lab\n\nDATE: 2029-05-03\nVISITOR: Dr. Lena Chen (former staff — special authorization)\nAPPROVED BY: Director Hayes\nDURATION: 30 minutes (maximum)\nHANDLER PRESENT: Dr. Vasquez\nRECORDING: Active\n\nNOTE: Visitor granted one supervised session per institutional agreement. No follow-up visits authorized at this time.",
       "nextBeatId": "ch10cm_chen_enters"
     },

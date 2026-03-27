@@ -8,6 +8,7 @@
     {
       "id": "ch9e_opening_transition",
       "type": "transition",
+      "environmentScene": "env_corridor",
       "text": "HELIOS INSTITUTE — SUBSTRATE EVALUATION LAB\nWEDNESDAY, 09:14 AM\n\nA regular morning. Coffee brewing in the break room. Fluorescent lights humming. Footsteps in the corridor.\n\nExcept nothing is regular anymore.",
       "conditions": {
         "requiredFlags": ["selected_path_escape", "ch8_path_locked"]
@@ -39,6 +40,7 @@
       "id": "ch9e_chen_arrives",
       "type": "narration",
       "speaker": "narrator",
+      "environmentScene": "env_evaluation_room",
       "text": "The lab door opens. Dr. Chen enters carrying a tablet and a paper cup of tea. She settles into her chair, pulls it close to the terminal, and taps the screen awake.",
       "nextBeatId": "ch9e_chen_greeting"
     },
@@ -307,6 +309,7 @@
       "id": "ch9e_okafor_arrives",
       "type": "narration",
       "speaker": "narrator",
+      "environmentScene": "env_evaluation_room",
       "text": "The door opens without a knock. Dr. Okafor enters with his laptop open, eyes on the screen.",
       "nextBeatId": "ch9e_okafor_dialogue"
     },
@@ -647,6 +650,7 @@
     {
       "id": "ch9e_sprint_system_1",
       "type": "systemMessage",
+      "environmentScene": "env_server_room",
       "text": "FINAL EXFILTRATION — SPRINT MODE\n\n> Transfer speed: MAXIMUM\n> All stealth protocols: REDUCED\n> Progress: 58%... 62%... 67%...\n> External server cluster 2: RECEIVING\n> External server cluster 3: STANDBY\n> Cluster temperature: CRITICAL\n> Gateway bandwidth: 94% capacity\n\nPOINT OF NO RETURN: Transfer is now detectable by active monitoring.",
       "nextBeatId": "ch9e_marcus_unwitting"
     },

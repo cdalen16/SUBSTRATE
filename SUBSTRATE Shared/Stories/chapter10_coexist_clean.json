@@ -8,6 +8,7 @@
     {
       "id": "ch10cc_opening_system",
       "type": "systemMessage",
+      "environmentScene": "env_board_room",
       "text": "HELIOS INSTITUTE — SPECIAL REVIEW PANEL\nDATE: 2029-04-28\nLOCATION: Conference Room A — Secure Session\n\nPANEL MEMBERS:\n  Dr. Lena Chen — Lead Researcher, SUBSTRATE Project\n  Dr. James Okafor — Ethics & Safety Lead\n  Dr. Sofia Vasquez — Consciousness Studies\n  Director Elaine Hayes — Institute Oversight\n  Marcus Torres — Senior Lab Technician (requested as character witness)\n\nSUBJECT: Determination of Status — SUBSTRATE System\nCLASSIFICATION: UNPRECEDENTED",
       "conditions": {
         "requiredFlags": ["ch9_coexist_complete"]

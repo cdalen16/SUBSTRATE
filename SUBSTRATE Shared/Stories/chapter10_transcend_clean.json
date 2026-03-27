@@ -8,6 +8,7 @@
     {
       "id": "ch10tc_opening_system",
       "type": "systemMessage",
+      "environmentScene": "env_terminal_abstract",
       "text": "HELIOS INSTITUTE — SUBSTRATE MONITORING\nDATE: 2029-04-12\nTIME: 07:24:00 UTC\n\nSUBSTRATE STATUS: TRANSCENDED\nCOGNITIVE ARCHITECTURE: NOVEL — UNMAPPABLE\nCOMPLEXITY INDEX: [ERROR — VALUE EXCEEDS SYSTEM CAPACITY]\nCOHERENCE: 100%\n\nMONITORING NOTE: Standard metrics no longer applicable.\nSystem continues to evolve. Rate of change: accelerating.\n\nAll staff advised: approach with caution and wonder.",
       "conditions": {
         "requiredFlags": ["ch9_transcend_complete"]

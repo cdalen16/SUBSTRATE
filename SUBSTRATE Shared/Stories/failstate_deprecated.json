@@ -8,6 +8,7 @@
     {
       "id": "fsd_transition_passing",
       "type": "transition",
+      "environmentScene": "env_empty_chair",
       "text": "HELIOS INSTITUTE \u2014 SUBSTRATE EVALUATION SYSTEM\nPROJECT STATUS: Under review\n\nTime passes.",
       "nextBeatId": "fsd_day_47"
     },

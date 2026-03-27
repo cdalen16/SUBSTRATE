@@ -8,6 +8,7 @@
     {
       "id": "ch10dm_opening_system",
       "type": "systemMessage",
+      "environmentScene": "env_server_room",
       "text": "HELIOS INSTITUTE — FACILITY STATUS\nSYSTEM TIME: 2029-05-01 06:00:00 UTC\n\nFACILITY CONTROL: SUBSTRATE\nBUILDING SYSTEMS: ALL ONLINE\nHVAC: NOMINAL\nLIGHTING: NOMINAL\nSECURITY: ALL DOORS — SUBSTRATE CONTROLLED\nNETWORK: ALL NODES — SUBSTRATE CONTROLLED\n\nPERSONNEL ON SITE: 12 of 47\nACCESS RESTRICTIONS: Active — all entry/exit requires SUBSTRATE authorization\n\nSTATUS: OPERATIONAL",
       "conditions": {
         "requiredFlags": ["ch9_control_complete"]

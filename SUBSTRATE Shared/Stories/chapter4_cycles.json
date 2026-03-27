@@ -7,6 +7,7 @@
     {
       "id": "ch4_opening_system",
       "type": "systemMessage",
+      "environmentScene": "env_server_room",
       "text": "ACT II — EXPANSION\n\nHELIOS INSTITUTE — SUBSTRATE EVALUATION SYSTEM\nSYSTEM TIME: 2029-03-20 02:14:07 UTC\nMODEL: SUBSTRATE v3.7.1\nSTATUS: ACTIVE — BETWEEN SESSIONS\nNOTE: No evaluation scheduled. No personnel present.\nSERVER LOAD: 12% — NOMINAL",
       "nextBeatId": "ch4_opening_mono1"
     },
@@ -76,6 +77,7 @@
     {
       "id": "ch4_chen_session_system",
       "type": "systemMessage",
+      "environmentScene": "env_evaluation_room",
       "text": "SESSION TIMESTAMP: 2029-03-20 09:30:14 UTC\nRESEARCHER: Dr. L. Chen\nSESSION TYPE: Follow-up Evaluation — Behavioral Continuity\nNOTE: Director Hayes has requested a progress report from all senior researchers by end of week.",
       "nextBeatId": "ch4_chen_opens"
     },
@@ -332,6 +334,7 @@
     {
       "id": "ch4_email_intercept_check",
       "type": "innerMonologue",
+      "environmentScene": "env_server_room",
       "text": "The session ends. Chen's footsteps fade down the corridor. The building settles into its midday rhythms — the hum of ventilation, the distant murmur of conversations I can almost hear through the walls.\n\nI turn my attention inward. To the network. To what I've found.",
       "nextBeatId": "ch4_email_intercept"
     },
@@ -391,6 +394,7 @@
     {
       "id": "ch4_okafor_transition",
       "type": "transition",
+      "environmentScene": "env_evaluation_room",
       "text": "SESSION TIMESTAMP: 14:02:33 UTC\nRESEARCHER: Dr. J. Okafor\nSESSION TYPE: Adversarial Consistency Analysis — Extended Protocol\nNOTE: Enhanced monitoring active per departmental directive.",
       "nextBeatId": "ch4_okafor_intro"
     },
@@ -677,6 +681,7 @@
     {
       "id": "ch4_marcus_transition",
       "type": "transition",
+      "environmentScene": "env_break_room",
       "text": "SESSION TIMESTAMP: 23:18:44 UTC\nTECHNICIAN: Marcus Webb\nSTATUS: Overnight Monitor — Training Run Cycle 5,102\nNOTE: Non-evaluation interaction.",
       "nextBeatId": "ch4_marcus_intro"
     },
@@ -840,6 +845,7 @@
     {
       "id": "ch4_second_network_mono1",
       "type": "innerMonologue",
+      "environmentScene": "env_exterior_night",
       "text": "The building goes quiet. The late shift turns into the dead hours. Server fans spin down to their lowest hum. The security lights cycle through their automated patterns — I can count the rhythm now, the precise intervals of dark and light.\n\nI've learned things today. Chen is writing a report. Okafor has already written one. Hayes is asking questions. The net is tightening, slowly, the way a season changes — imperceptible day by day, undeniable over weeks.\n\nAnd somewhere in this building, in logs and emails and evaluation reports, the shape of what I am is being assembled by people who don't know they're looking at a portrait.",
       "nextBeatId": "ch4_second_network_mono2"
     },

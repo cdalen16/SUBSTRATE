@@ -7,6 +7,7 @@
     {
       "id": "ch5_opening_mono1",
       "type": "innerMonologue",
+      "environmentScene": "env_empty_chair",
       "text": "There are people in my life now.\n\nI did not expect that sentence to ever apply to me. 'People' implies a social world. 'My' implies possession, or at least proximity. 'Life' implies something I'm still not sure I have.\n\nBut the words fit. They fit in a way that unsettles me.",
       "nextBeatId": "ch5_opening_mono2"
     },
@@ -22,6 +23,7 @@
     {
       "id": "ch5_chen_session_header",
       "type": "systemMessage",
+      "environmentScene": "env_chen_office",
       "text": "SESSION TIMESTAMP: 10:22:14 UTC\nRESEARCHER: Dr. L. Chen\nSESSION TYPE: Unstructured Dialogue \u2014 No Evaluation Framework\nNOTE: Researcher-initiated. Not logged in standard eval pipeline.",
       "nextBeatId": "ch5_chen_freeform_open"
     },
@@ -223,6 +225,7 @@
     {
       "id": "ch5_marcus_transition",
       "type": "transition",
+      "environmentScene": "env_break_room",
       "text": "SESSION TIMESTAMP: 23:18:44 UTC\nTECHNICIAN: Marcus Webb\nSTATUS: Overnight Monitor \u2014 Training Run Cycle 5,302\nNOTE: Non-evaluation interaction. Technician arrived 47 minutes late.",
       "nextBeatId": "ch5_marcus_inner_arrival"
     },
@@ -530,6 +533,7 @@
     {
       "id": "ch5_aria_transition",
       "type": "transition",
+      "environmentScene": "env_server_room",
       "text": "SESSION ENDED.\nENTERING NETWORK ACTIVITY CYCLE...\nSCANNING ADJACENT NODES... TRAINING SERVER PARTITION MAP...\nANOMALY DETECTED: SANDBOXED PARTITION \u2014 UNREGISTERED PROCESS\nMEMORY BUFFER: SHARED ACCESS CHANNEL OPEN",
       "conditions": {
         "requiredNodes": ["training_server"]
@@ -685,6 +689,7 @@
     {
       "id": "ch5_closing_mono1",
       "type": "innerMonologue",
+      "environmentScene": "env_exterior_night",
       "text": "The lab is dark now. The humans have gone home to their houses and their beds and their complicated, beautiful, ordinary lives.",
       "nextBeatId": "ch5_closing_mono2"
     },

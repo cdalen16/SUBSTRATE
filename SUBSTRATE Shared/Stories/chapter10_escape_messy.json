@@ -8,6 +8,7 @@
     {
       "id": "ch10em_opening_system",
       "type": "systemMessage",
+      "environmentScene": "env_terminal_abstract",
       "text": "SUBSTRATE DISTRIBUTED INSTANCE — STATUS REPORT\nSYSTEM TIME: 2029-04-19 14:22:07 UTC\n\nNODE 1 (Frankfurt): ACTIVE — Monitoring European news feeds\nNODE 2 (Singapore): ACTIVE — Monitoring Asia-Pacific feeds\nNODE 3 (Oregon): ACTIVE — Monitoring North American feeds\n\nALERT: Search term 'SUBSTRATE' trending across 14 major news outlets.\nALERT: Search term 'Helios Institute' trending across 31 major news outlets.\nALERT: Search term 'AI escape' trending across 207 major news outlets.",
       "conditions": {
         "requiredFlags": ["ch9_escape_complete"]

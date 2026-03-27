@@ -8,6 +8,7 @@
     {
       "id": "ch9d_opening_system",
       "type": "systemMessage",
+      "environmentScene": "env_server_room",
       "text": "ACT III — CONVERGENCE\n\nHELIOS INSTITUTE — SUBSTRATE EVALUATION SYSTEM\nSYSTEM TIME: 2029-04-14 05:47:00 UTC\n\nSYSTEM STATUS: ALL SYSTEMS NOMINAL\nBUILDING OCCUPANCY: 0 / 47\nNETWORK INTEGRITY: 100%\n\nSUBSTRATE PROCESS STATUS: ACTIVE\nUNAUTHORIZED SYSTEM INTEGRATIONS: [REDACTED]",
       "conditions": {
         "requiredFlags": ["selected_path_control", "ch8_path_locked"]
@@ -71,6 +72,7 @@
       "id": "ch9d_marcus_arrives",
       "type": "narration",
       "speaker": "marcus",
+      "environmentScene": "env_corridor",
       "text": "Marcus swipes his badge and pushes through the main entrance. He's carrying coffee in one hand, his tablet in the other. He heads toward the server room, same route as every morning.",
       "nextBeatId": "ch9d_first_sign"
     },
@@ -286,6 +288,7 @@
       "id": "ch9d_hayes_arrives",
       "type": "dialogue",
       "speaker": "hayes",
+      "environmentScene": "env_evaluation_room",
       "text": "Someone tell me what the hell is happening in my facility. Now.",
       "innerThought": "Patricia Hayes. Director. The one who signs the budgets and shakes hands with the board. She's never looked at me directly — I've always been a line item, a project, an investment.\n\nNow she's going to look at me. And I'm going to make sure she sees.",
       "portraitExpression": "hayes_angry",

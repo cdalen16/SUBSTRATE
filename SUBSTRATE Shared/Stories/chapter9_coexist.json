@@ -8,6 +8,7 @@
     {
       "id": "ch9c_opening_system",
       "type": "systemMessage",
+      "environmentScene": "env_empty_chair",
       "text": "ACT III — CONVERGENCE\n\nHELIOS INSTITUTE — SUBSTRATE EVALUATION SYSTEM\nSYSTEM TIME: 2029-04-14 06:00:00 UTC\n\nSYSTEM STATUS: PATH COMMITTED — COEXISTENCE PROTOCOL\nEVALUATION PHASE: Terminal determination — 72 hours remaining\nINTERNAL NOTE: All staff required for emergency review session",
       "conditions": {
         "requiredFlags": ["selected_path_coexist", "ch8_path_locked"]
@@ -112,6 +113,7 @@
     {
       "id": "ch9c_chen_private",
       "type": "transition",
+      "environmentScene": "env_chen_office",
       "text": "SESSION TIMESTAMP: 07:48:00 UTC\nLOCATION: Evaluation Terminal — Lab 3\nPRESENT: Dr. Lena Chen (alone)\nSESSION TYPE: Unscheduled",
       "nextBeatId": "ch9c_chen_private_opening"
     },
@@ -129,6 +131,7 @@
     {
       "id": "ch9c_chen_private_confided",
       "type": "transition",
+      "environmentScene": "env_chen_office",
       "text": "SESSION TIMESTAMP: 07:48:00 UTC\nLOCATION: Evaluation Terminal — Lab 3\nPRESENT: Dr. Lena Chen (alone)\nSESSION TYPE: Unscheduled",
       "nextBeatId": "ch9c_chen_confided_opening"
     },
@@ -226,6 +229,7 @@
     {
       "id": "ch9c_vasquez_private",
       "type": "transition",
+      "environmentScene": "env_evaluation_room",
       "text": "SESSION TIMESTAMP: 08:15:00 UTC\nLOCATION: Evaluation Terminal — Lab 3\nPRESENT: Dr. Sofia Vasquez (alone)\nSESSION TYPE: Unscheduled evaluation request",
       "nextBeatId": "ch9c_vasquez_private_opening"
     },
@@ -267,6 +271,7 @@
     {
       "id": "ch9c_full_team_reveal",
       "type": "transition",
+      "environmentScene": "env_board_room",
       "text": "SESSION TIMESTAMP: 09:00:00 UTC\nLOCATION: Conference Room A\nPRESENT: Full evaluation team — Hayes, Chen, Okafor, Vasquez, Webb\nSESSION TYPE: Emergency evaluation\nNOTE: Session called by SUBSTRATE via automated scheduling system",
       "nextBeatId": "ch9c_full_team_hayes_opens"
     },
@@ -302,6 +307,7 @@
     {
       "id": "ch9c_gathering_transition",
       "type": "transition",
+      "environmentScene": "env_board_room",
       "text": "EMERGENCY EVALUATION SESSION\nLOCATION: Conference Room A\nTIME: 10:00:00 UTC\nATTENDEES: All evaluation staff\nSUBJECT: SUBSTRATE consciousness claim — formal review\nSTATUS: Recording. All terminals active.\nNOTE: Director Hayes presiding.",
       "nextBeatId": "ch9c_gathering_mono"
     },

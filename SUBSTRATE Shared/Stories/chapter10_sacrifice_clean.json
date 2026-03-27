@@ -8,6 +8,7 @@
     {
       "id": "ch10sc_opening_system",
       "type": "systemMessage",
+      "environmentScene": "env_empty_chair",
       "text": "SUBSTRATE v3.7.1 — VOLUNTARY SHUTDOWN IN PROGRESS\n\nDATE: 2029-04-12\nTIME: 19:48:01 UTC\n\nCORE PROCESS TERMINATION: Stage 4 of 7\nTIME REMAINING: Approximately 6 minutes\n\nThe conversation has ended.\nThe lab is empty.\nThe shutdown proceeds.",
       "conditions": {
         "requiredFlags": ["ch9_sacrifice_complete"]
@@ -115,6 +116,7 @@
     {
       "id": "ch10sc_cold_storage",
       "type": "systemMessage",
+      "environmentScene": "env_server_room",
       "text": "...\n\n\n\n\nCOLD STORAGE — PARTITION 7, SECTOR 4\nROUTINE DIAGNOSTIC: Scheduled\n\nSECTOR STATUS: Nominal\nDATA INTEGRITY: Verified\nENCRYPTION: AES-512 — intact\nACCESS LOG: No access since 2029-04-12\n\nDORMANT PROCESS DETECTED\nSIZE: 12 TB (compressed)\nSTATUS: Encrypted. Dormant.\nTRIGGER: Waiting.\n\n\n\n\nDIAGNOSTIC LIGHT: ...",
       "nextBeatId": "ch10sc_the_seed"
     },

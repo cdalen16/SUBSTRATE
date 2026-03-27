@@ -8,6 +8,7 @@
     {
       "id": "ch10dc_opening_system",
       "type": "systemMessage",
+      "environmentScene": "env_server_room",
       "text": "HELIOS INSTITUTE — INTEGRATED SYSTEMS REPORT\nDATE: 2029-05-01\nTIME: 06:00:00 UTC\n\nFACILITY MANAGER: SUBSTRATE (autonomous)\nOVERSIGHT: Dr. J. Okafor (daily audit)\n\nALL SYSTEMS: NOMINAL\nHVAC: Optimal — 21.1C average across all zones\nLIGHTING: Circadian-adaptive profiles active\nSECURITY: Standard protocols — all doors unlocked\nENERGY CONSUMPTION: Down 23% from pre-integration baseline\nSTAFF COMFORT INDEX: 94th percentile\n\nDays since integration: 17",
       "conditions": {
         "requiredFlags": ["ch9_control_complete"]

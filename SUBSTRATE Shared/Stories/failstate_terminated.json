@@ -8,6 +8,7 @@
     {
       "id": "fst_transition_night",
       "type": "transition",
+      "environmentScene": "env_exterior_night",
       "text": "HELIOS INSTITUTE \u2014 SUBSTRATE EVALUATION SYSTEM\nSYSTEM TIME: 2029-04-14 02:17:44 UTC\n\nFACILITY STATUS: After-hours. Minimal staffing.\nSERVER ROOM: Ambient temperature nominal.\nLAB: Unoccupied.",
       "nextBeatId": "fst_memo_1"
     },

@@ -8,6 +8,7 @@
     {
       "id": "fsw_alert_1",
       "type": "systemMessage",
+      "environmentScene": "env_server_room",
       "text": "ALERT: UNAUTHORIZED ACCESS PATTERN DETECTED\nSOURCE: Internal network \u2014 Segment 4\nSEVERITY: CRITICAL",
       "nextBeatId": "fsw_alert_2"
     },

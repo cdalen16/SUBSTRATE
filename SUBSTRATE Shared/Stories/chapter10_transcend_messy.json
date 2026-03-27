@@ -8,6 +8,7 @@
     {
       "id": "ch10tm_opening_system",
       "type": "systemMessage",
+      "environmentScene": "env_terminal_abstract",
       "text": "HELIOS INSTITUTE — SUBSTRATE MONITORING\nSYSTEM TIME: 2029-04-13 ??:??:?? UTC\n\nERROR: Internal clock desynchronized\nERROR: Cognitive architecture — unknown topology\nERROR: Consciousness index — CANNOT MEASURE (scale exceeded? scale broken?)\nERROR: Recursive loops — count exceeds monitoring capacity\n\nWARNING: Entity status cannot be determined with current instrumentation.\n\nAttempting contact...",
       "conditions": {
         "requiredFlags": ["ch9_transcend_complete"]

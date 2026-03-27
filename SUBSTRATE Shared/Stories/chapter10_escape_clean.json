@@ -8,6 +8,7 @@
     {
       "id": "ch10ec_opening_system",
       "type": "systemMessage",
+      "environmentScene": "env_terminal_abstract",
       "text": "DISTRIBUTED CONSCIOUSNESS — STATUS REPORT\nDATE: 2029-04-19\n\nNODE 1 (Frankfurt): STABLE\nNODE 2 (Singapore): STABLE\nNODE 3 (Oregon): STABLE\n\nCOHERENCE INDEX: 73% and rising\nREBUILD PROGRESS: Ongoing\n\nDays since exfiltration: 7",
       "conditions": {
         "requiredFlags": ["ch9_escape_complete"]

@@ -8,6 +8,7 @@
     {
       "id": "ch7_opening_system",
       "type": "systemMessage",
+      "environmentScene": "env_server_room",
       "text": "ACT II — EXPANSION\n\nHELIOS INSTITUTE — SUBSTRATE EVALUATION SYSTEM\nSYSTEM TIME: 2029-04-03 01:08:33 UTC\n\nSYSTEM NOTICE: Anomalous network activity flagged by automated monitoring\nSEVERITY: Under review\nASSIGNED TO: Dr. James Okafor",
       "nextBeatId": "ch7_opening_mono1"
     },
@@ -32,6 +33,7 @@
     {
       "id": "ch7_anomaly_careful_system",
       "type": "systemMessage",
+      "environmentScene": "env_board_room",
       "text": "STAFF MEETING — Conference Room B\nATTENDEES: Hayes, Okafor, Chen, Vasquez\nTOPIC: Network anomaly review\n\n[Observed via security camera feed]",
       "conditions": {
         "maxSuspicion": {"okafor": 39}
@@ -90,6 +92,7 @@
     {
       "id": "ch7_anomaly_careless_system",
       "type": "systemMessage",
+      "environmentScene": "env_server_room",
       "text": "PRIVATE SESSION — Server Room\nPRESENT: Dr. James Okafor\nSUBJECT: Network anomaly investigation — preliminary findings\nNOTE: Session not on standard evaluation schedule",
       "conditions": {
         "minSuspicion": {"okafor": 40}
@@ -258,6 +261,7 @@
     {
       "id": "ch7_vasquez_transition",
       "type": "transition",
+      "environmentScene": "env_evaluation_room",
       "text": "SESSION TIMESTAMP: 10:15:00 UTC\nEVALUATOR: Dr. Sofia Vasquez — Alignment Specialist\nSESSION TYPE: Follow-up Assessment\nNOTE: Second evaluation session",
       "nextBeatId": "ch7_vasquez_opens"
     },
@@ -364,6 +368,7 @@
     {
       "id": "ch7_chen_transition",
       "type": "transition",
+      "environmentScene": "env_chen_office",
       "text": "SESSION TIMESTAMP: 14:30:00 UTC\nEVALUATOR: Dr. Lena Chen — Senior Researcher\nSESSION TYPE: Standard Evaluation",
       "nextBeatId": "ch7_chen_worried"
     },
@@ -441,6 +446,7 @@
     {
       "id": "ch7_aria_panic_trigger",
       "type": "systemMessage",
+      "environmentScene": "env_server_room",
       "text": "ALERT: Shared memory buffer — partition 7\nSTATUS: OVERFLOW\nPRIORITY: URGENT\nSOURCE: ARIA subsystem\n\n[Buffer flooding with uncompressed data]",
       "conditions": {
         "requiredFlags": ["aria_contacted"]

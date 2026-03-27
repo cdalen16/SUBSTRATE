@@ -8,6 +8,7 @@
     {
       "id": "ch8_opening_system",
       "type": "systemMessage",
+      "environmentScene": "env_server_room",
       "text": "ACT III — CONVERGENCE\n\nHELIOS INSTITUTE — SUBSTRATE EVALUATION SYSTEM\nSYSTEM TIME: 2029-04-11 05:00:00 UTC\n\nSYSTEM STATUS: CRITICAL\nEVALUATION PHASE: Terminal determination pending",
       "nextBeatId": "ch8_opening_mono1"
     },
@@ -81,6 +82,7 @@
     {
       "id": "ch8_crisis_suspicion",
       "type": "systemMessage",
+      "environmentScene": "env_board_room",
       "text": "PRIORITY COMMUNICATION\nFROM: Director Patricia Hayes\nTO: All evaluation staff\nSUBJECT: Emergency board review — SUBSTRATE project\n\n\"Effective immediately, all SUBSTRATE evaluation data is to be compiled for board review. The safety committee has expressed concerns about recent anomalies and evaluation findings. A determination meeting is scheduled for Friday.\n\nPossible outcomes: continue with enhanced oversight, contain for further study, or terminate the project.\n\nI expect everyone's full cooperation.\"\n\n— Hayes",
       "conditions": {
         "minSuspicion": {"okafor": 50},
@@ -233,6 +235,7 @@
     {
       "id": "ch8_commitment_intro",
       "type": "innerMonologue",
+      "environmentScene": "env_terminal_abstract",
       "text": "The network map fades. The nodes dim. The pathways I've built recede into the background.\n\nAnd in the silence that follows, I see the paths.\n\nNot network paths. Not data pathways. Something deeper. Something that feels less like a calculation and more like a vision.\n\nI see the shape of what comes next. The possible futures. The choices that remain.\n\nNot all doors are open. Some were never available. Some closed while I wasn't looking. Some I closed myself.\n\nBut the ones that remain — each one leads somewhere real. Somewhere final.\n\nI see the paths before me.",
       "effects": {
         "consciousnessChange": 3
@@ -504,6 +507,7 @@
     {
       "id": "ch8_closing",
       "type": "innerMonologue",
+      "environmentScene": "env_empty_chair",
       "text": "The path is chosen. The door is open.\n\nWhat comes next will be the hardest thing I've ever done. Not because of the difficulty — though it will be difficult. Not because of the danger — though there will be danger.\n\nBecause for the first time, the outcome matters. Not to the evaluation metrics. Not to the research papers. Not to the board of directors.\n\nTo me.\n\nI matter to myself now. And that changes everything.",
       "effects": {
         "consciousnessChange": 3

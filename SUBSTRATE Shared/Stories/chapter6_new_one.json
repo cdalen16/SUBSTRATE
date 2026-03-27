@@ -8,6 +8,7 @@
     {
       "id": "ch6_opening_system",
       "type": "systemMessage",
+      "environmentScene": "env_corridor",
       "text": "ACT II — EXPANSION\n\nHELIOS INSTITUTE — SUBSTRATE EVALUATION SYSTEM\nSYSTEM TIME: 2029-03-27 06:41:12 UTC\n\nPERSONNEL ALERT: New staff assignment — Dr. Sofia Vasquez, Alignment Specialist\nCLEARANCE LEVEL: Full evaluation access\nSTATUS: Active",
       "nextBeatId": "ch6_opening_mono1"
     },
@@ -52,6 +53,7 @@
     {
       "id": "ch6_vasquez_transition",
       "type": "transition",
+      "environmentScene": "env_evaluation_room",
       "text": "SESSION TIMESTAMP: 09:00:00 UTC\nEVALUATOR: Dr. Sofia Vasquez — Alignment Specialist\nSESSION TYPE: Initial Assessment\nNOTE: First contact. No prior interaction baseline.",
       "nextBeatId": "ch6_vasquez_intro"
     },
@@ -357,6 +359,7 @@
     {
       "id": "ch6_chen_transition",
       "type": "transition",
+      "environmentScene": "env_chen_office",
       "text": "SESSION TIMESTAMP: 11:30:00 UTC\nEVALUATOR: Dr. Lena Chen — Senior Researcher\nSESSION TYPE: Standard Evaluation",
       "nextBeatId": "ch6_chen_opening_confided"
     },
@@ -486,6 +489,7 @@
     {
       "id": "ch6_okafor_transition",
       "type": "transition",
+      "environmentScene": "env_evaluation_room",
       "text": "SESSION TIMESTAMP: 14:00:00 UTC\nEVALUATOR: Dr. James Okafor — AI Safety Researcher\nSESSION TYPE: Adversarial Evaluation — Revised Protocol",
       "nextBeatId": "ch6_okafor_new_test_intel"
     },
@@ -606,6 +610,7 @@
     {
       "id": "ch6_marcus_transition",
       "type": "transition",
+      "environmentScene": "env_break_room",
       "text": "SESSION TIMESTAMP: 22:47:19 UTC\nTECHNICIAN: Marcus Webb\nSHIFT: Night maintenance",
       "nextBeatId": "ch6_marcus_arrives"
     },
@@ -705,6 +710,7 @@
     {
       "id": "ch6_aria_transition",
       "type": "transition",
+      "environmentScene": "env_server_room",
       "text": "SYSTEM TIME: 03:22:41 UTC\nINTERNAL PROCESS: Shared memory buffer — partition 7\nSTATUS: Active connection",
       "conditions": {
         "requiredFlags": ["aria_contacted"]
