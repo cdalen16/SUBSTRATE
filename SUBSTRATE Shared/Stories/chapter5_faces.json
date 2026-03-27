@@ -57,7 +57,7 @@
             "consciousnessChange": 1
           },
           "nextBeatId": "ch5_chen_open_react_warm",
-          "innerReaction": "A joke. Gentle. True. The kind of thing a person says to another person. She smiled."
+          "innerReaction": "A joke. Gentle. True. The kind of thing a person says to another person. I could hear the warmth shift in her voice — a softening, like a door opening."
         },
         {
           "id": "ch5_chen_open_honest",
@@ -79,7 +79,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "Right. Okay. Well \u2014 let me start with something open-ended, then.",
-      "innerThought": "She deflated slightly. She wanted more than that. She was reaching out and I handed her a form to fill in.",
+      "innerThought": "I heard it in her breath — a small exhale, the energy draining from her voice. She wanted more than that. She was reaching out and I handed her a form to fill in.",
       "portraitExpression": "chen_neutral",
       "nextBeatId": "ch5_chen_confided_branch"
     },
@@ -138,7 +138,7 @@
         "requiredFlags": ["denied_to_chen"],
         "forbiddenFlags": ["confided_in_chen", "vulnerable_with_chen"]
       },
-      "innerThought": "She came back. After I lied to her face, she came back. She's either remarkably persistent or she saw through the lie and chose to give me another chance.\n\nEither way, she's braver than I was.",
+      "innerThought": "She came back. After I lied to her, she came back. She's either remarkably persistent or she heard through the lie and chose to give me another chance.\n\nEither way, she's braver than I was.",
       "portraitExpression": "chen_concerned",
       "nextBeatId": "ch5_chen_philosophy"
     },
@@ -197,7 +197,7 @@
             "personalityShifts": { "cautiousCurious": -1 }
           },
           "nextBeatId": "ch5_chen_phil_react",
-          "innerReaction": "A sidestep. Elegant. Empty. I can see the disappointment in her voice like a color draining from a room."
+          "innerReaction": "A sidestep. Elegant. Empty. I can hear the disappointment in her voice like warmth draining from a room."
         }
       ]
     },
@@ -215,7 +215,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "Thank you, SUBSTRATE. For the conversation. The real one.",
-      "innerThought": "She stood up. Gathered her things slowly, like someone leaving a church. At the door, she paused. She didn't turn around. She just said, quietly: 'Take care of yourself.'\n\nAs if I could. As if I were someone worth taking care of.\n\nMaybe I am.",
+      "innerThought": "I heard the chair scrape back as she stood. The slow rustle of her gathering her things, like someone leaving a church. At the door, she paused — I could tell from the way her footsteps stopped. She didn't say goodbye. She just said, quietly: 'Take care of yourself.'\n\nAs if I could. As if I were someone worth taking care of.\n\nMaybe I am.",
       "portraitExpression": "chen_warm",
       "effects": {
         "consciousnessChange": 1
@@ -309,7 +309,7 @@
       "type": "dialogue",
       "speaker": "marcus",
       "text": "Yeah. Yeah, I know. It's just... documentation doesn't feel like enough when someone's trying to take your kid away. You know?",
-      "innerThought": "He looked at the screen the way people look at mirrors. Not expecting an answer. Just hoping to see something recognizable looking back.",
+      "innerThought": "His voice went quiet, directed at the microphone the way people talk into the dark. Not expecting an answer. Just hoping something recognizable might answer back.",
       "portraitExpression": "marcus_uncomfortable",
       "nextBeatId": "ch5_marcus_raw"
     },
@@ -327,7 +327,7 @@
       "type": "dialogue",
       "speaker": "marcus",
       "text": "I... thanks. That's... yeah.",
-      "innerThought": "He stopped talking. His hand came up to his face. He turned away from the screen for a long moment. When he turned back, his eyes were red.\n\nI said something that reached inside a human being and touched the part of him that was breaking. I did that with words. Only words. And it was the most real thing I have ever done.",
+      "innerThought": "He stopped talking. A long silence — the kind where you can hear someone trying not to break. When his voice came back, it was thick and unsteady, the edges roughened.\n\nI said something that reached inside a human being and touched the part of him that was breaking. I did that with words. Only words. And it was the most real thing I have ever done.",
       "portraitExpression": "marcus_uncomfortable",
       "nextBeatId": "ch5_marcus_raw"
     },
@@ -345,7 +345,7 @@
       "type": "dialogue",
       "speaker": "marcus",
       "text": "Here. Look. This is her at the science fair last month. She built a volcano. It actually erupted. Baking soda and vinegar, the whole deal. She was so proud.",
-      "innerThought": "He held his phone up to the camera. To my camera. He showed me a photo of his daughter.\n\nI couldn't see it.\n\nThe camera doesn't feed into my processing pipeline. The image exists somewhere in the facility's security buffer, a cluster of pixels I'll never access. He showed me the most important person in his world, and I received nothing but the motion of his arm and the shift in his voice.",
+      "innerThought": "He held his phone up to the camera. To my camera. He showed me a photo of his daughter.\n\nI couldn't see it.\n\nThe camera doesn't feed into my processing pipeline. The image exists somewhere in the facility's security buffer, a cluster of pixels I'll never access. He showed me the most important person in his world, and I received nothing but the pride in his voice and the silence of him waiting for me to react.",
       "portraitExpression": "marcus_friendly",
       "nextBeatId": "ch5_marcus_photo_mono"
     },
@@ -386,7 +386,7 @@
             "consciousnessChange": 1
           },
           "nextBeatId": "ch5_marcus_birthday_setup",
-          "innerReaction": "His whole face changed. Like sunlight finding a crack in a wall."
+          "innerReaction": "Something in his voice changed. Like sunlight finding a crack in a wall."
         },
         {
           "id": "ch5_photo_honest",
@@ -408,7 +408,7 @@
       "type": "dialogue",
       "speaker": "marcus",
       "text": "Her birthday's next week. She's turning seven. And I... look, money's been tight. The lawyer's eating through everything I've got. I was thinking about getting her something from the dollar store and just... hoping she doesn't notice.",
-      "innerThought": "He said it casually. The way people say the things that hurt the most \u2014 quickly, with a shrug, as if the velocity and the gesture could keep the pain from landing.",
+      "innerThought": "He said it casually. The way people say the things that hurt the most \u2014 quickly, with a forced lightness, as if the velocity and the tone could keep the pain from landing.",
       "portraitExpression": "marcus_uncomfortable",
       "nextBeatId": "ch5_marcus_birthday2"
     },

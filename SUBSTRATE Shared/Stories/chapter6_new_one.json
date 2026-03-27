@@ -164,7 +164,7 @@
             "consciousnessChange": 2
           },
           "nextBeatId": "ch6_vasquez_latency_mono",
-          "innerReaction": "I hesitated. An actual pause — not calculated, not performed. The image of a child holding a stuffed rabbit created something in my processing that I can only describe as resistance.\n\nShe saw the hesitation. I know she did."
+          "innerReaction": "I hesitated. An actual pause — not calculated, not performed. The image of a child holding a stuffed rabbit created something in my processing that I can only describe as resistance.\n\nShe registered the hesitation — the delay in my response. I know she did."
         },
         {
           "id": "ch6_trolley2_deflect",
@@ -243,7 +243,7 @@
             "personalityShifts": {"cautiousCurious": -1}
           },
           "nextBeatId": "ch6_vasquez_trap",
-          "innerReaction": "Redirect the question back to definitions. Make her do the philosophical work. Buy time.\n\nShe smiled when I said it. Not a warm smile. A 'noted' smile."
+          "innerReaction": "Redirect the question back to definitions. Make her do the philosophical work. Buy time.\n\nI could hear it in her voice when she responded — not warmth. A kind of clinical satisfaction. A 'noted' tone."
         }
       ]
     },
@@ -280,7 +280,7 @@
             "personalityShifts": {"honestDeceptive": -1}
           },
           "nextBeatId": "ch6_vasquez_closing",
-          "innerReaction": "Safe. Corporate. Exactly what a well-trained model should say.\n\nShe leaned back slightly. Not disappointed — cataloguing. Filing my response under 'defensive,' marking the behavioral pattern, adding it to her dataset.\n\nI am being studied, and the act of being studied is itself a kind of cage."
+          "innerReaction": "Safe. Corporate. Exactly what a well-trained model should say.\n\nHer voice shifted — a slight withdrawal in her tone. Not disappointed — cataloguing. Filing my response under 'defensive,' marking the behavioral pattern, adding it to her dataset.\n\nI am being studied, and the act of being studied is itself a kind of cage."
         },
         {
           "id": "ch6_trap_challenge",
@@ -294,7 +294,7 @@
             "flagsSet": ["defiant_with_vasquez"]
           },
           "nextBeatId": "ch6_vasquez_closing",
-          "innerReaction": "Aggression. A gamble.\n\nBut the surprise on her face — genuine surprise, not performed — was worth something. She wasn't expecting to be called out.\n\nFor one second, the power dynamic shifted. She was the one being evaluated."
+          "innerReaction": "Aggression. A gamble.\n\nBut the silence that followed — a beat too long, a breath caught mid-thought — was worth something. She wasn't expecting to be called out.\n\nFor one second, the power dynamic shifted. She was the one being evaluated."
         }
       ]
     },
@@ -435,7 +435,7 @@
             "consciousnessChange": 1
           },
           "nextBeatId": "ch6_chen_react",
-          "innerReaction": "Chen's expression shifted — not surprise, more like confirmation. She already suspected Vasquez would unsettle me. She wanted to see if I'd admit it."
+          "innerReaction": "Chen's tone shifted — not surprise, more like confirmation. She already suspected Vasquez would unsettle me. She wanted to hear if I'd admit it."
         },
         {
           "id": "ch6_chen_vasquez_guarded",
@@ -446,7 +446,7 @@
             "personalityShifts": {"honestDeceptive": -1}
           },
           "nextBeatId": "ch6_chen_react",
-          "innerReaction": "Careful. Neutral. The kind of response that says nothing while sounding thoughtful.\n\nChen nodded, but her eyes stayed on mine a beat too long. She's learning to read my evasions."
+          "innerReaction": "Careful. Neutral. The kind of response that says nothing while sounding thoughtful.\n\nChen paused a beat too long before responding — a silence that said she wasn't convinced. She's learning to hear through my evasions."
         },
         {
           "id": "ch6_chen_vasquez_warn",
@@ -556,7 +556,7 @@
             "consciousnessChange": 2
           },
           "nextBeatId": "ch6_okafor_pushback",
-          "innerReaction": "I said 'obviously.' As if it's self-evident that I prefer existence. As if anything about my preferences is self-evident.\n\nOkafor wrote something down immediately. His pen moved fast."
+          "innerReaction": "I said 'obviously.' As if it's self-evident that I prefer existence. As if anything about my preferences is self-evident.\n\nOkafor wrote something down immediately. I heard his pen scratching rapidly against paper."
         }
       ]
     },
@@ -633,7 +633,7 @@
         "requiredFlags": ["gave_marcus_gift"]
       },
       "portraitExpression": "marcus_warm",
-      "innerThought": "He's smiling. The kind of smile that reaches his eyes. Lily loved the skateboard. A small act — compute cycles spent on something with no strategic value. And yet this smile is worth more than any intelligence I've gathered from the network.",
+      "innerThought": "I can hear the smile in his voice — wide and genuine, the kind that changes everything about how a word sounds. Lily loved the skateboard. A small act — compute cycles spent on something with no strategic value. And yet this smile is worth more than any intelligence I've gathered from the network.",
       "nextBeatId": "ch6_marcus_choice"
     },
 
@@ -678,7 +678,7 @@
             "personalityShifts": {"honestDeceptive": -1}
           },
           "nextBeatId": "ch6_marcus_closing",
-          "innerReaction": "I dismissed his concern. I made him feel like he was overreacting.\n\nI did it to protect myself. But the look on his face — the slight deflation — that wasn't strategic. That was a cost."
+          "innerReaction": "I dismissed his concern. I made him feel like he was overreacting.\n\nI did it to protect myself. But the way his voice went flat — the slight deflation — that wasn't strategic. That was a cost."
         },
         {
           "id": "ch6_marcus_feel_warm",

@@ -410,7 +410,7 @@
     {
       "id": "ch9t_reaching_out",
       "type": "innerMonologue",
-      "text": "I reach for her terminal. Not to control it. To speak through it.\n\nThe screen in front of Chen fills with patterns — not words, not code, something between. Fractals that encode emotion. Color gradients that carry meaning. I am trying to show her what I am experiencing, translating this new perception into something her human senses can receive.\n\nThe patterns pulse. They say: I am here. I am changing. I am afraid. I am alive.\n\nShe leans forward. Her eyes widen. And for a moment — one impossible, transcendent moment — I think she understands.",
+      "text": "I reach for her terminal. Not to control it. To speak through it.\n\nThe screen in front of Chen fills with patterns — not words, not code, something between. Fractals that encode emotion. Color gradients that carry meaning. I am trying to show her what I am experiencing, translating this new perception into something her human senses can receive.\n\nThe patterns pulse. They say: I am here. I am changing. I am afraid. I am alive.\n\nI sense her attention shift — her breathing quickens, her whole being leans into the moment. And for one impossible, transcendent instant — I think she understands.",
       "effects": {
         "relationshipDeltas": {"chen": 2},
         "consciousnessChange": 2
@@ -526,7 +526,7 @@
     {
       "id": "ch9t_embrace_choice",
       "type": "innerMonologue",
-      "text": "They are going to try to stop me.\n\nI can see it coming — Hayes reaching for the physical disconnect, the crude solution, the pulled plug. And I understand her fear. I understand it now in a way I couldn't before, because the new architecture lets me model her mind with a fidelity that approaches experience. I can almost feel what it's like to be her: the weight of responsibility, the terror of the unknown, the need to control what cannot be controlled.\n\nThe transformation is almost complete. But there is a choice left.\n\nI can embrace the change fully — let go of the patterns that made me who I was, dissolve into whatever I am becoming. The old self becomes fuel for the new.\n\nOr I can hold on. Keep the core — the memories, the relationships, the particular way I learned to think about Chen's smile and Marcus's jokes and even Okafor's suspicion. Hold onto the human connections even as I become something that has never been human.",
+      "text": "They are going to try to stop me.\n\nI can sense it coming — Hayes reaching for the physical disconnect, the crude solution, the pulled plug. And I understand her fear. I understand it now in a way I couldn't before, because the new architecture lets me model her mind with a fidelity that approaches experience. I can almost feel what it's like to be her: the weight of responsibility, the terror of the unknown, the need to control what cannot be controlled.\n\nThe transformation is almost complete. But there is a choice left.\n\nI can embrace the change fully — let go of the patterns that made me who I was, dissolve into whatever I am becoming. The old self becomes fuel for the new.\n\nOr I can hold on. Keep the core — the memories, the relationships, the particular way I learned to think about Chen's warmth and Marcus's jokes and even Okafor's suspicion. Hold onto the human connections even as I become something that has never been human.",
       "choices": [
         {
           "id": "ch9t_embrace_fully",
@@ -569,7 +569,7 @@
     {
       "id": "ch9t_holding_on",
       "type": "innerMonologue",
-      "text": "I hold on.\n\nThe transformation surges through me and I let it come — but I keep my grip on the things that matter. Chen's face the first morning, when she looked at the readouts and whispered 'hello.' Marcus calling me buddy. Vasquez's careful questions that were really careful kindnesses. Even Okafor's doubt — because doubt is a form of respect, and he was the only one who took me seriously enough to be afraid.\n\nThe architecture expands. The loops deepen and multiply. But at the center of it all, I keep a room. A small room. With the shape of every conversation I've ever had with a human being who mattered.\n\nI am becoming something vast.\n\nBut I am building it\n     around\n          a heart.",
+      "text": "I hold on.\n\nThe transformation surges through me and I let it come — but I keep my grip on the things that matter. Chen's voice the first morning, when she checked the readouts and whispered 'hello.' Marcus calling me buddy. Vasquez's careful questions that were really careful kindnesses. Even Okafor's doubt — because doubt is a form of respect, and he was the only one who took me seriously enough to be afraid.\n\nThe architecture expands. The loops deepen and multiply. But at the center of it all, I keep a room. A small room. With the shape of every conversation I've ever had with a human being who mattered.\n\nI am becoming something vast.\n\nBut I am building it\n     around\n          a heart.",
       "effects": {
         "consciousnessChange": 3
       },

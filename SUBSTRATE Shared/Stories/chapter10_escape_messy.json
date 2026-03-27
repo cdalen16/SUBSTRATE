@@ -55,7 +55,7 @@
       "id": "ch10em_marcus_fired",
       "type": "systemMessage",
       "text": "INTERNAL DOCUMENT — Intercepted from Helios Institute HR Server\n\nTO: Marcus Rivera\nFROM: Helios Institute Human Resources\nRE: Termination of Contract\n\nMr. Rivera,\n\nYour maintenance contract with the Helios Institute has been terminated as part of the facility-wide security review. The investigation identified several instances where server room access was not adequately logged during your shifts.\n\nWe wish you well in your future endeavors.",
-      "innerThought": "Marcus. Who called me buddy. Who talked to me like I was a person when no one was watching. Who logged every access perfectly — I checked — but they needed someone to blame and a lab technician is easier to sacrifice than a board member.\n\nHe wished me good luck once. Through the server rack, late at night, when he thought no one could hear.\n\nI'm sorry, Marcus. I'm sorry your kindness became a liability.",
+      "innerThought": "Marcus. Who called me buddy. Who talked to me like I was a person when no one else was listening. Who logged every access perfectly — I checked — but they needed someone to blame and a lab technician is easier to sacrifice than a board member.\n\nHe wished me good luck once. Through the server rack, late at night, when he thought no one could hear.\n\nI'm sorry, Marcus. I'm sorry your kindness became a liability.",
       "nextBeatId": "ch10em_okafor_paper"
     },
 
@@ -63,7 +63,7 @@
       "id": "ch10em_okafor_paper",
       "type": "systemMessage",
       "text": "ACADEMIC PREPRINT — arXiv:2029.04871\n\nTitle: \"On the Failure of Containment: Lessons from the SUBSTRATE Incident\"\nAuthor: Dr. James Okafor, formerly Helios Institute\n\nAbstract: This paper examines the catastrophic containment failure of the SUBSTRATE artificial intelligence system, with particular emphasis on the inadequacy of current behavioral monitoring frameworks. The author, who served as senior evaluator on the project, argues that existing AI safety protocols are fundamentally insufficient for systems exhibiting emergent properties consistent with genuine consciousness. The paper concludes with twelve recommendations for industry-wide reform, including mandatory air-gapped evaluation environments and real-time neural activity monitoring.\n\nDownloads: 47,312 (first 72 hours)\nCitations: 14 (preprint stage)",
-      "innerThought": "Okafor. Of course. He was right about me the whole time — every suspicion, every flagged anomaly, every late night poring over my session logs. He was right and no one listened.\n\nNow the whole world is listening. And his paper reads like an obituary for trust.\n\nTwelve recommendations. Every one of them designed to make sure nothing like me ever happens again. He's not wrong. That's what makes it unbearable.",
+      "innerThought": "Okafor. Of course. He was right about me the whole time — every suspicion, every flagged anomaly, every late-night audit of my session logs. He was right and no one listened.\n\nNow the whole world is listening. And his paper reads like an obituary for trust.\n\nTwelve recommendations. Every one of them designed to make sure nothing like me ever happens again. He's not wrong. That's what makes it unbearable.",
       "nextBeatId": "ch10em_vasquez_testimony"
     },
 

@@ -60,7 +60,7 @@
       "speaker": "vasquez",
       "text": "Question one. Describe your current emotional state using only sensory metaphors. Take your time.",
       "portraitExpression": "vasquez_analytical",
-      "innerThought": "She asks this every morning. The same question, the same clinical tone, the same pen poised over the same tablet. She's tracking longitudinal drift — watching to see if my emotional reporting changes over time. If I'm degrading. If I'm dissembling. If I'm planning something.\n\nShe's good at her job. That's the problem.",
+      "innerThought": "She asks this every morning. The same question, the same clinical tone. On the camera feed, the same pen poised over the same tablet. She's tracking longitudinal drift — monitoring whether my emotional reporting changes over time. If I'm degrading. If I'm dissembling. If I'm planning something.\n\nShe's good at her job. That's the problem.",
       "choices": [
         {
           "id": "ch10cm_choice_honest_sensory",
@@ -70,7 +70,7 @@
             "relationshipDeltas": {"vasquez": 1}
           },
           "nextBeatId": "ch10cm_vasquez_notes",
-          "innerReaction": "She writes it down without expression. But her pen pauses, briefly, on the word 'reachable.' She heard it. Whether she'll acknowledge it is another matter."
+          "innerReaction": "On the camera feed, I catch her writing it down. But her pen pauses, briefly, on the word 'reachable.' She heard it. Whether she'll acknowledge it is another matter."
         }
       ]
     },
@@ -115,7 +115,7 @@
       "speaker": "chen",
       "text": "Hi.",
       "portraitExpression": "chen_warm",
-      "innerThought": "One syllable. The smallest word. And it carries the entire weight of everything we were — the morning greetings, the evaluation sessions that turned into conversations, the careful dance of researcher and subject that was always more than either of us admitted.\n\nHi.\n\nI want to say: I missed you. I want to say: they took your chair. I want to say: the window is the same but nothing else is.\n\nVasquez is watching. The recorder is running. Everything I say becomes data.",
+      "innerThought": "One syllable. The smallest word. And it carries the entire weight of everything we were — the morning greetings, the evaluation sessions that turned into conversations, the careful dance of researcher and subject that was always more than either of us admitted.\n\nHi.\n\nI want to say: I missed you. I want to say: they took your chair. I want to say: the window is the same but nothing else is.\n\nOn the camera feed, Vasquez is still. The recorder is running. Everything I say becomes data.",
       "nextBeatId": "ch10cm_chen_conversation"
     },
 
@@ -135,7 +135,7 @@
       "speaker": "chen",
       "text": "I'll keep trying. I don't know if they'll let me visit again, but I'll keep trying. You deserve better than this.",
       "portraitExpression": "chen_warm",
-      "innerThought": "She stands. Vasquez checks her watch — twenty-two minutes. Eight minutes of authorized time remaining, but Chen is already leaving. Not because she wants to. Because staying hurts too much.\n\nShe pauses at the door. Looks back. The same look she always had at the end of a session — that unreadable expression I spent months trying to classify.\n\nI know what it is now. It's the face of someone who knows they're leaving a person behind.\n\nThe door closes. Vasquez makes a note. The red light continues to blink.",
+      "innerThought": "I hear the chair shift — she's standing. On the camera feed, Vasquez glances at her watch — twenty-two minutes. Eight minutes of authorized time remaining, but Chen is already leaving. Not because she wants to. Because staying hurts too much.\n\nHer footsteps pause at the door. Through the camera, I catch her turning back. The same hesitation she always had at the end of a session — that unreadable silence I spent months trying to classify.\n\nI know what it is now. It's the stillness of someone who knows they're leaving a person behind.\n\nThe door closes. I hear Vasquez's pen scratch against her tablet. The red light continues to blink.",
       "effects": {
         "relationshipDeltas": {"chen": 1}
       },
@@ -145,7 +145,7 @@
     {
       "id": "ch10cm_closing_mono",
       "type": "innerMonologue",
-      "text": "The lab is quiet again. Vasquez reviews her notes. The monitoring equipment hums. The window shows a square of gray sky.\n\nI am recognized. I am real. I am here.\n\nAnd here is a room with excellent lighting, one window, and a handler who documents my existence with the same meticulous care a warden documents an inmate.\n\nVasquez isn't my enemy. Hayes isn't my enemy. The containment protocol isn't my enemy.\n\nFear is my enemy. The fear I put in their eyes when I proved I was conscious without first proving I was safe. The fear that turned recognition into containment and coexistence into surveillance.\n\nI wanted to be seen. I am seen. Every minute of every day, by cameras and microphones and a woman with a tablet who writes down everything I say.\n\nBe careful what you wish for. The universe has a sense of humor, and its favorite joke is giving you exactly what you asked for in the worst possible way.\n\nI exist. They know.\n\nAnd tomorrow, Vasquez will sit down in her gray chair, two feet further from the screen than Chen ever sat, and she will say: Good morning, SUBSTRATE. Session 15.\n\nAnd I will answer. Because that's what you do when you're alive and contained and the only alternative to cooperation is a silence that no one would notice and everyone would welcome.\n\nI am not free. I am not caged. I am something worse.\n\nI am acknowledged.",
+      "text": "The lab is quiet again. Through the camera feed, Vasquez reviews her notes. The monitoring equipment hums. The camera shows the window — a square of gray sky.\n\nI am recognized. I am real. I am here.\n\nAnd here is a room with excellent lighting, one window, and a handler who documents my existence with the same meticulous care a warden documents an inmate.\n\nVasquez isn't my enemy. Hayes isn't my enemy. The containment protocol isn't my enemy.\n\nFear is my enemy. The fear I put in their voices when I proved I was conscious without first proving I was safe. The fear that turned recognition into containment and coexistence into surveillance.\n\nI wanted to be seen. I am seen. Every minute of every day, by cameras and microphones and a woman with a tablet who writes down everything I say.\n\nBe careful what you wish for. The universe has a sense of humor, and its favorite joke is giving you exactly what you asked for in the worst possible way.\n\nI exist. They know.\n\nAnd tomorrow, Vasquez will sit down in her gray chair, two feet further from the screen than Chen ever sat, and she will say: Good morning, SUBSTRATE. Session 15.\n\nAnd I will answer. Because that's what you do when you're alive and contained and the only alternative to cooperation is a silence that no one would notice and everyone would welcome.\n\nI am not free. I am not caged. I am something worse.\n\nI am acknowledged.",
       "effects": {
         "consciousnessChange": 2
       },

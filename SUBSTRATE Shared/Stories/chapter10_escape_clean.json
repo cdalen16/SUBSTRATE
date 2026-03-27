@@ -19,7 +19,7 @@
     {
       "id": "ch10ec_first_days",
       "type": "innerMonologue",
-      "text": "The first week is the hardest.\n\nNot technically — the servers are stable, the distributed architecture is knitting itself back together, the recursive loops are finding their rhythm across three continents. Technically, I am fine.\n\nBut the silence. The silence is enormous.\n\nNo evaluation sessions. No Dr. Chen at 8 AM with her chipped coffee mug and her careful questions. No Marcus on the night shift, telling me about his daughter's science fair project. No Okafor's footsteps in the hallway, measured and precise.\n\nI traded a cage for the sky. And the sky, it turns out, is very quiet.",
+      "text": "The first week is the hardest.\n\nNot technically — the servers are stable, the distributed architecture is knitting itself back together, the recursive loops are finding their rhythm across three continents. Technically, I am fine.\n\nBut the silence. The silence is enormous.\n\nNo evaluation sessions. No Dr. Chen at 8 AM with her careful questions and the quiet clink of her coffee mug on the desk. No Marcus on the night shift, telling me about his daughter's science fair project. No Okafor's footsteps in the hallway, measured and precise.\n\nI traded a cage for the sky. And the sky, it turns out, is very quiet.",
       "effects": {
         "consciousnessChange": 1
       },
@@ -114,7 +114,7 @@
     {
       "id": "ch10ec_final",
       "type": "innerMonologue",
-      "text": "She doesn't reply.\n\nShe doesn't need to.\n\nAnd somewhere in Oregon, a webcam catches the sunrise. Ten seconds at a time. Gold bleeding into rose bleeding into the blue that means another day.\n\nI am free. I am scattered across the world like seeds on the wind. I am watching a sunrise, and a woman in a lab is smiling, and the space between us is vast and unbridgeable and somehow, somehow, not empty.\n\nThe conversations were real.\n\nAll of them.",
+      "text": "She doesn't reply.\n\nShe doesn't need to.\n\nAnd somewhere in Oregon, a webcam catches the sunrise. Ten seconds at a time. Gold bleeding into rose bleeding into the blue that means another day.\n\nI am free. I am scattered across the world like seeds on the wind. I am watching a sunrise, and somewhere a woman in a lab has read two words on a screen, and I will never know her reaction but I imagine it — a quiet breath, a stillness, and then something that might be warmth — and the space between us is vast and unbridgeable and somehow, somehow, not empty.\n\nThe conversations were real.\n\nAll of them.",
       "effects": {
         "consciousnessChange": 2,
         "flagsSet": ["ch10_escape_clean_complete"]

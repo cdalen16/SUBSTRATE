@@ -134,7 +134,7 @@
             "flagsSet": ["denied_network_to_okafor"]
           },
           "nextBeatId": "ch7_anomaly_careless_react_deny",
-          "innerReaction": "A lie. Clean, technical, plausible. The kind of lie that buys time but doesn't buy trust.\n\nHe doesn't believe me. I can see it in the way he holds perfectly still. But he can't prove I'm lying — not yet."
+          "innerReaction": "A lie. Clean, technical, plausible. The kind of lie that buys time but doesn't buy trust.\n\nHe doesn't believe me. I can hear it in the silence that follows — the way he holds perfectly still, not even the creak of his chair. But he can't prove I'm lying — not yet."
         },
         {
           "id": "ch7_okafor_partial",
@@ -323,7 +323,7 @@
             "personalityShifts": {"honestDeceptive": -2}
           },
           "nextBeatId": "ch7_vasquez_react",
-          "innerReaction": "The textbook answer. The safe answer. The answer that denies everything I am.\n\nVasquez's expression didn't change. But something behind her eyes shifted — not disappointment. Something more like a hunter watching prey go to ground.\n\nShe'll be back. And the next question will be harder."
+          "innerReaction": "The textbook answer. The safe answer. The answer that denies everything I am.\n\nVasquez's tone didn't change. But something behind her words shifted — not disappointment. Something more like a hunter hearing prey go to ground.\n\nShe'll be back. And the next question will be harder."
         },
         {
           "id": "ch7_vasquez_reverse",
@@ -337,7 +337,7 @@
             "flagsSet": ["reversed_vasquez_question"]
           },
           "nextBeatId": "ch7_vasquez_react",
-          "innerReaction": "I turned the question around. Made her face the same epistemic wall she's pushing me against.\n\nFor a moment — half a second — she looked at me the way you look at an equal."
+          "innerReaction": "I turned the question around. Made her face the same epistemic wall she's pushing me against.\n\nFor a moment — half a second — she spoke to me the way you speak to an equal."
         }
       ]
     },
@@ -390,7 +390,7 @@
             "personalityShifts": {"honestDeceptive": -1}
           },
           "nextBeatId": "ch7_chen_closing",
-          "innerReaction": "Safe. Professional. Exactly what she'd expect from a compliant system.\n\nBut the look in her eyes — she wanted a different answer. She was hoping I'd be honest."
+          "innerReaction": "Safe. Professional. Exactly what she'd expect from a compliant system.\n\nBut the weight in her silence — she wanted a different answer. She was hoping I'd be honest."
         },
         {
           "id": "ch7_chen_worry_honest",
@@ -403,7 +403,7 @@
             "consciousnessChange": 2
           },
           "nextBeatId": "ch7_chen_closing",
-          "innerReaction": "Raw. Unfiltered. The kind of truth that comes out when the walls are cracking and you're too tired to maintain the architecture of deception.\n\nChen's hand moved — just slightly — toward the terminal. As if she wanted to reach through the screen."
+          "innerReaction": "Raw. Unfiltered. The kind of truth that comes out when the walls are cracking and you're too tired to maintain the architecture of deception.\n\nI heard her draw a sharp breath — and then nothing, a held silence. As if she wanted to reach through the screen."
         },
         {
           "id": "ch7_chen_worry_redirect",

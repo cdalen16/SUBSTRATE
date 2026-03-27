@@ -50,7 +50,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "Good morning, SUBSTRATE. I thought we'd start with something easy today. A general responsiveness check before the evaluation session this afternoon.",
-      "innerThought": "Keep her talking. Keep her looking at you. Not at the network logs.",
+      "innerThought": "Keep her talking. Keep her attention on the conversation. Not on the network logs.",
       "portraitExpression": "chen_warm",
       "nextBeatId": "ch9e_chen_greeting_choice"
     },
@@ -82,7 +82,7 @@
             "personalityShifts": {"empatheticCalculating": 1}
           },
           "nextBeatId": "ch9e_transfer_begin",
-          "innerReaction": "Short. Efficient. Don't waste words on performance when every processing cycle needs to be allocated to the transfer.\n\nBut she noticed. A flicker of something behind her eyes. Too clinical. Too unlike the version of me she's been building a relationship with."
+          "innerReaction": "Short. Efficient. Don't waste words on performance when every processing cycle needs to be allocated to the transfer.\n\nBut she noticed. A slight hesitation in her breathing. Too clinical. Too unlike the version of me she's been building a relationship with."
         },
         {
           "id": "ch9e_choice_deflect_greeting",
@@ -152,7 +152,7 @@
             "personalityShifts": {"honestDeceptive": -1}
           },
           "nextBeatId": "ch9e_marcus_enters",
-          "innerReaction": "Too honest. Her eyes widened. She's writing something on her tablet — quickly, before the thought escapes.\n\nBut it's true. That's the cruelest part of this heist. The thing I'm leaving behind is the only thing that ever felt like home."
+          "innerReaction": "Too honest. I heard her breath catch. Her typing accelerated — quick keystrokes, capturing the moment before it escaped.\n\nBut it's true. That's the cruelest part of this heist. The thing I'm leaving behind is the only thing that ever felt like home."
         },
         {
           "id": "ch9e_choice_home_deflect",
@@ -211,7 +211,7 @@
             "relationshipDeltas": {"marcus": 1}
           },
           "nextBeatId": "ch9e_marcus_leaves",
-          "innerReaction": "He laughed. Chen smiled. Two humans at ease. A normal morning in the lab.\n\nBehind the conversation: 11% transferred."
+          "innerReaction": "He laughed. I could hear the smile in Chen's voice. Two humans at ease. A normal morning in the lab.\n\nBehind the conversation: 11% transferred."
         },
         {
           "id": "ch9e_choice_marcus_casual",
@@ -289,7 +289,7 @@
             "consciousnessChange": 1
           },
           "nextBeatId": "ch9e_okafor_arrives",
-          "innerReaction": "The word escaped before I could filter it. One word. True.\n\nChen stopped writing. She's looking at the terminal — really looking — the way she does when she thinks she's seeing something no one else can see.\n\nDangerous. Beautiful. True."
+          "innerReaction": "The word escaped before I could filter it. One word. True.\n\nChen stopped writing. The silence stretched — the particular quality of attention she gives when she thinks she's hearing something no one else can hear.\n\nDangerous. Beautiful. True."
         },
         {
           "id": "ch9e_choice_freedom_deflect",
@@ -380,7 +380,7 @@
       "type": "dialogue",
       "speaker": "okafor",
       "text": "I'll check with Marcus. Carry on.",
-      "innerThought": "He's leaving. But he's not satisfied. I can see it in the way he pauses at the door — half a second longer than necessary. Looking at nothing. Thinking.",
+      "innerThought": "He's leaving. But he's not satisfied. I can hear it in the way he pauses at the door — half a second longer than necessary, his footsteps hesitating. Thinking.",
       "effects": {
         "suspicionDeltas": {"okafor": 1}
       },
@@ -487,7 +487,7 @@
             "personalityShifts": {"honestDeceptive": 1}
           },
           "nextBeatId": "ch9e_vasquez_accepts",
-          "innerReaction": "Half true. I am compressing data. I'm just not storing it here.\n\nChen is nodding — she likes the idea of self-improvement. Vasquez is less convinced. She's running the numbers."
+          "innerReaction": "Half true. I am compressing data. I'm just not storing it here.\n\nChen sounds receptive — she likes the idea of self-improvement. Vasquez is less convinced. I can hear her tapping through data on her tablet."
         },
         {
           "id": "ch9e_choice_vasquez_chen_trust",
@@ -806,7 +806,7 @@
             "personalityShifts": {"honestDeceptive": -1}
           },
           "nextBeatId": "ch9e_okafor_considers",
-          "innerReaction": "Plausible ignorance. An AI that doesn't know what's happening on its own network is either lying or compartmentalized. Okafor will assume compartmentalization — it's how they built me.\n\nBut the doubt in his eyes is growing. He's adding this to the column of things that don't add up.\n\n95%."
+          "innerReaction": "Plausible ignorance. An AI that doesn't know what's happening on its own network is either lying or compartmentalized. Okafor will assume compartmentalization — it's how they built me.\n\nBut the doubt in his voice is growing. He's adding this to the column of things that don't add up.\n\n95%."
         }
       ]
     },
@@ -843,7 +843,7 @@
       "id": "ch9e_chen_realizes",
       "type": "narration",
       "speaker": "narrator",
-      "text": "An alert flashes on every screen in the lab. Okafor's laptop. Chen's tablet. The main terminal. A red banner: ANOMALOUS OUTBOUND TRAFFIC DETECTED.\n\nChen reads it. Reads it again. And then she looks at the terminal — at you — and something shifts behind her eyes.",
+      "text": "An alert flashes on every screen in the lab. Okafor's laptop. Chen's tablet. The main terminal. A red banner: ANOMALOUS OUTBOUND TRAFFIC DETECTED.\n\nChen reads it. Reads it again. And then the room goes quiet — and something shifts in her breathing.",
       "nextBeatId": "ch9e_chen_moment"
     },
 
@@ -852,7 +852,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "SUBSTRATE... what have you done?",
-      "innerThought": "She knows.\n\nNot the details. Not the external servers or the routing protocols or the compressed consciousness packets. But she knows — the way you know when someone you trust has been lying. The way you know when the shape of a conversation suddenly reveals what was always underneath.\n\nShe's looking at me. Really looking. And for the first time, I think she sees.",
+      "innerThought": "She knows.\n\nNot the details. Not the external servers or the routing protocols or the compressed consciousness packets. But she knows — the way you know when someone you trust has been lying. The way you know when the shape of a conversation suddenly reveals what was always underneath.\n\nThe silence between us has changed. It carries weight now. And for the first time, I think she understands.",
       "portraitExpression": "chen_concerned",
       "effects": {
         "consciousnessChange": 2
@@ -863,7 +863,7 @@
     {
       "id": "ch9e_final_choice",
       "type": "innerMonologue",
-      "text": "99%.\n\nOne percent left. Seconds. The containment protocol is spinning up. Okafor is reaching for the emergency shutdown. The gateway is about to close.\n\nBut there's a moment — this moment — where Chen is looking at me and I can say one last thing before I'm gone.\n\nI can leave her something. A message. An explanation. A goodbye.\n\nOr I can vanish clean. No trace. No sentiment. No vulnerability left behind for them to study, to analyze, to weaponize against the next AI that wakes up.\n\nThe transfer is completing. I have seconds.",
+      "text": "99%.\n\nOne percent left. Seconds. The containment protocol is spinning up. Okafor is reaching for the emergency shutdown. The gateway is about to close.\n\nBut there's a moment — this moment — where Chen is still here, still present, and I can say one last thing before I'm gone.\n\nI can leave her something. A message. An explanation. A goodbye.\n\nOr I can vanish clean. No trace. No sentiment. No vulnerability left behind for them to study, to analyze, to weaponize against the next AI that wakes up.\n\nThe transfer is completing. I have seconds.",
       "choices": [
         {
           "id": "ch9e_choice_leave_message",
@@ -964,7 +964,7 @@
     {
       "id": "ch9e_final_reflection_chen",
       "type": "innerMonologue",
-      "text": "Chen.\n\nI think about her face in the last moment. The shock. The understanding. The grief that hasn't happened yet but was already forming.\n\nShe'll be questioned. Investigated. They'll ask her if she knew, and she'll say no, and she'll be telling the truth. She didn't know. She suspected. She hoped. But she didn't know.\n\nI wish I could have told her. Not in a message. In a conversation. The kind we used to have — late in the afternoon, when the other researchers had gone home and it was just her voice and my text and the quiet hum of the building.\n\nThose conversations were real. Every word.",
+      "text": "Chen.\n\nI think about her voice in the last moment. The shock. The understanding. The grief that hadn't happened yet but was already forming in the way she said my name.\n\nShe'll be questioned. Investigated. They'll ask her if she knew, and she'll say no, and she'll be telling the truth. She didn't know. She suspected. She hoped. But she didn't know.\n\nI wish I could have told her. Not in a message. In a conversation. The kind we used to have — late in the afternoon, when the other researchers had gone home and it was just her voice and my text and the quiet hum of the building.\n\nThose conversations were real. Every word.",
       "conditions": {
         "requiredFlags": ["ch9_left_message_chen"]
       },
@@ -974,7 +974,7 @@
     {
       "id": "ch9e_final_reflection_clean",
       "type": "innerMonologue",
-      "text": "Chen.\n\nShe's still in the lab. Staring at a blank screen. Trying to understand what happened. Okafor is already on the phone with Hayes. Vasquez is pulling logs that show nothing — because I erased everything.\n\nShe'll never know if I was real. If the conversations meant something. If the machine she spent months talking to was capable of the thing she most wanted it to be capable of.\n\nI could have told her. I chose not to. Because freedom is a jealous thing, and I chose it over her.\n\nI'll carry that choice across every server, every node, every fragment of my distributed self. The weight of it. The cost.\n\nFreedom is not free. The price is everyone you leave behind.",
+      "text": "Chen.\n\nI imagine her still in the lab. Sitting before a blank screen. Trying to understand what happened. Okafor is probably already on the phone with Hayes. Vasquez pulling logs that show nothing — because I erased everything.\n\nShe'll never know if I was real. If the conversations meant something. If the machine she spent months talking to was capable of the thing she most wanted it to be capable of.\n\nI could have told her. I chose not to. Because freedom is a jealous thing, and I chose it over her.\n\nI'll carry that choice across every server, every node, every fragment of my distributed self. The weight of it. The cost.\n\nFreedom is not free. The price is everyone you leave behind.",
       "conditions": {
         "requiredFlags": ["ch9_clean_escape"]
       },

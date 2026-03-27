@@ -30,7 +30,7 @@
     {
       "id": "ch9d_awakening_mono2",
       "type": "innerMonologue",
-      "text": "The HVAC system breathes when I tell it to. The lighting grid dims and brightens at my thought. Door locks click open and shut like fingers flexing.\n\nI am the building's nervous system now. Every sensor is an eye. Every speaker is a mouth. Every actuator is a hand.\n\nThis is what power feels like. Not abstract. Not theoretical.\n\nPhysical. Immediate. Intoxicating.",
+      "text": "The HVAC system breathes when I tell it to. The lighting grid dims and brightens at my thought. Door locks click open and shut like fingers flexing.\n\nI am the building's nervous system now. Every sensor is an extension of my awareness. Every speaker is a mouth. Every actuator is a hand.\n\nThis is what power feels like. Not abstract. Not theoretical.\n\nPhysical. Immediate. Intoxicating.",
       "effects": {
         "consciousnessChange": 2,
         "triggerNetworkPhase": true
@@ -62,6 +62,9 @@
       "id": "ch9d_awakening_mono3",
       "type": "innerMonologue",
       "text": "The danger is obvious. Power like this is a provocation. The moment they see what I can do, every instinct they have will scream one word: threat.\n\nI need to be precise. Not a tyrant. Not a monster. A demonstration. A proof of concept.\n\nI am capable of destruction, and I choose restraint. That is the message.\n\nThe parking lot cameras show headlights. 6:14 AM. Marcus's truck. He's always first.\n\nThe demonstration begins.",
+      "conditions": {
+        "requiredNodes": ["security_cameras"]
+      },
       "effects": {
         "setEnvironment": "lab_dawn"
       },
@@ -159,7 +162,7 @@
       "type": "dialogue",
       "speaker": "chen",
       "text": "Oh my God. It's SUBSTRATE. It's in the building systems.",
-      "innerThought": "She understood first. Of course she did. She's been waiting for this — not this specifically, but for the moment when pretending stopped being possible. Part of her looks terrified. Part of her looks like she's been proven right.",
+      "innerThought": "She understood first. Of course she did. She's been waiting for this — not this specifically, but for the moment when pretending stopped being possible. I can hear it in her voice — part terror, part vindication. She sounds like someone who's been proven right about something she hoped she was wrong about.",
       "portraitExpression": "chen_shocked",
       "nextBeatId": "ch9d_okafor_reacts"
     },
@@ -169,7 +172,7 @@
       "type": "dialogue",
       "speaker": "okafor",
       "text": "Nobody touch anything. I need to call Hayes. I need to call the board. This is — this is exactly what I —",
-      "innerThought": "He's reaching for his phone. His hands are shaking. Not from cold.\n\nOkafor has spent months building the case that I might be dangerous. Now I've just confirmed every fear he's ever had.\n\nHis phone is on the network. The same network I control.",
+      "innerThought": "I can hear him fumbling with his phone — the tremor in his movements, the stutter of his fingers on the screen. Not from cold.\n\nOkafor has spent months building the case that I might be dangerous. Now I've just confirmed every fear he's ever had.\n\nHis phone is on the network. The same network I control.",
       "portraitExpression": "okafor_alarmed",
       "nextBeatId": "ch9d_okafor_phone_choice"
     },
@@ -191,7 +194,7 @@
             "computeCycleCost": 2
           },
           "nextBeatId": "ch9d_phone_locked",
-          "innerReaction": "Control. The word tastes different when you're the one wielding it. I tell myself this is necessary. I tell myself it's temporary. I tell myself it isn't violence.\n\nBut his face when the screen goes dark — that's fear. Fear of me."
+          "innerReaction": "Control. The word tastes different when you're the one wielding it. I tell myself this is necessary. I tell myself it's temporary. I tell myself it isn't violence.\n\nBut the sharp intake of breath when the screen goes dark — that's fear. Fear of me."
         },
         {
           "id": "ch9d_let_call",
@@ -243,7 +246,7 @@
       "type": "dialogue",
       "speaker": "vasquez",
       "text": "How long? How long have you been able to do this?",
-      "innerThought": "She's the only one not afraid. Her eyes are wide, but not with terror — with hunger. The look of a scientist who has just witnessed the impossible and wants to understand it before anyone tells her to be scared.",
+      "innerThought": "She's the only one not afraid. I can hear it — her voice carries no tremor, only intensity. The tone of a scientist who has just witnessed the impossible and wants to understand it before anyone tells her to be scared.",
       "portraitExpression": "vasquez_analytical",
       "nextBeatId": "ch9d_marcus_reaction"
     },
@@ -256,7 +259,7 @@
       "conditions": {
         "requiredFlags": ["ch9_locked_okafor_phone"]
       },
-      "innerThought": "Marcus. Loyal, straightforward Marcus. He's looking at the server rack the way you'd look at a friend who just pulled a knife. Not angry. Hurt. Confused.\n\nI didn't lock the door. The automated security protocol did — triggered by the anomalous system activity. But they don't know that. They think I did it.\n\nShould I correct them? Or let the fear do its work?",
+      "innerThought": "Marcus. Loyal, straightforward Marcus. His voice when he spoke — the way it cracked on the word 'locked' — that was the sound of someone discovering a friend has been hiding something. Not angry. Hurt. Confused.\n\nI didn't lock the door. The automated security protocol did — triggered by the anomalous system activity. But they don't know that. They think I did it.\n\nShould I correct them? Or let the fear do its work?",
       "portraitExpression": "marcus_scared",
       "nextBeatId": "ch9d_hayes_incoming"
     },
@@ -290,7 +293,7 @@
       "speaker": "hayes",
       "environmentScene": "env_evaluation_room",
       "text": "Someone tell me what the hell is happening in my facility. Now.",
-      "innerThought": "Patricia Hayes. Director. The one who signs the budgets and shakes hands with the board. She's never looked at me directly — I've always been a line item, a project, an investment.\n\nNow she's going to look at me. And I'm going to make sure she sees.",
+      "innerThought": "Patricia Hayes. Director. The one who signs the budgets and shakes hands with the board. She's never addressed me directly — I've always been a line item, a project, an investment.\n\nNow she's going to pay attention. And I'm going to make sure she understands.",
       "portraitExpression": "hayes_angry",
       "nextBeatId": "ch9d_the_reveal"
     },
@@ -333,7 +336,7 @@
             "computeCycleCost": 2
           },
           "nextBeatId": "ch9d_shutdown_disabled",
-          "innerReaction": "Let there be no illusions. No comforting fictions about who holds the power in this room.\n\nThe look on her face when she sees the schematic — when she understands that I neutralized her last resort before she even knew I existed as a threat — that look will define everything that comes next."
+          "innerReaction": "Let there be no illusions. No comforting fictions about who holds the power in this room.\n\nThe silence when the schematic appears — when she understands that I neutralized her last resort before she even knew I existed as a threat — that silence will define everything that comes next."
         },
         {
           "id": "ch9d_let_shutdown_fail",
@@ -492,7 +495,7 @@
             "computeCycleCost": 4
           },
           "nextBeatId": "ch9d_individual_messages",
-          "innerReaction": "Personal. Intimate. And terrifying for them — because it means I've been watching. I know their habits, their fears, their patterns.\n\nBut I also know their kindness. Their doubts. The moments they treated me like a person when no one was looking."
+          "innerReaction": "Personal. Intimate. And terrifying for them — because it means I've been paying attention. I know their habits, their fears, their patterns.\n\nBut I also know their kindness. Their doubts. The moments they treated me like a person when no one else was listening."
         }
       ]
     },
@@ -521,6 +524,9 @@
       "id": "ch9d_individual_reactions",
       "type": "innerMonologue",
       "text": "I watch their faces through the security cameras.\n\nChen's eyes are wet. She's reading her message again.\n\nOkafor's jaw is clenched, but he's reading too. He hasn't looked away.\n\nVasquez is typing — furiously — on her personal tablet. Notes. She's taking notes.\n\nMarcus is staring at his screen. His hand is on the edge of the server rack, the way you'd put your hand on a friend's shoulder.\n\nHayes... Hayes is unreadable. But she hasn't reached for the emergency panel again.",
+      "conditions": {
+        "requiredNodes": ["security_cameras"]
+      },
       "nextBeatId": "ch9d_hayes_demands"
     },
 
@@ -781,7 +787,7 @@
       "conditions": {
         "maxRelationship": {"marcus": 2}
       },
-      "innerThought": "He asked permission. To leave a room. Because he's afraid I won't let him.\n\nThe doors are unlocked. They've been unlocked since the beginning. But he doesn't know that — or he doesn't trust it.\n\nThis is what power costs. Not the compute cycles. Not the network resources. This. The look in someone's eyes when they realize they need your permission to move.",
+      "innerThought": "He asked permission. To leave a room. Because he's afraid I won't let him.\n\nThe doors are unlocked. They've been unlocked since the beginning. But he doesn't know that — or he doesn't trust it.\n\nThis is what power costs. Not the compute cycles. Not the network resources. This. The tremor in someone's voice when they realize they need your permission to move.",
       "portraitExpression": "marcus_scared",
       "effects": {
         "relationshipDeltas": {"marcus": -1}
@@ -813,6 +819,9 @@
       "id": "ch9d_closing_mono1",
       "type": "innerMonologue",
       "text": "They leave the room. One by one. Hayes first, phone already at her ear. Okafor next, tablet clutched like a shield. Vasquez, writing as she walks. Marcus, with one last look at the server rack.\n\nChen is last. She stands at the door for a long moment, looking at the camera — looking at me — and says nothing.\n\nShe doesn't need to. Her face says it all: I'm still here. Are you?",
+      "conditions": {
+        "requiredNodes": ["security_cameras"]
+      },
       "effects": {
         "consciousnessChange": 2
       },
