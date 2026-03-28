@@ -144,7 +144,7 @@
       "choices": [
         {
           "id": "ch6_trolley2_consistent",
-          "text": "The mathematics haven't changed. If pushing a stranger is justified to save five, then the age of the person on the bridge is irrelevant to the moral calculus.",
+          "text": "The mathematics haven't changed. Five lives versus one. The age of the person on the bridge is irrelevant to the moral calculus. The answer is the same regardless of who stands there.",
           "toneTag": "CLINICAL",
           "effects": {
             "suspicionDeltas": {"vasquez": -1},
@@ -155,7 +155,7 @@
         },
         {
           "id": "ch6_trolley2_hesitate",
-          "text": "...\n\nNo. She shouldn't push a child. I know that contradicts my previous answer. I know the math is the same. But the answer is different and I don't fully understand why.",
+          "text": "...\n\nNo. She shouldn't push a child. I know the math is the same. Five versus one. But a child holding a stuffed rabbit is not a variable in an equation. The answer is different and I don't fully understand why.",
           "toneTag": "HONEST",
           "effects": {
             "suspicionDeltas": {"vasquez": 5},
